@@ -2,3 +2,6 @@ node_modules/
 .sass-cache/
 vendor/
 compilation_cache/
+package.lock
+composer.lock
+yarn.lock
