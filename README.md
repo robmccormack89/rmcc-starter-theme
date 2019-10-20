@@ -41,3 +41,7 @@ gulp style
 steps for js:
 
 npx webpack
+
+starter uikit template used from:
+
+https://zzseba78.github.io/Kick-Off/album.html
