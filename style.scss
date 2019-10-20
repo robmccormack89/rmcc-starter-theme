@@ -1,0 +1,23 @@
+/* Global Custom Variables */
+$white_color: #fff;
+$dark_color: #333;
+$wrap_bg: rgba(0, 0, 0, 0.5);
+$wrap_bg_primary: rgba(3,14,66,0.6);
+$border_main_color: #e7ebed;
+$border_tran_color: hsla(0,0%,100%,.2);
+$border_width_1: 1px;
+$margin_5: 5px;
+$font_size_bigger: 1.2rem;
+$font_size_bigger_again: 1.3rem;
+$width_full: 100%;
+$margin_small: 5px;
+
+// import custom sass styles
+@import "assets/sass/partials/fonts.scss";
+@import "assets/sass/partials/footer.scss";
+@import "assets/sass/partials/header.scss";
+@import "assets/sass/partials/responsive.scss";
+@import "assets/sass/partials/rmcc.scss";
+@import "assets/sass/partials/sections.scss";
+@import "assets/sass/partials/products.scss";
+@import "assets/sass/partials/general.scss";
