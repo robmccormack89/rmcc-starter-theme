@@ -1,0 +1,15 @@
+// 1. Customizing variables from uikit. These will overwrite the UIKIT imports below.  
+$global-primary-background: #030e42; // setting uikit's global primary colour. need to see uikit docs on scss for more info
+// $global-secondary-background: #cfbe9c;  // etc...
+
+// 2. Import variables & mixins froim uikit. You can also use the default styling scss files, I have used the theme ones.
+@import "node_modules/uikit/src/scss/variables-theme.scss";
+@import "node_modules/uikit/src/scss/mixins-theme.scss";
+
+// 4. Import main UIkit (theme)
+@import "node_modules/uikit/src/scss/uikit-theme.scss";
+
+// import your custom sass styles
+@import "style.scss";
+
+

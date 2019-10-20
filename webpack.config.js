@@ -12,40 +12,26 @@ module.exports = {
     // sets mode to miniied production output, the entry file and the path & filename to output file
     mode: "production",
     entry: {
-      bundle: './assets/js/srcs/index.js',
-      bundle_lg: './assets/js/srcs/index-lg.js',
+      main: './assets/js/srcs/index.js',
+      // some other file or files
     },
     output: {
       filename: '[name].js',
-      path: __dirname + '/assets/js/bundles',
-    },
-
-    // mode: "production",
-    // entry: './assets/js/index-loader.js',
-    // output: {
-    //     filename: 'bundle-loader.js',
-    //     path: path.resolve(__dirname, 'assets/js')
-    // },
-    // 
-    // mode: "production",
-    // entry: './assets/js/index-lg.js',
-    // output: {
-    //     filename: 'bundle-lg.js',
-    //     path: path.resolve(__dirname, 'assets/js')
-    // },
-    
-    // we use expose-loader to set jquery globally, this is for use with anime effects in index.js
-    module: {
-      rules: [{
-              test: require.resolve('jquery'),
-              use: [{
-                  loader: 'expose-loader',
-                  options: 'jQuery'
-              }]
-          }]
+      path: __dirname + '/assets/js/main',
     },
     
-    // adding extra modules globally via expose-loader. anime didnt work 
+    // we use expose-loader to set jquery globally, this is for use with anime effects or lg or some other plugins
+    // module: {
+    //   rules: [{
+    //           test: require.resolve('jquery'),
+    //           use: [{
+    //               loader: 'expose-loader',
+    //               options: 'jQuery'
+    //           }]
+    //       }]
+    // },
+    
+    // adding extra modules globally via expose-loader.
     // module: {
     //   rules: [{
     //           test: require.resolve('animejs'),
@@ -56,7 +42,7 @@ module.exports = {
     //       }]
     // },
     
-    // telling webpack what directories to look for modules, anime didnt work
+    // telling webpack what directories to look for modules,
     // resolve: {
     //     modules: [
     //       "node_modules",

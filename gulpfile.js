@@ -10,7 +10,7 @@ var gulp = require("gulp"),
 
 var paths = {
     styles: {
-        // use this file
+        // use any scss files in this location
         src: "assets/sass/*.scss",
         // Compiled files will end up here
         dest: "assets/css/"
@@ -20,7 +20,7 @@ var paths = {
 function style() {
     return gulp
         .src(paths.styles.src)
-        // Initialize sourcemaps before compilation starts
+        // Initialize sourcemaps before compilation starts - disabled
         // .pipe(sourcemaps.init())
         .pipe(sass())
         .on("error", sass.logError)
@@ -43,32 +43,25 @@ function reload() {
 function watch() {
     browserSync.init({
         // You can tell browserSync to use this directory and serve it as a mini-server
-        proxy: "solaris-html.test"
-        // If you are already serving your website locally using something like apache
-        // You can use the proxy setting to proxy that instead
-        // proxy: "solaris-html.test"
+        proxy: "yourproxyurl.link"
+        // If you are already serving your website locally using something like xampp (hosts & httpd.conf files!)
+        // You can use the proxy setting to proxy that
+        // proxy: "syourproxyurl.link"
     });
     gulp.watch(paths.styles.src, style);
     // We should tell gulp which files to watch to trigger the reload
-    // This can be html or whatever you're using to develop your website
-    // Note -- you can obviously add the path to the Paths object
-    //gulp.watch("src/*.html", reload);
-    gulp.watch("*.html").on('change', browserSync.reload);
-    gulp.watch("style.scss").on('change', browserSync.reload);
-    gulp.watch("test/*.html").on('change', browserSync.reload);
-    gulp.watch("assets/css/custom.css").on('change', browserSync.reload);
+    // This can be html or whatever you're using to develop your website (twig!!)
+    gulp.watch("*.twig").on('change', browserSync.reload);
+    // gulp.watch("style.scss").on('change', browserSync.reload);
+    // gulp.watch("test/*.twig").on('change', browserSync.reload);
+    // gulp.watch("assets/css/custom.css").on('change', browserSync.reload);
 }
- 
-// We don't have to expose the reload function
-// It's currently only useful in other functions
 
-    
 // Don't forget to expose the task!
 exports.watch = watch
 
 // Expose the task by exporting it
-// This allows you to run it from the commandline using
-// $ gulp style
+// This allows you to run it from the commandline using gulp style. this is what I use mainly
 exports.style = style;
 
 /*
@@ -79,7 +72,7 @@ var build = gulp.parallel(style, watch);
 /*
  * You can still use `gulp.task` to expose tasks
  */
-//gulp.task('build', build);
+gulp.task('build', build);
  
 /*
  * Define default task that can be called by just running `gulp` from cli
