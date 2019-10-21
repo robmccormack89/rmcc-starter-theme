@@ -6,3 +6,4 @@ package.lock
 package-lock.json
 composer.lock
 yarn.lock
+.git
