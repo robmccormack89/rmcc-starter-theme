@@ -1,1 +1,1 @@
-Need npm or yarn & composer installed globally to install the packages.
+Need npm or yarn installed to install the packages.

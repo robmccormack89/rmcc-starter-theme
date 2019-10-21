@@ -1,0 +1,43 @@
+{% extends "base.twig" %}
+
+{% block content %}
+
+<div class="uk-section">
+  <div class="uk-container">
+    <div class="uk-grid-large" uk-grid>
+    
+      <article id="post-{{post.ID}}" class="uk-article uk-width-2-3@s {{post.class}}">
+        
+        <h1 class="uk-article-title">{{ post.title }}</h1>
+        
+        <p class="uk-article-meta">
+          Written on {{post.date | date}}.
+          {% if post.post_type == "post" %}Posted in
+            {% for category in post.categories %}
+              {% if not loop.last %}
+                <a href="{{ category.link }}">{{ category }}</a>,
+              {% endif %}
+              {% if loop.last %}
+                <a href="{{ category.link }}">{{ category }}</a>
+              {% endif %}
+            {% endfor %}
+          {% endif %}
+        </p>
+        
+        {% if post.thumbnail %}
+        <figure>
+          <img data-src="{{ post.thumbnail.src('organic-theme-featured-image-archive') }}" width="800" height="300" alt="{{ post.thumbnail.alt }}" uk-img>
+        </figure>
+        {% endif %}
+
+        {{ post.content }}
+
+      </article>
+
+      {% include 'sidebar.twig' %}
+
+    </div>
+  </div>
+</div>
+
+{% endblock %}

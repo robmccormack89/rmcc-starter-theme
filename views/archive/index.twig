@@ -1,0 +1,33 @@
+{% extends "base.twig" %}
+
+{% block content %}
+
+<div class="uk-section" data-template="index.twig">
+  <div class="uk-container">
+    <div class="uk-grid-large" uk-grid>
+
+      <div id="MainArchiveIndex" class="uk-article uk-width-2-3@m">
+
+      <h1 class="uk-article-title uk-margin-large-bottom">{{ title }}</h1>
+
+      {% for post in posts %}
+      {% include 'tease.twig' %}
+      {% endfor %}
+      
+      {% if posts is empty %}
+      <p class="uk-text-emphasis">No posts found.</p>
+      {% endif %}
+      
+      {% if posts|length > 3 %}
+      {% include 'pagination.twig' %}
+      {% endif %}
+
+      </div>
+
+    {% include 'sidebar.twig' %}
+
+    </div>
+  </div>
+</div>
+
+{% endblock %}
