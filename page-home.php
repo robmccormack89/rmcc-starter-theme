@@ -13,6 +13,11 @@ $the_posts_args = array(
 );
 $context['pagination'] = Timber::get_pagination();
 $context['paged'] = $paged;
+if ( is_front_page() ) {
+	$context['title'] =  get_bloginfo( 'name' );
+} else {
+	$context['title'] =  get_the_title( $post->ID );
+};
 
 $context['posts'] = Timber::get_posts( $the_posts_args );
 

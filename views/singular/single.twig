@@ -5,8 +5,12 @@
 <div class="uk-section" data-template="single.twig">
   <div class="uk-container">
     <div class="uk-grid-large" uk-grid>
+      
+      {% if is_left_sidebar %}
+        {% include 'sidebar-left.twig' %}
+      {% endif %}
     
-      <article id="post-{{post.ID}}" class="uk-article uk-width-2-3@s {{post.class}}">
+      <article id="post-{{post.ID}}" class="uk-article {{ article_width_class }} {{post.class}}">
         
         <h1 class="uk-article-title">{{ post.title }}</h1>
         
@@ -60,7 +64,9 @@
 
       </article>
 
+      {% if is_right_sidebar %}
       {% include 'sidebar.twig' %}
+      {% endif %}
 
     </div>
   </div>

@@ -103,6 +103,14 @@ class StarterTheme extends TimberSite
       $context['sidebar_left']  = Timber::get_widgets('Left Sidebar Area');
       $context['sidebar_right'] = Timber::get_widgets('Right Sidebar Area');
       $context['sidebar_footer']   = Timber::get_widgets('Main Footer Area');
+      if ( is_page_template( 'page-templates/no-sidebar-template.php' ) ) {
+        $context['article_width_class'] = 'uk-width-1-1';
+      } else {
+        $context['article_width_class'] = 'uk-width-2-3@s';
+      };
+      $context['is_left_sidebar'] = is_page_template( 'page-templates/left-sidebar-template.php' );
+      $context['is_right_sidebar'] = is_single() || is_page() && ! is_page_template( array( 'page-templates/left-sidebar-template.php', 'page-templates/no-sidebar-template.php' ) );
+
       return $context;
     }
 
