@@ -28,4 +28,45 @@ For XAMPP projects.
 
 6. Create new database for project in XAMPP's phpmyadmin and setup wp-config.php file to connect to it.
 
-7. Visit test domain URL in browser and do the wp setup/installation process. 
+7. Visit test domain URL in browser and do the wp setup/installation process.
+
+
+## Cloning theme into your project folder & connecting it to a new project repo:
+
+1. Create new repo on github
+
+2. Navigate to wp-content/themes folder of your new project in htdocs within the command line
+
+3.
+
+        git clone https://github.com/robmccormack89/project-starter-wp.git
+
+4. Rename folder of theme to whatever you like. You will need to rename other parts within theme using search/replace later. Steps for that are below.
+
+5. Navigate inside theme folder
+
+6. 
+
+        git init
+
+7.
+
+        git remote rm origin
+
+8.
+
+        git add .
+
+9.
+
+        git commit -m "initial commit"
+
+10.
+
+        git remote add origin https://github.com/your_name/your_project.git
+
+11.
+
+        git push -u origin master
+
+12. The project is now cloned and set up as a new project on your github. You can now clone from that and follow the same process!
