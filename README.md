@@ -70,3 +70,13 @@ For XAMPP projects.
         git push -u origin master
 
 12. The project is now cloned and set up as a new project on your github. You can now clone from that and follow the same process!
+
+## Renaming Theme using Search/replace
+
+## Using Sass with Gulp
+
+## Using Webpack & including js libraries
+
+## Using UiKit
+
+## Using Timber 
