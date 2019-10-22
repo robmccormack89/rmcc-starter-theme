@@ -16,7 +16,7 @@ For XAMPP projects.
 
         127.0.0.1		yourdomain.test
 
-4. Add new entry to bottom of XAMPP's https.conf file to map your project folder in htdocs to your IP mapping.
+4. Add new entry to bottom of XAMPP's httpd.conf file to map your project folder in htdocs to your IP mapping.
 
         <VirtualHost *:80>
             ServerName yourdomain.test
