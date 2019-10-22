@@ -1,4 +1,8 @@
-.some-thing {
-  color: $global-primary-background;
-  // etc 
+/* theme borders */
+.theme-border, .theme-border-top, .theme-border-right, .theme-border-bottom, .theme-border-left {
+   border: $theme_border
+}
+/* logo height */
+.uk-logo>img {
+  height: 30px;
 }

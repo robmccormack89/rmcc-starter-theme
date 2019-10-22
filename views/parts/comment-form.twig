@@ -1,0 +1,36 @@
+<div class="comment-form uk-padding uk-background-muted">
+    <form class="comment-form" id="comment-form-box" method="post" action="{{ site.site_url~'/wp-comments-post.php' }}">
+        <fieldset class="uk-fieldset">
+          <legend class="uk-hidden">Comment Form</legend>
+          {% if  user %}
+              <input type="hidden" name="email" value="{{ user.email }}">
+              <input type="hidden" name="author" value="{{ user.name }}">
+              <input type="hidden" name="url" value="{{ user.link }}">
+          {% else %}
+              <div class="uk-margin-small">
+                <div class="uk-grid-small" uk-grid>
+                  <div class="uk-width-1-2@s">
+                    <input class="uk-input" required name="author" type="text" placeholder="Your name">
+                  </div>
+                  <div class="uk-width-1-2@s">
+                    <input class="uk-input" required name="email" type="email" id="email" placeholder="Your email">
+                  </div>
+                </div>
+              </div>
+              <div class="uk-margin-small">
+                <input class="uk-input" name="url" type="url" placeholder="Your website address (including http:// or https://)">
+              </div>
+          {% endif %}
+          <label for="comment-form-box" class="uk-hidden">Comment Form</label>
+          <textarea id="comment-form-box" class="uk-textarea" placeholder="Leave a comment..." name="comment" cols="60" rows="8" placeholder="Your Comment:"></textarea>
+          <input name="comment_post_ID" value="{{ post.id }}" type="hidden">
+          <input name="comment_parent"  value="{{ comment.ID|default('0') }}" type="hidden">
+          <div class="uk-margin-top">
+            <button type="submit" name="Submit" title="Submit" class="uk-button uk-button-primary">Send</button>
+            <button type="reset" class="uk-button uk-button-default">Clear</button>
+          </div>
+          <p>Your comment will be revised by the site if needed.</p>
+        </legend>
+        </fieldset>
+    </form>
+</div>

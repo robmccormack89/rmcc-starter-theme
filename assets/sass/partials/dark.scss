@@ -1,0 +1,19 @@
+/* dark bg style */
+.dark-style, .dark-style .uk-navbar-dropdown {
+   background: $dark_style_colour
+}
+/* dark muted bg style */
+.dark-style .uk-comment-primary, .dark-style .uk-tile-muted, .dark-style .uk-section-muted, .dark-style .uk-background-muted {
+   background: $dark_style_muted_colour
+}
+/* header */
+.dark-style .uk-navbar-dropdown-nav>li>a {
+    color: $dark_style_link_colour
+}
+.dark-style .uk-navbar-dropdown-nav>li>a:focus, .dark-style .uk-navbar-dropdown-nav>li>a:hover {
+    color: $dark_style_link_hover_colour
+}
+/* borders */
+.dark-style .theme-border, .dark-style .theme-border-top, .dark-style .theme-border-right, .dark-style .theme-border-bottom, .dark-style .theme-border-left {
+   border: $theme_border_light
+}

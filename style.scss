@@ -1,13 +1,11 @@
 /* Global Custom Variables. What ever u want to use across the partialized files below */
-$white_color: #fff;
-$dark_color: #333;
-// etc...
+$dark_style_colour: #222;
+$dark_style_muted_colour: #333;
+$dark_style_link_colour: hsla(0,0%,100%,.5);
+$dark_style_link_hover_colour: hsla(0,0%,100%,.7);
+$theme_border: 1px solid #e5e5e5;
+$theme_border_light: 1px solid rgba(255,255,255,.2);
 
 // import your custom sass styles. you can partialize it how u like
 @import "assets/sass/partials/general.scss";
-// @import "assets/sass/partials/fonts.scss";
-// @import "assets/sass/partials/footer.scss";
-// @import "assets/sass/partials/header.scss";
-// @import "assets/sass/partials/responsive.scss";
-// @import "assets/sass/partials/sections.scss";
-// @import "assets/sass/partials/products.scss";
+@import "assets/sass/partials/dark.scss";

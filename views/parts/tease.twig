@@ -1,24 +1,24 @@
 <article id="post-{{post.ID}}" class="uk-section uk-section-small uk-padding-remove-top {{ post.class }}">
   <header>
-    <h2 class="uk-margin-remove-adjacent uk-text-bold uk-margin-small-bottom"><a title="Fusce facilisis tempus magna ac dignissim." class="uk-link-reset" href="{{post.link}}">{{post.title}}</a></h2>
+    <h2 class="uk-margin-remove-adjacent uk-text-bold uk-margin-small-bottom"><a title="{{post.title}}" class="uk-link-reset" href="{{post.link}}">{{post.title}}</a></h2>
     <p class="uk-article-meta">Written on {{post.date | date}}. Posted in
       {% for category in post.categories %}
         {% if not loop.last %}
-          <a href="{{ category.link }}">{{ category }}</a>,
+          <a title="{{ category }}" href="{{ category.link }}">{{ category }}</a>,
         {% endif %}
         {% if loop.last %}
-          <a href="{{ category.link }}">{{ category }}</a>
+          <a title="{{ category }}" href="{{ category.link }}">{{ category }}</a>
         {% endif %}
       {% endfor %}
     </p>
   </header>
   {% if post.get_thumbnail %}
   <figure>
-    <img data-src="{{ post.thumbnail.src('organic-theme-featured-image-archive') }}" width="800" height="300" alt="{{ post.thumbnail.alt }}" uk-img>
+    <a title="{{ post.thumbnail.title }}" href="{{post.link}}"><img data-src="{{ post.thumbnail.src('organic-theme-featured-image-archive') }}" width="800" height="300" alt="{{ post.thumbnail.alt }}" uk-img></a>
     <figcaption class="uk-padding-small uk-text-muted">{{ post.thumbnail.caption }}</figcaption>
   </figure>
   {% endif %}
   <p>{{ post.preview.read_more('') }}</p>
-  <a href="{{post.link}}" title="Read More" class="uk-button uk-button-default">Read this Article</a>
+  <a href="{{post.link}}" title="Read More" class="uk-button uk-button-default">Read More</a>
 </article>
 <!-- /the post block -->

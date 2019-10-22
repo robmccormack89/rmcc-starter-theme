@@ -2,7 +2,7 @@
 
 {% block content %}
 
-<div class="uk-section" data-template="left-sidebar-template.twig">
+<div class="uk-section" data-template="no-sidebar-template.twig">
   <div class="uk-container">
     <div class="uk-grid-large" uk-grid>
     
@@ -15,10 +15,10 @@
           {% if post.post_type == "post" %}Posted in
             {% for category in post.categories %}
               {% if not loop.last %}
-                <a href="{{ category.link }}">{{ category }}</a>,
+                <a title="{{ category }}" href="{{ category.link }}">{{ category }}</a>,
               {% endif %}
               {% if loop.last %}
-                <a href="{{ category.link }}">{{ category }}</a>
+                <a title="{{ category }}" href="{{ category.link }}">{{ category }}</a>
               {% endif %}
             {% endfor %}
           {% endif %}
@@ -31,6 +31,32 @@
         {% endif %}
 
         {{ post.content }}
+        
+        {% if post.comments and post.post_type == 'post' %}
+        <h3 class="uk-margin-large-top">Comments</h3>
+        <!-- comment box -->
+        <section id="CommentBox">
+        <ul class="uk-comment-list">
+        {% if post.comments %}
+        {% for comment in post.comments %}
+        {% include "comment.twig" %}
+        {% endfor %}
+        {% endif %}
+        </ul>
+
+        {% if post.comment_status == "closed" %}
+        <p>Comments are closed for this post.</p>
+        {% else %}
+        <!-- comment form -->
+        <div id="CommentForm" class="uk-margin-large-top">
+        <h4>Post a new Comment</h4>
+        {% include "comment-form.twig" %}
+        </div>
+        {% endif %}
+
+        </section>
+
+        {% endif %}
 
       </article>
 

@@ -10,6 +10,9 @@ $context = Timber::get_context();
 $context['posts'] = Timber::get_posts();
 $post = new TimberPost();
 $context['title'] =  get_the_title( $post->ID );
+if ( is_home() && is_front_page() ) {
+	$context['title'] =  get_bloginfo( 'name' );
+}
 $context['pagination'] = Timber::get_pagination();
 $context['paged'] = $paged;
 

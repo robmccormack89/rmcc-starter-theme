@@ -34,8 +34,8 @@ function organic_theme_setup()
 
   // Add support for core custom logo.
   add_theme_support('custom-logo', array(
-      'height' => 79,
-      'width' => 258,
+      'height' => 30,
+      'width' => 261,
       'flex-width' => true,
       'flex-height' => true
   ));
