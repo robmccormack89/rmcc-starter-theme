@@ -2,7 +2,7 @@
 /**
  * Timber theme class & other functions for Twig.
  *
- * @package Organic_Theme
+ * @package Starter_Theme
  */
 
 // Define paths to Twig templates
@@ -15,8 +15,8 @@ Timber::$dirname = array(
   'views/footer',
 );
 
-// Define RMcC Site Child Class
-class OrganicTheme extends TimberSite
+// Define Starter_Theme Child Class
+class StarterTheme extends TimberSite
 {
     public function __construct()
     {
@@ -47,27 +47,27 @@ class OrganicTheme extends TimberSite
         // Register widget areas
         if (function_exists('register_sidebar')) {
           register_sidebar(array(
-              'name' => esc_html__('Left Sidebar Area', 'organic-theme'),
+              'name' => esc_html__('Left Sidebar Area', 'starter-theme'),
               'id' => 'sidebar-left',
-              'description' => esc_html__('Sidebar Area for Left Sidebar Templates, you can add multiple widgets here.', 'organic-theme'),
+              'description' => esc_html__('Sidebar Area for Left Sidebar Templates, you can add multiple widgets here.', 'starter-theme'),
               'before_widget' => '',
               'after_widget' => '',
               'before_title' => '<h3 class="uk-text-bold widget-title"><span>',
               'after_title' => '</span></h3>'
           ));
             register_sidebar(array(
-                'name' => esc_html__('Right Sidebar Area', 'organic-theme'),
+                'name' => esc_html__('Right Sidebar Area', 'starter-theme'),
                 'id' => 'sidebar-right',
-                'description' => esc_html__('Sidebar Area for Right Sidebar Templates, you can add multiple widgets here.', 'organic-theme'),
+                'description' => esc_html__('Sidebar Area for Right Sidebar Templates, you can add multiple widgets here.', 'starter-theme'),
                 'before_widget' => '',
                 'after_widget' => '',
                 'before_title' => '<h3 class="uk-text-bold widget-title"><span>',
                 'after_title' => '</span></h3>'
             ));
             register_sidebar(array(
-                'name' => esc_html__('Main Footer Area', 'organic-theme'),
+                'name' => esc_html__('Main Footer Area', 'starter-theme'),
                 'id' => 'sidebar-footer',
-                'description' => esc_html__('Main Footer Widget Area; works best with the current widget only.', 'organic-theme'),
+                'description' => esc_html__('Main Footer Widget Area; works best with the current widget only.', 'starter-theme'),
                 'before_widget' => '',
                 'after_widget' => '',
                 'before_title' => '<h4 class="widget-title">',
@@ -80,8 +80,8 @@ class OrganicTheme extends TimberSite
     {
         // This theme uses wp_nav_menu() in one locations.
         register_nav_menus(array(
-            'main' => __('Main Menu', 'organic-theme'),
-            'mobile' => __('Mobile Menu', 'organic-theme'),
+            'main' => __('Main Menu', 'starter-theme'),
+            'mobile' => __('Mobile Menu', 'starter-theme'),
         ));
     }
 
@@ -115,4 +115,4 @@ class OrganicTheme extends TimberSite
     }
 }
 
-new OrganicTheme();
+new StarterTheme();

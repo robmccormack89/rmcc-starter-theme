@@ -2,7 +2,7 @@
 /**
  * The search
  *
- * @package Organic_Theme
+ * @package Starter_Theme
  */
 
 $templates = array( 'search.twig', 'archive.twig', 'index.twig' );

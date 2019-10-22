@@ -2,7 +2,7 @@
 /**
  * The default template for displaying all single posts
  *
- * @package Organic_Theme
+ * @package Starter_Theme
  */
 
 $context = Timber::get_context();

@@ -4,6 +4,5 @@
  *
  * @package Starter_Theme
  */
- 
-$GLOBALS['timberContext'] = Timber::get_context();
-ob_start();
+$context = Timber::context();
+Timber::render( '404.twig', $context );

@@ -1,8 +1,8 @@
 <?php
 /**
- * Organic Theme functions and definitions
+ * Starter Theme functions and definitions
  *
- * @package Organic_Theme
+ * @package Starter_Theme
  */
 
 /**

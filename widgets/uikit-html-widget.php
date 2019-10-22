@@ -1,6 +1,6 @@
 <?php
 /**
- * Widget API: RMcC_Custom_UIKIT_Widget_Class class
+ * Widget API: Starter_Theme_Custom_UIKIT_Widget_Class class
  *
  */
 
@@ -11,7 +11,7 @@
  *
  * @see WP_Widget
  */
-class RMcC_Custom_UIKIT_Widget_Class extends WP_Widget
+class Starter_Theme_Custom_UIKIT_Widget_Class extends WP_Widget
 {
 
     /**
@@ -74,10 +74,10 @@ class RMcC_Custom_UIKIT_Widget_Class extends WP_Widget
         add_action('admin_print_scripts-widgets.php', array( $this, 'enqueue_admin_scripts' ));
 
         // Note that the widgets component in the customizer will also do the 'admin_footer-widgets.php' action in WP_Customize_Widgets::print_footer_scripts().
-        add_action('admin_footer-widgets.php', array( 'RMcC_Custom_UIKIT_Widget_Class', 'render_control_template_scripts' ));
+        add_action('admin_footer-widgets.php', array( 'Starter_Theme_Custom_UIKIT_Widget_Class', 'render_control_template_scripts' ));
 
         // Note this action is used to ensure the help text is added to the end.
-        add_action('admin_head-widgets.php', array( 'RMcC_Custom_UIKIT_Widget_Class', 'add_help_text' ));
+        add_action('admin_head-widgets.php', array( 'Starter_Theme_Custom_UIKIT_Widget_Class', 'add_help_text' ));
     }
 
     /**
@@ -155,7 +155,7 @@ class RMcC_Custom_UIKIT_Widget_Class extends WP_Widget
          *
          * @param string                $content  The widget content.
          * @param array                 $instance Array of settings for the current widget.
-         * @param RMcC_Custom_UIKIT_Widget_Class $this     Current Custom HTML widget instance.
+         * @param Starter_Theme_Custom_UIKIT_Widget_Class $this     Current Custom HTML widget instance.
          */
         $content = apply_filters('widget_custom_html_content', $content, $instance, $this);
 
@@ -238,9 +238,9 @@ class RMcC_Custom_UIKIT_Widget_Class extends WP_Widget
      * Outputs the Custom HTML widget settings form.
      *
      * @since 4.8.1
-     * @since 4.9.0 The form contains only hidden sync inputs. For the control UI, see `RMcC_Custom_UIKIT_Widget_Class::render_control_template_scripts()`.
+     * @since 4.9.0 The form contains only hidden sync inputs. For the control UI, see `Starter_Theme_Custom_UIKIT_Widget_Class::render_control_template_scripts()`.
      *
-     * @see RMcC_Custom_UIKIT_Widget_Class::render_control_template_scripts()
+     * @see Starter_Theme_Custom_UIKIT_Widget_Class::render_control_template_scripts()
      * @param array $instance Current instance.
      * @returns void
      */

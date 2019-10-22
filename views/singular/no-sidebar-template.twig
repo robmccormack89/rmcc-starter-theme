@@ -26,7 +26,7 @@
         
         {% if post.thumbnail %}
         <figure>
-          <img data-src="{{ post.thumbnail.src('organic-theme-featured-image-archive') }}" width="800" height="300" alt="{{ post.thumbnail.alt }}" uk-img>
+          <img data-src="{{ post.thumbnail.src('starter-theme-featured-image-archive') }}" width="800" height="300" alt="{{ post.thumbnail.alt }}" uk-img>
         </figure>
         {% endif %}
 
@@ -38,9 +38,9 @@
         <section id="CommentBox">
         <ul class="uk-comment-list">
         {% if post.comments %}
-        {% for comment in post.comments %}
-        {% include "comment.twig" %}
-        {% endfor %}
+          {% for comment in post.comments %}
+            {% include "comment.twig" %}
+          {% endfor %}
         {% endif %}
         </ul>
 

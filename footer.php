@@ -2,7 +2,7 @@
 /**
  * The template for displaying the footer
  *
- * @package Organic_Theme
+ * @package Starter_Theme
  */
 
 $timberContext = $GLOBALS['timberContext'];

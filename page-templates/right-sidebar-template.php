@@ -2,7 +2,7 @@
 /**
  * Template Name: Right Sidebar Template
  *
- * @package Organic_Theme
+ * @package Starter_Theme
  */
 
 $context = Timber::get_context();
