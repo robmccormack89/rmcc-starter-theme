@@ -73,6 +73,24 @@ For XAMPP projects.
 
 ## Renaming Theme using Search/replace
 
+1. Rename theme folder
+
+2. Rename 'Starter' & 'starter' references in style.css
+
+3. Rename 'Starter_Theme' references in *.php file headers
+
+4. Rename 'Starter' & 'starter' references in: functions.php, theme-functions.php & timber-functions.php
+
+5. Rename 'Starter' & 'starter' references in uikit-html-widget.php
+
+6. Rename 'starter' references in tease.twig, single.twig, no-sidebar-template.twig, left-sidebar-template.twig & right-sidebar-template.twig.
+
+        <img data-src="{{ post.thumbnail.src('starter-theme-featured-image-archive') }}" width="800" height="300" alt="{{ post.thumbnail.alt }}" uk-img>
+
+7. 
+
+**Note:** Always use Match Case!
+
 ## Using Sass with Gulp
 
 ## Using Webpack & including js libraries
