@@ -87,8 +87,6 @@ For XAMPP projects.
 
         {{ post.thumbnail.src('starter-theme-featured-image-archive') }}
 
-7. 
-
 **Note:** Always use Match Case!
 
 ---
