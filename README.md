@@ -2,7 +2,7 @@
 
 A Wordpress project starter theme/process with Timber, UiKit, Sass, Gulp, Webpack & more.
 
-For XAMPP projects.
+Personal setup For XAMPP projects.
 
 ---
 
