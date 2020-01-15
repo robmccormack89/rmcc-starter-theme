@@ -1,4 +1,4 @@
-# Wordpress Project Starter
+# Wordpress Project Starter!
 
 A Wordpress project starter theme/process with Timber, UiKit, Sass, Gulp, Webpack & more.
 
