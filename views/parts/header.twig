@@ -1,0 +1,112 @@
+<header id="SiteHeader">
+  <div class="uk-container">
+    
+    <nav class="uk-navbar-transparent" uk-navbar>
+      
+      <div class="uk-navbar-left nav-logo-area">
+        {% if theme_logo_url %}
+        <a class="uk-logo" title="{{ site.title }}" href="{{ site.url }}"><img data-src="{{ theme_logo_url }}" uk-img></a>
+        {% else %}
+        <a class="uk-navbar-item uk-logo uk-padding-remove uk-text-bold uk-text-emphasis" title="{{ site.title }}" href="{{ site.url }}">{{ site.title }}</a>
+        {% endif %}
+      </div>
+      
+      <div class="uk-navbar-center nav-overlay the-main-menu">
+        <ul class="uk-navbar-nav uk-visible@m">
+          {% if has_menu_main %}
+            {% for item in menu_main.get_items %}
+              {% if item.get_children %}
+                <li class="{{ item.classes | join(' ') }}"><a href="{{ item.link }}">{{ item.title }}<span uk-icon="icon: triangle-down; ratio: 0.8"></span></a>
+                  <div class="uk-navbar-dropdown uk-border-rounded">
+                    <ul class="uk-nav uk-navbar-dropdown-nav">
+                      {% for child in item.get_children %}
+                      <li><a href="{{ child.get_link }}">{{ child.title }}</a>
+                        {% if child.children %}
+                          <ul class="uk-nav-sub">
+                            {% for third in child.children %}
+                              <li>
+                                <a href="{{ third.get_link }}">{{ third.title }}</a>
+                              </li>
+                            {% endfor %}
+                          </ul>
+                        {% endif %}
+                      </li>
+                      {% endfor %}
+                    </ul>
+                  </div>
+                </li>
+              {% else %}
+                <li class="{{ item.classes | join(' ') }}"><a href="{{ item.get_link }}">{{ item.title }}</a></li>
+              {% endif %}
+            {% endfor %}
+          {% else %}
+            <li>Add a menu to the Main Menu slot in Appearance > Menus.</li>
+          {% endif %}
+        </ul>
+      </div>
+      
+      <div class="uk-navbar-right nav-search-styles-area">
+        <div class="uk-visible@m">
+          <a class="uk-navbar-toggle" href="#modal-navbar-search" uk-search-icon uk-toggle title="Open the Search Box"></a>
+        </div>
+        <button class="uk-button uk-button-default uk-visible@m" type="button" uk-toggle="target: body; cls: dark-style uk-light">Change Style</button>
+        <ul class="uk-navbar-nav uk-hidden@m">
+          <li>
+            <a class="uk-navbar-toggle pull-right-15" uk-navbar-toggle-icon uk-toggle href="#offcanvas-mobile-nav" title="Open the Mobile Menu"><span class="uk-hidden">Menu</span></a>
+          </li>
+        </ul>
+      </div>
+    
+    </nav>
+    
+    <div id="modal-navbar-search" class="uk-modal-full" uk-modal>
+      <div class="uk-modal-dialog uk-flex uk-flex-center uk-flex-middle" uk-height-viewport>
+        <button class="uk-modal-close-full" type="button" uk-close></button>
+        <form class="uk-search uk-search-large" role="search" method="get" action="{{site.url}}">
+          <input id="header-search" class="uk-search-input uk-text-center" type="search" placeholder="Search..." name="s" autofocus>
+          <input type="hidden" name="post_type" value="post">
+        </form>
+      </div>
+    </div>
+
+    <div id="offcanvas-mobile-nav" uk-offcanvas="flip: true; overlay: true">
+      <div class="uk-offcanvas-bar uk-offcanvas-bar-animation uk-offcanvas-slide">
+        <button class="uk-offcanvas-close uk-close uk-icon" uk-close type="button" title="Close the Mobile Menu"><span class="uk-hidden">Close</span></button>
+        <ul class="uk-nav uk-nav-default">
+          {% if has_menu_mobile %}
+            {% for item in menu_mobile.get_items %}
+              {% if item.get_children %}
+                <li class="uk-parent {{ item.classes | join(' ') }}">
+                  <a href="{{ item.get_link }}">{{ item.title }}</a>
+                  <ul class="uk-nav-sub">
+                    {% for child in item.get_children %}
+                      <li>
+                        <a href="{{ child.get_link }}">{{ child.title }}</a>
+                      </li>
+                    {% endfor %}
+                  </ul>
+                </li>
+              {% else %}
+                <li class="{{ item.classes | join(' ') }}">
+                  <a href="{{ item.get_link }}">{{ item.title }}</a>
+                </li>
+              {% endif %}
+            {% endfor %}
+          {% else %}
+            <li>Add a menu to the Mobile Menu slot in Appearance > Menus.</li>
+          {% endif %}
+          <li class="uk-nav-divider uk-margin-top"></li>
+          <div class="uk-margin-top uk-position-z-index uk-position-relative">
+            <form class="uk-search uk-search-default uk-width-1-1" role="search" method="get" action="{{site.url}}">
+              <span class="uk-search-icon-flip" uk-search-icon></span>
+              <input class="uk-search-input uk-border-rounded" type="search" placeholder="Search..." id="SearchMobile" name="s" autocomplete="off">
+            </form>
+          </div>
+          <button class="uk-button uk-button-default uk-margin-top uk-width-1-1 uk-margin-small-bottom" type="button" uk-toggle="target: body; cls: dark-style uk-light">Change Style</button>
+        </ul>
+      </div>
+    </div>
+    
+  </div>
+</header>
+<!-- /header section -->

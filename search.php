@@ -6,10 +6,12 @@
  */
 
 $templates = array( 'search.twig', 'archive.twig', 'index.twig' );
-$context = Timber::get_context();
+
+$context = Timber::context();
 
 $context['title'] = 'Search results for - '. get_search_query();
-$context['posts'] = Timber::get_posts();
+$context['posts'] = new Timber\PostQuery();
+
 $context['pagination'] = Timber::get_pagination();
 $context['paged'] = $paged;
 

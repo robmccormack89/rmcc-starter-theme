@@ -5,12 +5,11 @@
  * @package Starter_Theme
  */
 
-$context = Timber::get_context();
+$context = Timber::context();
 $post = Timber::query_post();
 $context['post'] = $post;
-$context['pagination'] = Timber::get_pagination();
-$context['paged'] = $paged;
 
+$context['if_comments_open'] = comments_open();
 
 if ( post_password_required( $post->ID ) ) {
 	Timber::render( 'single-password.twig', $context );

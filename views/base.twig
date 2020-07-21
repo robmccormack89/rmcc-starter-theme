@@ -3,46 +3,51 @@
   <head>
   <meta charset="{{site.charset}}" />
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  
-  <!-- wp header -->
   {{ function('wp_head') }}
-  <!-- /wp header -->
-  
   </head>
   
-  <!-- body classes go here -->
-  <body class="{{ body_class }}" data-template="base.twig">
+  <style>
+  
+    /* UIKit based resonsive breakpoints */
+    @media only screen and (max-width:479px) {
+      .tease-feature-related {
+        max-height: 200px;
+        width: 100%;
+        object-fit: cover;
+      }
+    }
 
-    <!-- main site wrapper -->
+    @media only screen and (min-device-width:480px) and (max-device-width:767px) {
+      .tease-feature-related {
+        max-height: 300px;
+        width: 100%;
+        object-fit: cover;
+      }
+    }
+  
+  </style>
+  
+  <body class="{{ body_class }} {{ posts_more_than_one_class }}" data-template="base.twig">
+    
     <div id="SiteWrapper" class="site-wrapper">
       
-      <!-- header -->
       {% block header %}
       {% include 'header.twig' %}
       {% endblock %}
-      <!-- /header -->
-    
-      <!-- content -->
+
       <main role="main" id="MainContent">
         {% block content %}
         <p>Sorry, Nothing to Display!!</p>
         {% endblock %}
       </main>
-      <!-- /content -->
 
-      <!-- footer -->
       {% block footer %}
       {% include 'footer.twig' %}
       {% endblock %}
-      <!-- /footer -->
 
     </div>
-    <!-- /main site wrapper -->
     
-    <!-- wp footer -->
     {{ function('wp_footer') }}
-    <!-- /wp footer -->
     
   </body>
-  <!-- /body -->
 </html>

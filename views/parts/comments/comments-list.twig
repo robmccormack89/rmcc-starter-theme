@@ -1,5 +1,5 @@
 <li>
-    <article class="uk-comment uk-comment-primary uk-visible-toggle" tabindex="-1">
+    <article class="uk-comment uk-comment-primary uk-border-rounded uk-visible-toggle" tabindex="-1">
       <header class="uk-comment-header uk-position-relative">
           <div class="uk-grid-medium uk-flex-middle" uk-grid>
               <div class="uk-width-auto">
@@ -25,7 +25,7 @@
     {% for comment in comment.children %}
     <ul>
         <li>
-            <article class="uk-comment uk-comment-primary uk-visible-toggle" tabindex="-1">
+            <article class="uk-comment uk-comment-primary uk-border-rounded uk-visible-toggle" tabindex="-1">
               <header class="uk-comment-header uk-position-relative">
                   <div class="uk-grid-medium uk-flex-middle" uk-grid>
                       <div class="uk-width-auto">
@@ -51,7 +51,7 @@
             {% for comment in comment.children %}
             <ul>
                 <li>
-                  <article class="uk-comment uk-comment-primary uk-visible-toggle" tabindex="-1">
+                  <article class="uk-comment uk-comment-primary uk-border-rounded uk-visible-toggle" tabindex="-1">
                     <header class="uk-comment-header uk-position-relative">
                         <div class="uk-grid-medium uk-flex-middle" uk-grid>
                             <div class="uk-width-auto">
@@ -77,7 +77,7 @@
                     {% for comment in comment.children %}
                     <ul>
                         <li>
-                          <article class="uk-comment uk-comment-primary uk-visible-toggle" tabindex="-1">
+                          <article class="uk-comment uk-comment-primary uk-border-rounded uk-visible-toggle" tabindex="-1">
                             <header class="uk-comment-header uk-position-relative">
                                 <div class="uk-grid-medium uk-flex-middle" uk-grid>
                                     <div class="uk-width-auto">
@@ -103,7 +103,7 @@
                             {% for comment in comment.children %}
                             <ul>
                                 <li>
-                                  <article class="uk-comment uk-comment-primary uk-visible-toggle uk-padding" tabindex="-1">
+                                  <article class="uk-comment uk-comment-primary uk-border-rounded uk-visible-toggle uk-padding" tabindex="-1">
                                     <header class="uk-comment-header uk-position-relative">
                                         <div class="uk-grid-medium uk-flex-middle" uk-grid>
                                             <div class="uk-width-auto">
@@ -121,8 +121,8 @@
                                     <div class="uk-comment-body">
                                         <p>{{comment.content}}</p>
                                         <div id="comment-reply-nested5" class="" hidden>
-                                        <h4 class="uk-heading-line"><span>Reply to this Comment</span></h4>
-                                        {% include "comment-form.twig" %}
+                                        <h4 class="uk-heading-line"><span>Thread limit reached</span></h4>
+                                        <p>Sorry, comment thread/reply limit has been reached! Try posting a new comment below.</p>
                                         </div>
                                     </div>
                                   </article>

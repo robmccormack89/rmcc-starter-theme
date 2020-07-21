@@ -1,0 +1,13 @@
+/* gutenberg */
+.blocks-gallery-grid .blocks-gallery-image figcaption,
+.blocks-gallery-grid .blocks-gallery-item figcaption,
+.wp-block-gallery .blocks-gallery-image figcaption,
+.wp-block-gallery .blocks-gallery-item figcaption {
+  padding: 40px 0 10px;
+}
+
+.wp-block-image figcaption {
+  margin-top: 0.5em;
+  margin-bottom: 0;
+  text-align: center;
+}

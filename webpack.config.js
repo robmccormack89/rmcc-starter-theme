@@ -13,6 +13,7 @@ module.exports = {
     mode: "production",
     entry: {
       main: './assets/js/srcs/index.js',
+      main_scroll: './assets/js/srcs/index-scroll.js',
       // some other file or files
     },
     output: {

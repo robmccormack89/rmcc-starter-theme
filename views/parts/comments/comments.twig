@@ -1,0 +1,22 @@
+<!-- comment box -->
+<section id="CommentBox">
+  
+  {% if post.comments|length > 0 %}
+  <h3 class="uk-margin-large-top">Comments</h3>
+  <!-- comment list -->
+  <ul class="uk-comment-list">
+  {% for comment in post.comments %}
+    {% include "comments-list.twig" %}
+  {% endfor %}
+  </ul>
+  {% endif %}
+
+  <!-- comment form -->
+  <div id="CommentForm" class="uk-margin-large-top">
+    <h4>Post a new Comment</h4>
+    <div class="uk-background-muted uk-padding uk-border-rounded">
+    {% include "comment-form.twig" %}
+  </div>
+  </div>
+
+</section>

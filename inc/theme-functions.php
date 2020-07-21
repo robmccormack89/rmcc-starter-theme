@@ -5,69 +5,119 @@
  * @package Starter_Theme
  */
 
-function starter_theme_setup()
+// get the current year, this is passed onto twig as a global variable in timber-functions.php
+function currentYear()
 {
-  // theme support for title tag
-  add_theme_support('title-tag');
-  add_theme_support('post-thumbnails');
-  add_theme_support('menus');
-  add_theme_support('post-formats', array(
-      'gallery',
-      'quote',
-      'video',
-      'aside',
-      'image',
-      'link'
-  ));
-  add_theme_support('align-wide');
-  add_theme_support('responsive-embeds');
-  add_theme_support('woocommerce');
-
-  // Switch default core markup for search form, comment form, and comments to output valid HTML5.
-  add_theme_support('html5', array(
-      'search-form',
-      'comment-form',
-      'comment-list',
-      'gallery',
-      'caption'
-  ));
-
-  // Add support for core custom logo.
-  add_theme_support('custom-logo', array(
-      'height' => 30,
-      'width' => 261,
-      'flex-width' => true,
-      'flex-height' => true
-  ));
-
-  // add custom thumbs sizes.
-  add_image_size('starter-theme-featured-image-archive', 800, 300, true);
-  
+    return date('Y');
 }
-add_action('after_setup_theme', 'starter_theme_setup');
 
-function starter_theme_enqueue_assets() {
-  
-  wp_enqueue_style('starter-theme-css', get_template_directory_uri() . '/assets/css/base.css');
-  wp_enqueue_script('starter-theme-js', get_template_directory_uri() . '/assets/js/main/main.js', '', '', false);
-  wp_enqueue_style('starter-theme-styles', get_stylesheet_uri());
-  
+// 
+function is_no_sidebar_template_width_class()
+{
+  if (is_page_template('page-templates/no-sidebar-template.php')) {
+      return 'uk-width-1-1';
+  } else {
+      return 'uk-width-2-3@m';
+  };
 }
-add_action('wp_enqueue_scripts', 'starter_theme_enqueue_assets'); 
 
-
-// regisers custom widget
-function starter_custom_uikit_widgets_init() {
-  
-  register_widget("Starter_Theme_Custom_UIKIT_Widget_Class");
-  
+// 
+function if_posts_published_more_than_one()
+{
+  if( wp_count_posts()->publish > 1 ) :
+      return true;
+  else:
+      return false;
+  endif;
 }
-add_action("widgets_init", "starter_custom_uikit_widgets_init");
 
-// stuff to say we need timber activated!! see TGM Plugin activation library for php
-require_once get_template_directory() . '/inc/class-tgm-plugin-activation.php';
-add_action('tgmpa_register', 'starter_theme_register_required_plugins');
+// 
+function if_posts_more_than_one_return_class()
+{
+  if( wp_count_posts()->publish > 1 ) :
+      return 'posts-exists';
+  else:
+      return '';
+  endif;
+}
 
+// 
+function is_left_sidebar_template()
+{
+  if (is_page_template('page-templates/left-sidebar-template.php')) {
+    return true;
+  } else {
+    return false;
+  };
+}
+
+// 
+function is_right_sidebar_template()
+{
+  if (is_single() || is_page() && ! is_page_template(array( 'page-templates/left-sidebar-template.php', 'page-templates/no-sidebar-template.php' ))) {
+    return true;
+  } else {
+    return false;
+  };
+}
+
+// check for if the archive is paginated, for use in templates to conditionally display the pagi block
+function is_paginated()
+{
+    global $wp_query;
+    if ($wp_query->max_num_pages > 1) {
+        return true;
+    } else {
+        return false;
+    }
+}
+// removes sticky posts from main loop, this function fixes issue of duplicate posts on archive. see https://wordpress.stackexchange.com/questions/225015/sticky-post-from-page-2-and-on
+add_action('pre_get_posts', function ($q) {
+    if ($q->is_home()       // Only target the homepage
+         && $q->is_main_query() // Only target the main query
+    ) {
+        // Remove sticky posts
+        $q->set('ignore_sticky_posts', 1);
+
+        // Get the sticky posts array
+        $stickies = get_option('sticky_posts');
+
+        // Make sure we have stickies before continuing, else, bail
+        if (!$stickies) {
+            return;
+        }
+
+        // Great, we have stickies, lets continue
+        // Lets remove the stickies from the main query
+        $q->set('post__not_in', $stickies);
+
+        // Lets add the stickies to page one via the_posts filter
+        if ($q->is_paged()) {
+            return;
+        }
+
+        add_filter('the_posts', function ($posts, $q) use ($stickies) {
+            // Make sure we only target the main query
+            if (!$q->is_main_query()) {
+                return $posts;
+            }
+
+            // Get the sticky posts
+            $args = [
+                'posts_per_page' => count($stickies),
+                'post__in'       => $stickies
+            ];
+            $sticky_posts = get_posts($args);
+
+            // Lets add the sticky posts in front of our normal posts
+            $posts = array_merge($sticky_posts, $posts);
+
+            return $posts;
+        }, 10, 2);
+    }
+});
+
+// stuff to say we need timber activated!! see TGM Plugin activation library
 function starter_theme_register_required_plugins()
 {
     $plugins = array(
@@ -91,3 +141,4 @@ function starter_theme_register_required_plugins()
     );
     tgmpa($plugins, $config);
 }
+add_action('tgmpa_register', 'starter_theme_register_required_plugins');

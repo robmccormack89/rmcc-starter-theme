@@ -1,0 +1,16 @@
+<li>
+  <div id="post-{{post.ID}}" class="uk-card uk-card-body uk-card-small uk-flex uk-flex-middle uk-border-rounded theme-border {{ post.class }}">
+    <div class="uk-grid uk-grid-medium uk-flex uk-flex-middle" uk-grid>
+      <div class="uk-width-1-3@s uk-width-2-5@m uk-height-1-1">
+        <img class="tease-feature-related" data-src="{{ post.thumbnail.src('starter-theme-post-slider-image') }}" alt="{{ post.thumbnail.alt }}" data-width data-height uk-img>
+      </div>
+      <div class="uk-width-2-3@s uk-width-3-5@m">
+        <span class="uk-label home-featured-label">Featured Article</span>
+        <h3 class="uk-card-title uk-margin-small-top uk-margin-remove-bottom">
+          <a class="uk-link-reset uk-text-bold" href="{{post.link}}">{{post.title}}</a>
+        </h3>
+        <span class="uk-article-meta">Published on {{post.date | date}}</span>
+      </div>
+    </div>
+  </div>
+</li>

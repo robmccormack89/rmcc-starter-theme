@@ -21,3 +21,8 @@ if( class_exists( 'Timber' ) ) {
 * Custom Widget
 */
 require get_template_directory() . '/widgets/uikit-html-widget.php';
+
+/**
+* Timber Plugin Activation
+*/
+require get_template_directory() . '/inc/class-tgm-plugin-activation.php';

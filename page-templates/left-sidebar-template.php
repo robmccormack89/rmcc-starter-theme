@@ -5,7 +5,7 @@
  * @package Starter_Theme
  */
 
-$context = Timber::get_context();
-$post = new TimberPost();
+$context = Timber::context();
+$post = Timber::query_post();
 $context['post'] = $post;
 Timber::render(  'left-sidebar-template.twig' , $context );

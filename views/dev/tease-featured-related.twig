@@ -1,0 +1,23 @@
+<li id="post-{{post.ID}}" class="{{ post.class }}">
+  <div>
+    <div class="uk-card uk-card-small theme-border" style="box-shadow: none;">
+      <div class="uk-card-media-top">
+        <a href="{{post.link}}"><img class="more-stories-featured-img" data-src="{{ post.thumbnail.src('rmcc-uikit-starter-more-stories-image') }}" width="620" height="350" uk-img="target: !.uk-slideshow-items" alt="{{ post.thumbnail.alt }}"></a>
+      </div>
+      <div class="uk-card-header theme-border-bottom">
+        <div class="uk-grid-small uk-flex-middle" uk-grid>
+          <div class="uk-width-auto">
+            <img class="uk-border-circle" alt="" width="40" height="40" src="{{post.author.avatar}}">
+          </div>
+          <div class="uk-width-expand">
+            <h5 class="uk-margin-remove-bottom uk-text-bold uk-h6">{{post.author.name}}</h5>
+            <p class="uk-text-meta uk-margin-remove-top uk-text-small"><time>{{post.date | date}}</time></p>
+          </div>
+        </div>
+      </div>
+      <div class="uk-card-body">
+        <h4 class="uk-margin-small-bottom uk-text-bold">{{post.title}}</h4>
+      </div>
+    </div>
+  </div>
+</li>

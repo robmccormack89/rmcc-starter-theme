@@ -7,26 +7,27 @@
     <div class="uk-grid-large" uk-grid>
       
       {% if is_left_sidebar %}
-        {% include 'sidebar-left.twig' %}
+      {% include 'sidebar-left.twig' %}
       {% endif %}
     
-      <article id="post-{{post.ID}}" class="uk-article {{ article_width_class }} {{post.class}}">
+      <article id="post-{{post.ID}}" class="post-type-{{ post.post_type }} uk-article {{ article_width_class }} {{post.class}}">
         
         <h1 class="uk-article-title">{{ post.title }}</h1>
         
+        {% if post.post_type == "post" %}
         <p class="uk-article-meta">
           Written on {{post.date | date}}.
-          {% if post.post_type == "post" %}Posted in
-            {% for category in post.categories %}
-              {% if not loop.last %}
-                <a title="{{ category }}" href="{{ category.link }}">{{ category }}</a>,
-              {% endif %}
-              {% if loop.last %}
-                <a title="{{ category }}" href="{{ category.link }}">{{ category }}</a>
-              {% endif %}
-            {% endfor %}
-          {% endif %}
+          Posted in 
+          {% for category in post.categories %}
+            {% if not loop.last %}
+              <a title="{{ category }}" href="{{ category.link }}">{{ category }}</a>,
+            {% endif %}
+            {% if loop.last %}
+              <a title="{{ category }}" href="{{ category.link }}">{{ category }}</a>
+            {% endif %}
+          {% endfor %}
         </p>
+        {% endif %}
         
         {% if post.thumbnail %}
         <figure>
@@ -36,30 +37,8 @@
 
         {{ post.content }}
         
-        {% if post.comments and post.post_type == 'post' %}
-        <h3 class="uk-margin-large-top">Comments</h3>
-        <!-- comment box -->
-        <section id="CommentBox">
-        <ul class="uk-comment-list">
-        {% if post.comments %}
-          {% for comment in post.comments %}
-            {% include "comment.twig" %}
-          {% endfor %}
-        {% endif %}
-        </ul>
-
-        {% if post.comment_status == "closed" %}
-        <p>Comments are closed for this post.</p>
-        {% else %}
-        <!-- comment form -->
-        <div id="CommentForm" class="uk-margin-large-top">
-        <h4>Post a new Comment</h4>
-        {% include "comment-form.twig" %}
-        </div>
-        {% endif %}
-
-        </section>
-
+        {% if post.comments and post.post_type == 'post' and if_comments_open %}
+        {% include 'comments.twig' %}
         {% endif %}
 
       </article>
@@ -71,5 +50,9 @@
     </div>
   </div>
 </div>
+
+{% if if_posts_more_than_one and post.post_type == 'post' %}
+{% include 'bottom-bar.twig' %}
+{% endif %}
 
 {% endblock %}

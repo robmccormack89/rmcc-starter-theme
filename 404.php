@@ -1,6 +1,6 @@
 <?php
 /**
- * The header for our theme
+ * The 404 error page template
  *
  * @package Starter_Theme
  */

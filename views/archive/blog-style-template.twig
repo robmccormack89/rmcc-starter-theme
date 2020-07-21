@@ -1,0 +1,100 @@
+{% extends "base.twig" %}
+{% block content %}
+
+<div data-template="page-home.twig">
+
+  <section class="uk-section uk-section-small home-hero-section">
+    <div class="uk-container">
+      
+      {% if home_hero is not empty %}
+      <div class="uk-position-relative uk-visible-toggle uk-light" uk-slider>
+        
+        <ul class="uk-slider-items uk-child-width-1-1">
+          {% for post in home_hero %}
+          {% include 'tease-home-hero.twig' %}
+          {% endfor %}
+        </ul>
+        
+        <a class="uk-position-center-left uk-position-small uk-hidden-hover" href="#" uk-slidenav-previous uk-slider-item="previous"></a>
+        <a class="uk-position-center-right uk-position-small uk-hidden-hover" href="#" uk-slidenav-next uk-slider-item="next"></a>
+      </div>
+      {% else %}
+        <div class="uk-background-muted uk-height-large uk-cover-container uk-border-rounded">
+          <div class="uk-flex uk-flex-center uk-flex-middle uk-text-center uk-position-cover">
+            <div>
+              <h1 class="uk-text-bold"><span>This is the Homepage Hero section</span></h1>
+              <div class="uk-container uk-container-small"><p>No posts found. This section shows your most recent sticky post in a hero block. Add a post, make it sticky & don't forget to add a featured image!</p></div>
+            </div>
+          </div>
+        </div>
+      {% endif %}
+    
+    </div>
+  </section>
+
+  <section class="uk-section home-featured-section">
+    <div class="uk-container">
+      
+      {% if home_featured is not empty %}
+      <h2 class="uk-heading-line uk-text-bold"><span>Featured Articles</span></h2>
+      <div uk-slider="velocity: 5">
+        <div class="uk-position-relative">
+          <div class="uk-slider-container">
+            
+            <ul class="uk-slider-items uk-child-width-1-2@m uk-grid uk-grid-medium news-slide">
+              {% for post in home_featured %}
+              {% include 'tease-home-featured.twig' %}
+              {% endfor %}
+            </ul>
+            
+          </div>
+          <div class="uk-visible@xl">
+            <a class="uk-position-center-left-out uk-position-small" href="#" uk-slidenav-previous uk-slider-item="previous"><span class="uk-hidden">Previous</span></a>
+            <a class="uk-position-center-right-out uk-position-small" href="#" uk-slidenav-next uk-slider-item="next"><span class="uk-hidden">Next</span></a>
+          </div>
+        </div>
+        <ul class="uk-slider-nav uk-dotnav uk-flex-center uk-margin"></ul>
+      </div>
+      {% else %}
+      <div class="uk-background-muted uk-padding uk-border-rounded">
+        <h2 class="uk-text-bold"><span>Featured Articles</span></h2>
+        <p class="uk-margin-remove-bottom">No posts found. This section shows your next 3 sticky posts in a post carousel. Add 3 more posts, make them sticky & don't forget to add featured images!</p>
+      </div>
+      {% endif %}
+    
+    </div>
+  </section>
+
+  <section class="uk-section home-posts-section">
+    <div class="uk-container">
+      <div class="uk-grid-large" uk-grid>
+        
+        <div class="uk-article uk-width-2-3@m">
+          {% if home_posts is not empty %}
+          <h3 class="uk-heading-line uk-text-bold"><span>More Articles</span></h3>
+          <div class="archive-posts">
+            {% for post in home_posts %}
+            {% include 'tease.twig' %}
+            {% endfor %}
+          </div>
+          {% else %}
+          <div class="uk-background-muted uk-padding uk-border-rounded">
+            <h3 class="uk-text-bold"><span>More Articles</span></h3>
+            <p class="uk-margin-remove-bottom">No posts found. This section shows your 4 most recent non-sticky posts. Add some more posts, don't make them sticky & add featured images!</p>
+          </div>
+          {% endif %}
+          
+          {% if is_paginated %}
+          {% include 'pagination.twig' %}
+          {% endif %}
+        </div>
+
+        {% include 'sidebar.twig' %}
+
+      </div>
+    </div>
+  </section>
+  
+</div>
+
+{% endblock %}
