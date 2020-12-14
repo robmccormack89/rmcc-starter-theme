@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 <html {{site.language_attributes}}>
+
   <head>
-  <meta charset="{{site.charset}}" />
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  {{ function('wp_head') }}
+    <meta charset="{{site.charset}}" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    {{ function('wp_head') }}
   </head>
   
   <style>
@@ -32,17 +33,17 @@
     <div id="SiteWrapper" class="site-wrapper">
       
       {% block header %}
-      {% include 'header.twig' %}
+        {% include 'header.twig' %}
       {% endblock %}
 
       <main role="main" id="MainContent">
         {% block content %}
-        <p>Sorry, Nothing to Display!!</p>
+          <p>Sorry, Nothing to Display!!</p>
         {% endblock %}
       </main>
 
       {% block footer %}
-      {% include 'footer.twig' %}
+        {% include 'footer.twig' %}
       {% endblock %}
 
     </div>
