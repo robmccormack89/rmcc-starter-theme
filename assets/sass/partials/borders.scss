@@ -2,28 +2,19 @@
 .theme-border {
   border: $theme_border;
 }
-
 .theme-border-top {
   border-top: $theme_border;
 }
-
 .theme-border-right {
   border-right: $theme_border;
 }
-
 .theme-border-bottom {
   border-bottom: $theme_border;
 }
-
 .theme-border-left {
   border-left: $theme_border;
 }
-/* rounded borders */
-.uk-button,
-img {
-  border-radius: 5px;
-}
-
-img.more-stories-featured-img {
-  border-radius: 5px 5px 0 0;
+/* sticky header bottom border */
+.the-header.uk-sticky-below {
+  border-bottom: $theme_border;
 }

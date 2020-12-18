@@ -6,12 +6,12 @@
       <div uk-grid>
 
         <div class="uk-width-2-3@m">
-          <h4>This page or item doesnt exist</h4>
-          <p>Sorry, we couldn't find what you're looking for. Trying using the search form below instead.</p>
+          <h4>{{ __('Sorry, this page or item doesnt exist', 'starter-wp-theme') }}</h4>
+          <p>{{ __('We couldnt find what you were looking for. Try using the search form below', 'starter-wp-theme') }}</p>
           <div class="">
             <form class="uk-search uk-search-default uk-width-1-1 search-form" role="search" method="get" action="{{site.url}}">
               <span uk-search-icon></span>
-              <input class="uk-search-input uk-border-rounded" name="s" type="search" placeholder="Search...">
+              <input class="uk-search-input" name="s" type="search" placeholder="Search...">
             </form>
           </div>
         </div>

@@ -2,11 +2,23 @@
 .tease-image-caption {
   padding-bottom: 0px!important;
 }
-/* more stories */
-.more-stories .uk-slider-container {
-  padding: 0 10px;
-}
 /* bottom bar */
 .bottom-bar {
   z-index: 100;
+}
+/* bottom bar spacing on single-posts only */
+body.single-post.posts-exist footer.the-footer {
+  margin-bottom: 76px;
+}
+/* gutenberg */
+.blocks-gallery-grid .blocks-gallery-image figcaption,
+.blocks-gallery-grid .blocks-gallery-item figcaption,
+.wp-block-gallery .blocks-gallery-image figcaption,
+.wp-block-gallery .blocks-gallery-item figcaption {
+  padding: 40px 0 10px;
+}
+.wp-block-image figcaption {
+  margin-top: 0.5em;
+  margin-bottom: 0;
+  text-align: center;
 }

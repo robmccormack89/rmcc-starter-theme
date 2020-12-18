@@ -1,33 +1,31 @@
 {% extends "base.twig" %}
 
 {% block content %}
-<div class="uk-section" data-template="index.twig">
-  <div class="uk-container">
-    <div class="uk-grid-large" uk-grid>
-      
-      <div class="uk-article uk-width-2-3@m">
+  <div class="uk-section" data-template="index.twig">
+    <div class="uk-container">
+      <div class="uk-grid-large" uk-grid>
         
-        <h1 class="uk-article-title uk-margin-large-bottom">{{ title }}</h1>
-        
-        {% if posts is not empty %}
-        <div class="archive-posts">
-          {% for post in posts %}
-          {% include ['tease-'~post.post_type~'.twig', 'tease.twig'] %}
-          {% endfor %}
-        </div>
-        {% else %}
-        <p class="uk-text-emphasis">No posts found. Add some posts!</p>
-        {% endif %}
+        <div class="uk-article uk-width-2-3@m">
           
-        {% if is_paginated %}
-        {% include 'pagination.twig' with { pagination: posts.pagination({show_all: false, mid_size: 3, end_size: 2}) } %}
-        {% endif %}
+          <h1 class="uk-article-title uk-margin-large-bottom">{{ title }}</h1>
+          
+          {% if posts is not empty %}
+            <div class="archive-posts">
+              {% for post in posts %}
+                {% include ['tease-'~post.post_type~'.twig', 'tease.twig'] %}
+              {% endfor %}
+            </div>
+          {% else %}
+            <p class="uk-text-emphasis">{{ __('No posts found. Add some posts & dont forget to add featured images.', 'starter-wp-theme') }}</p>
+          {% endif %}
 
+          {% include 'pagination.twig' with { pagination: posts.pagination({show_all: false, mid_size: 3, end_size: 2}) } %}
+
+        </div>
+        
+        {% include 'sidebar.twig' %}
+        
       </div>
-      
-      {% include 'sidebar.twig' %}
-      
     </div>
   </div>
-</div>
 {% endblock %}

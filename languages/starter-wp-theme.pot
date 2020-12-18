@@ -1,0 +1,190 @@
+# Copyright (C) 2020 starter-wp-theme
+# This file is distributed under the same license as the starter-wp-theme package.
+msgid ""
+msgstr ""
+"Project-Id-Version: starter-wp-theme\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-Basepath: ..\n"
+"X-Poedit-KeywordsList: __;_e;_ex:1,2c;_n:1,2;_n_noop:1,2;_nx:1,2,4c;_nx_noop:1,2,3c;_x:1,2c;esc_attr__;esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPathExcluded-0: *.js\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: archive.php:25
+msgid "Category:"
+msgstr ""
+
+#: archive.php:23
+msgid "Tag:"
+msgstr ""
+
+#: archive.php:21
+msgid "Year:"
+msgstr ""
+
+#: archive.php:19
+msgid "Month:"
+msgstr ""
+
+#: archive.php:17
+msgid "Day:"
+msgstr ""
+
+#: author.php:16
+msgid "Author Archives:"
+msgstr ""
+
+#: inc/timber-functions.php:58
+msgid "Main Sidebar Area"
+msgstr ""
+
+#: inc/timber-functions.php:60
+msgid "Sidebar Area, you can add multiple widgets here."
+msgstr ""
+
+#: inc/timber-functions.php:69
+msgid "Main Footer Widget Area; works best with the current widget only."
+msgstr ""
+
+#: inc/timber-functions.php:82
+msgid "Main Menu"
+msgstr ""
+
+#: inc/timber-functions.php:83
+msgid "Mobile Menu"
+msgstr ""
+
+#: views/temp/404.php:9
+msgid "Sorry, this page or item doesnt exist"
+msgstr ""
+
+#: views/temp/404.php:10
+msgid "We couldnt find what you were looking for. Try using the search form below"
+msgstr ""
+
+#: views/temp/archive/index.php:19
+msgid "No posts found. Add some posts & dont forget to add featured images."
+msgstr ""
+
+#: views/temp/base.php:24
+msgid "Sorry, nothing to display here.."
+msgstr ""
+
+#: views/temp/front-page.php:19, views/temp/front-page.php:65, views/temp/parts/tease.php:4
+msgid "Featured Article"
+msgstr ""
+
+#: views/temp/front-page.php:22
+msgid "Go to Article"
+msgstr ""
+
+#: views/temp/front-page.php:36
+msgid "Homepage Hero Section"
+msgstr ""
+
+#: views/temp/front-page.php:38
+msgid "No posts found. This section shows your most recent sticky post. Add a post, make it sticky & dont forget to add a featured image."
+msgstr ""
+
+#: views/temp/front-page.php:52, views/temp/front-page.php:86
+msgid "Featured Articles"
+msgstr ""
+
+#: views/temp/front-page.php:69
+msgid "Published on"
+msgstr ""
+
+#: views/temp/front-page.php:87
+msgid "No posts found. This section shows your next 3 most recent sticky posts. Add some more posts, make them sticky & dont forget to add featured images."
+msgstr ""
+
+#: views/temp/front-page.php:100, views/temp/front-page.php:108
+msgid "More Articles"
+msgstr ""
+
+#: views/temp/front-page.php:109
+msgid "No posts found. This section shows your 4 most recent non-sticky posts. Add some more posts & add featured images."
+msgstr ""
+
+#: views/temp/parts/bottom-bar.php:8
+msgid "Previous"
+msgstr ""
+
+#: views/temp/parts/bottom-bar.php:13
+msgid "Next"
+msgstr ""
+
+#: views/temp/parts/footer.php:7
+msgid "Copyright©"
+msgstr ""
+
+#: views/temp/parts/footer.php:8
+msgid "Created by"
+msgstr ""
+
+#: views/temp/parts/footer.php:9
+msgid "A wordpress theme built with"
+msgstr ""
+
+#: views/temp/parts/header.php:43
+msgid "Add a menu to the Main Menu slot in Appearance > Menus."
+msgstr ""
+
+#: views/temp/parts/header.php:52, views/temp/parts/header.php:106
+msgid "Change Style"
+msgstr ""
+
+#: views/temp/parts/header.php:55, views/temp/parts/header.php:77
+msgid "Menu"
+msgstr ""
+
+#: views/temp/parts/header.php:74
+msgid "Close"
+msgstr ""
+
+#: views/temp/parts/header.php:97
+msgid "Add a menu to the Mobile Menu slot in Appearance > Menus."
+msgstr ""
+
+#: views/temp/parts/pagination.php:9
+msgid "Previous Page"
+msgstr ""
+
+#: views/temp/parts/pagination.php:23
+msgid "Next Page"
+msgstr ""
+
+#: views/temp/parts/pagination.php:39
+msgid "End of posts"
+msgstr ""
+
+#: views/temp/parts/pagination.php:40
+msgid "No more posts to load"
+msgstr ""
+
+#: views/temp/parts/pagination.php:42
+msgid "Load more"
+msgstr ""
+
+#: views/temp/parts/sidebar.php:5
+msgid "Sidebar"
+msgstr ""
+
+#: views/temp/parts/sidebar.php:7
+msgid "Add some widgets to the Sidebar Widget Area in Appearance > Widgets."
+msgstr ""
+
+#: views/temp/parts/tease.php:7, views/temp/single/single.php:17
+msgid "Written on"
+msgstr ""
+
+#: views/temp/parts/tease.php:7, views/temp/single/single.php:18
+msgid "Posted in"
+msgstr ""
+
+#: views/temp/parts/tease.php:27
+msgid "Read more"
+msgstr ""

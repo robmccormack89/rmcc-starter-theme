@@ -1,0 +1,74 @@
+{% extends "base.twig" %}
+
+{% block content %}
+
+  <div class="uk-section" data-template="single.twig">
+    <div class="uk-container">
+      <div class="uk-grid-large" uk-grid>
+      
+        <article id="post-{{post.id}}" class="post-type-{{ post.post_type }} uk-article uk-width-2-3@m {{post.class}}">
+          
+          <h1 class="uk-article-title">
+            {{ post.title }}
+          </h1>
+          
+          {% if post.post_type == "post" %}
+            <p class="uk-article-meta">
+              {{ __('Written on', 'starter-wp-theme') }} {{post.date | date}}.
+              {{ __('Posted in', 'starter-wp-theme') }} 
+              {% for category in post.categories %}
+                {% if not loop.last %}
+                  <a title="{{ category }}" href="{{ category.link }}">{{ category }}</a>,
+                {% endif %}
+                {% if loop.last %}
+                  <a title="{{ category }}" href="{{ category.link }}">{{ category }}</a>
+                {% endif %}
+              {% endfor %}
+            </p>
+          {% endif %}
+          
+          {% if post.thumbnail %}
+            <figure>
+              <img data-src="{{ post.thumbnail.src('starter-theme-featured-image-archive') }}" width="800" height="300" alt="{{ post.thumbnail.alt }}" uk-img>
+            </figure>
+          {% endif %}
+
+          {{ post.content }}
+
+        </article>
+
+        {% include 'sidebar.twig' %}
+
+      </div>
+    </div>
+  </div>
+
+  {% if if_posts_more_than_one and post.post_type == 'post' %}
+    <div class="bottom-bar uk-section uk-section-xsmall uk-section-default uk-position-bottom uk-position-fixed theme-border-top">
+      <div class="uk-container uk-text-small">
+        <nav class="" uk-navbar>
+            <div class="uk-navbar-left">
+              <div class="uk-grid uk-grid-divider uk-grid-small" uk-grid>
+                {% if post.next %}
+                <div>
+                  <a href="{{ post.next.link }}" class="uk-link-reset"><span uk-icon="icon: arrow-left"></span> <strong>{{ __('Previous', 'starter-wp-theme') }}</strong></a>
+                </div>
+                {% endif %}
+                {% if post.prev %}
+                <div>
+                  <a href="{{ post.prev.link }}" class="uk-link-reset"><strong>{{ __('Next', 'starter-wp-theme') }}</strong> <span uk-icon="icon: arrow-right"></span><span class="uk-visible@m"> {{ post.prev.title }}</span></a>
+                </div>
+                {% endif %}
+              </div>
+            </div>
+            <div class="uk-navbar-right">
+              <a href="https://facebook.com/sharer/sharer.php?u={{post.link}}" target="_blank" class="uk-icon-button uk-margin-small-right" uk-icon="facebook" Title="Sharing for Facebook"></a>
+              <a href="https://twitter.com/home?status={{post.link}}" class="uk-icon-button  uk-margin-small-right" uk-icon="twitter"></a>
+              <a href="mailto:?" class="uk-icon-button" uk-icon="mail" Title="Sharing for Email"></a>
+            </div>
+        </nav>
+      </div>
+    </div>
+  {% endif %}
+
+{% endblock %}
