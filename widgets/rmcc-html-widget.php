@@ -1,6 +1,6 @@
 <?php
 /**
- * Widget API: Starter_Theme_Custom_UIKIT_Widget_Class class
+ * Widget API: Rmcc_Starter_Theme_Custom_UIKIT_Widget_Class class
  *
  */
 
@@ -11,7 +11,7 @@
  *
  * @see WP_Widget
  */
-class Starter_Theme_Custom_UIKIT_Widget_Class extends WP_Widget
+class Rmcc_Starter_Theme_Custom_Widget_Class extends WP_Widget
 {
 
     /**
@@ -41,15 +41,15 @@ class Starter_Theme_Custom_UIKIT_Widget_Class extends WP_Widget
     public function __construct()
     {
         $widget_ops  = array(
-            'classname'                   => 'widget_custom_uikit_html',
-            'description'                 => __('Arbitrary UIKIT HTML code.'),
+            'classname'                   => 'widget_custom_html',
+            'description'                 => __('Arbitrary HTML code; made for uikit'),
             'customize_selective_refresh' => true,
         );
         $control_ops = array(
             'width'  => 400,
             'height' => 350,
         );
-        parent::__construct('custom_uikit_html', __('Custom UIKIT HTML'), $widget_ops, $control_ops);
+        parent::__construct('rmcc_custom_html', __('RMcC Custom HTML'), $widget_ops, $control_ops);
     }
 
     /**
@@ -74,10 +74,10 @@ class Starter_Theme_Custom_UIKIT_Widget_Class extends WP_Widget
         add_action('admin_print_scripts-widgets.php', array( $this, 'enqueue_admin_scripts' ));
 
         // Note that the widgets component in the customizer will also do the 'admin_footer-widgets.php' action in WP_Customize_Widgets::print_footer_scripts().
-        add_action('admin_footer-widgets.php', array( 'Starter_Theme_Custom_UIKIT_Widget_Class', 'render_control_template_scripts' ));
+        add_action('admin_footer-widgets.php', array( 'Rmcc_Starter_Theme_Custom_Widget_Class', 'render_control_template_scripts' ));
 
         // Note this action is used to ensure the help text is added to the end.
-        add_action('admin_head-widgets.php', array( 'Starter_Theme_Custom_UIKIT_Widget_Class', 'add_help_text' ));
+        add_action('admin_head-widgets.php', array( 'Rmcc_Starter_Theme_Custom_Widget_Class', 'add_help_text' ));
     }
 
     /**
@@ -155,7 +155,7 @@ class Starter_Theme_Custom_UIKIT_Widget_Class extends WP_Widget
          *
          * @param string                $content  The widget content.
          * @param array                 $instance Array of settings for the current widget.
-         * @param Starter_Theme_Custom_UIKIT_Widget_Class $this     Current Custom HTML widget instance.
+         * @param Rmcc_Starter_Theme_Custom_Widget_Class $this     Current Custom HTML widget instance.
          */
         $content = apply_filters('widget_custom_html_content', $content, $instance, $this);
 
@@ -238,9 +238,9 @@ class Starter_Theme_Custom_UIKIT_Widget_Class extends WP_Widget
      * Outputs the Custom HTML widget settings form.
      *
      * @since 4.8.1
-     * @since 4.9.0 The form contains only hidden sync inputs. For the control UI, see `Starter_Theme_Custom_UIKIT_Widget_Class::render_control_template_scripts()`.
+     * @since 4.9.0 The form contains only hidden sync inputs. For the control UI, see `Rmcc_Starter_Theme_Custom_Widget_Class::render_control_template_scripts()`.
      *
-     * @see Starter_Theme_Custom_UIKIT_Widget_Class::render_control_template_scripts()
+     * @see Rmcc_Starter_Theme_Custom_Widget_Class::render_control_template_scripts()
      * @param array $instance Current instance.
      * @returns void
      */
@@ -302,7 +302,7 @@ class Starter_Theme_Custom_UIKIT_Widget_Class extends WP_Widget
         $screen = get_current_screen();
 
         $content  = '<p>';
-        $content .= __('Use the Custom UIKIT HTML widget to add arbitrary HTML code to your widget areas.');
+        $content .= __('Use the Custom HTML widget to add arbitrary uikit html code to your widget areas.');
         $content .= '</p>';
 
         if ('false' !== wp_get_current_user()->syntax_highlighting) {
@@ -331,7 +331,7 @@ class Starter_Theme_Custom_UIKIT_Widget_Class extends WP_Widget
         $screen->add_help_tab(
             array(
                 'id'      => 'custom_html_widget',
-                'title'   => __('Custom UIKIT HTML Widget'),
+                'title'   => __('Custom HTML Widget'),
                 'content' => $content,
             )
         );

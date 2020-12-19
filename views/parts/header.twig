@@ -40,7 +40,7 @@
             {% endif %}
           {% endfor %}
         {% else %}
-          <li>{{ __('Add a menu to the Main Menu slot in Appearance > Menus.', 'starter-wp-theme') }}</li>
+          <li>{{ __('Add a menu to the Main Menu slot in Appearance > Menus.', 'rmcc-starter-theme') }}</li>
         {% endif %}
       </ul>
     </div>
@@ -49,10 +49,10 @@
       <div class="uk-visible@m">
         <a class="uk-navbar-toggle" href="#modal-navbar-search" uk-search-icon uk-toggle title="Open the Search Box"></a>
       </div>
-      <button class="uk-button uk-button-default uk-visible@m" type="button" uk-toggle="target: body; cls: dark-style uk-light">{{ __('Change Style', 'starter-wp-theme') }}</button>
+      <button class="uk-button uk-button-default uk-visible@m" type="button" uk-toggle="target: body; cls: dark-style uk-light">{{ __('Change Style', 'rmcc-starter-theme') }}</button>
       <ul class="uk-navbar-nav uk-hidden@m">
         <li>
-          <a class="uk-navbar-toggle pull-right-15" uk-navbar-toggle-icon uk-toggle href="#offcanvas-mobile-nav" title="Open the Mobile Menu"><span class="uk-hidden">{{ __('Menu', 'starter-wp-theme') }}</span></a>
+          <a class="uk-navbar-toggle pull-right-15" uk-navbar-toggle-icon uk-toggle href="#offcanvas-mobile-nav" title="Open the Mobile Menu"><span class="uk-hidden">{{ __('Menu', 'rmcc-starter-theme') }}</span></a>
         </li>
       </ul>
     </div>
@@ -71,10 +71,10 @@
 
   <div id="offcanvas-mobile-nav" uk-offcanvas="flip: true; overlay: true">
     <div class="uk-offcanvas-bar uk-offcanvas-bar-animation uk-offcanvas-slide">
-      <button class="uk-offcanvas-close uk-close uk-icon" uk-close type="button" title="Close the Mobile Menu"><span class="uk-hidden">{{ __('Close', 'starter-wp-theme') }}</span></button>
+      <button class="uk-offcanvas-close uk-close uk-icon" uk-close type="button" title="Close the Mobile Menu"><span class="uk-hidden">{{ __('Close', 'rmcc-starter-theme') }}</span></button>
       <ul class="uk-nav uk-nav-default">
         {% if has_menu_mobile %}
-          <li class="uk-nav-header uk-text-bold uk-text-uppercase uk-margin-small-bottom">{{ __('Menu', 'starter-wp-theme') }}</li>
+          <li class="uk-nav-header uk-text-bold uk-text-uppercase uk-margin-small-bottom">{{ __('Menu', 'rmcc-starter-theme') }}</li>
           {% for item in menu_mobile.get_items %}
             {% if item.get_children %}
               <li class="uk-parent {{ item.classes | join(' ') }}">
@@ -94,7 +94,7 @@
             {% endif %}
           {% endfor %}
         {% else %}
-          <li>{{ __('Add a menu to the Mobile Menu slot in Appearance > Menus.', 'starter-wp-theme') }}</li>
+          <li>{{ __('Add a menu to the Mobile Menu slot in Appearance > Menus.', 'rmcc-starter-theme') }}</li>
         {% endif %}
         <li class="uk-nav-divider uk-margin-top"></li>
         <div class="uk-margin-top uk-position-z-index uk-position-relative">
@@ -103,7 +103,7 @@
             <input class="uk-search-input" type="search" placeholder="Search..." id="SearchMobile" name="s" autocomplete="off">
           </form>
         </div>
-        <button class="uk-button uk-button-default uk-margin-top uk-width-1-1 uk-margin-small-bottom" type="button" uk-toggle="target: body; cls: dark-style uk-light">{{ __('Change Style', 'starter-wp-theme') }}</button>
+        <button class="uk-button uk-button-default uk-margin-top uk-width-1-1 uk-margin-small-bottom" type="button" uk-toggle="target: body; cls: dark-style uk-light">{{ __('Change Style', 'rmcc-starter-theme') }}</button>
       </ul>
     </div>
   </div>

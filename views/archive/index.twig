@@ -16,7 +16,7 @@
               {% endfor %}
             </div>
           {% else %}
-            <p class="uk-text-emphasis">{{ __('No posts found. Add some posts & dont forget to add featured images.', 'starter-wp-theme') }}</p>
+            <p class="uk-text-emphasis">{{ __('No posts found. Add some posts & dont forget to add featured images.', 'rmcc-starter-theme') }}</p>
           {% endif %}
 
           {% include 'pagination.twig' with { pagination: posts.pagination({show_all: false, mid_size: 3, end_size: 2}) } %}

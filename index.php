@@ -2,7 +2,7 @@
 /**
  * The main template file
  *
- * @package Starter_Theme
+ * @package Rmcc_Starter_Theme
  */
 
 $context = Timber::context();

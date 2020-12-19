@@ -2,7 +2,7 @@
 /**
  * Theme functions & bits
  *
- * @package Starter_Theme
+ * @package Rmcc_Starter_Theme
  */
  
 // 

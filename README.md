@@ -1,22 +1,20 @@
-# Wordpress Project Starter!!
+# RMcC Starter Theme
 
-A Wordpress project starter theme/process with Timber, UiKit, Sass, Gulp, Webpack & more.
-
-Personal setup For XAMPP projects.
+A Wordpress starter theme built with timber, uikit, node, gulp, webpack, sass, infinite-scroll & more.
 
 ---
 
-## Starting a new project with XAMPP.
+## Start a new project with XAMPP
 
 1. Download [Wordpress](https://wordpress.org/download/) and unzip into htdocs folder.
 
-2. Rename folder to your test domain, example: yourdomain.test.
+2. Rename wordpress folder to your development domain, example: yourdomain.test.
 
-3. Add new line to your hosts file to map your test domain to your localhost IP.
+3. Add new line to your hosts file to map your test domain to your localhost ip.
 
         127.0.0.1		yourdomain.test
 
-4. Add new entry to bottom of XAMPP's httpd.conf file to map your project folder in htdocs to your IP mapping.
+4. Add new entry to bottom of XAMPP's httpd.conf file to map the root of your project with the domain as an alias.
 
         <VirtualHost *:80>
             ServerName yourdomain.test
@@ -24,77 +22,42 @@ Personal setup For XAMPP projects.
             ServerAlias *.yourdomain.test
         </VirtualHost>
 
-5. Start up XAMPP & confirm you can connect to test domain in the browser by adding hello.html to root of new project folder and visting yourdomain.test/hello.html.
+5. Open XAMPP & connect to test domain in the browser by adding hello.html to root of new project folder and visting yourdomain.test/hello.html.
 
-6. Create new database for project in XAMPP's phpmyadmin and setup wp-config.php file to connect to it.
+6. Create new db for project in phpmyadmin & configure wp-config.php file to connect.
 
-7. Visit test domain URL in browser and do the wp setup/installation process.
+7. Visit test domain in browser again & complete the wordpress setup/installation process.
 
 
-## Cloning theme into your project folder & connecting it to a new project repo:
+## Clone theme into your project folder & connect it to a new project repo
 
-1. Create new repo on github
+1. Create new repo for your project on githubl take note of the project url.
 
-2. Navigate to wp-content/themes folder of your new project in htdocs within the command line
+2. Navigate to wp-content/themes folder of your project in the command line.
 
-3.
+3. Use the following command to clone the starter project:
 
-        git clone https://github.com/robmccormack89/project-starter-wp.git
+        git clone https://github.com/robmccormack89/rmcc-starter-theme
 
-4. Rename folder of theme to whatever you like. You will need to rename other parts within theme using search/replace later. Steps for that are below.
+4. Rename folder of theme to whatever you like.
 
-5. Navigate inside theme folder
+5. Navigate inside theme folder in the command line, remembering if you have renamed theme theme folder name.
 
-6. 
+6. Use the following commands to initialize git in the cloned theme, set the origin of it to your github repo & push to your repo as the master branch. Don't forget to replace the url below with your project's github url.
 
         git init
-
-7.
-
         git remote rm origin
-
-8.
-
         git add .
-
-9.
-
         git commit -m "initial commit"
-
-10.
-
         git remote add origin https://github.com/your_name/your_project.git
-
-11.
-
         git push -u origin master
 
-12. The project is now cloned and set up as a new project on your github. You can now clone from that and follow the same process!
+7. The project is now cloned & set up as a new project on your github.
 
-## Renaming Theme using search/replace
-
-1. Rename theme folder
-
-2. Rename 'Starter' & 'starter' references in style.css
-
-3. Rename 'Starter' references in *.php file headers
-
-4. Rename 'Starter' & 'starter' references in: functions.php, theme-functions.php & timber-functions.php
-
-5. Rename 'Starter' & 'starter' references in uikit-html-widget.php
-
-6. Rename 'starter' references in tease.twig, single.twig, no-sidebar-template.twig, left-sidebar-template.twig & right-sidebar-template.twig. Example:
-
-        {{ post.thumbnail.src('starter-theme-featured-image-archive') }}
-
-**Note:** Always use Match Case!
+## Rename theme using search/replace
 
 ---
 
-## Using Sass with Gulp
+## Setup & configuation
 
-## Using Webpack & including js libraries
-
-## Using UiKit
-
-## Using Timber 
+---

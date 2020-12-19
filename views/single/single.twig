@@ -14,8 +14,8 @@
           
           {% if post.post_type == "post" %}
             <p class="uk-article-meta">
-              {{ __('Written on', 'starter-wp-theme') }} {{post.date | date}}.
-              {{ __('Posted in', 'starter-wp-theme') }} 
+              {{ __('Written on', 'rmcc-starter-theme') }} {{post.date | date}}.
+              {{ __('Posted in', 'rmcc-starter-theme') }} 
               {% for category in post.categories %}
                 {% if not loop.last %}
                   <a title="{{ category }}" href="{{ category.link }}">{{ category }}</a>,
@@ -29,7 +29,7 @@
           
           {% if post.thumbnail %}
             <figure>
-              <img data-src="{{ post.thumbnail.src('starter-theme-featured-image-archive') }}" width="800" height="300" alt="{{ post.thumbnail.alt }}" uk-img>
+              <img data-src="{{ post.thumbnail.src('rmcc-starter-theme-featured-image-archive') }}" width="800" height="300" alt="{{ post.thumbnail.alt }}" uk-img>
             </figure>
           {% endif %}
 
@@ -51,12 +51,12 @@
               <div class="uk-grid uk-grid-divider uk-grid-small" uk-grid>
                 {% if post.next %}
                 <div>
-                  <a href="{{ post.next.link }}" class="uk-link-reset"><span uk-icon="icon: arrow-left"></span> <strong>{{ __('Previous', 'starter-wp-theme') }}</strong></a>
+                  <a href="{{ post.next.link }}" class="uk-link-reset"><span uk-icon="icon: arrow-left"></span> <strong>{{ __('Previous', 'rmcc-starter-theme') }}</strong></a>
                 </div>
                 {% endif %}
                 {% if post.prev %}
                 <div>
-                  <a href="{{ post.prev.link }}" class="uk-link-reset"><strong>{{ __('Next', 'starter-wp-theme') }}</strong> <span uk-icon="icon: arrow-right"></span><span class="uk-visible@m"> {{ post.prev.title }}</span></a>
+                  <a href="{{ post.prev.link }}" class="uk-link-reset"><strong>{{ __('Next', 'rmcc-starter-theme') }}</strong> <span uk-icon="icon: arrow-right"></span><span class="uk-visible@m"> {{ post.prev.title }}</span></a>
                 </div>
                 {% endif %}
               </div>

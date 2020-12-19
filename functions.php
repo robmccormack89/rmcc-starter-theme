@@ -1,8 +1,8 @@
 <?php
 /**
- * Starter Theme functions and definitions
+ * Rmcc_Starter_Theme functions and definitions
  *
- * @package Starter_Theme
+ * @package Rmcc_Starter_Theme
  */
 
 /**
@@ -20,7 +20,7 @@ if( class_exists( 'Timber' ) ) {
 /**
 * Custom Widget
 */
-require get_template_directory() . '/widgets/uikit-html-widget.php';
+require get_template_directory() . '/widgets/rmcc-html-widget.php';
 
 /**
 * Timber Plugin Activation
