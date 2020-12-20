@@ -54,10 +54,23 @@ A Wordpress starter theme built with timber, uikit, node, gulp, webpack, sass, i
 
 7. The project is now cloned & set up as a new project on your github.
 
-## Rename theme using search/replace
-
----
-
 ## Setup & configuation
 
----
+1. Install npm packages
+
+        npm install
+
+2. website build scripts
+
+        npx webpack
+
+3. Gulp build sass (assets/sass -> assets/css)
+
+        gulp style
+
+4. Gulp build pot language file for translating (twig & php files -> languages)
+
+        gulp pot
+
+ 
+## Other

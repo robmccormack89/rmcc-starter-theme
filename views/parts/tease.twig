@@ -3,27 +3,26 @@
     {% if function('is_sticky', post.id) %}
       <span class="uk-label">{{ __('Featured Article', 'rmcc-starter-theme') }}</span>
     {% endif %}
-    <h2 class="uk-margin-remove-adjacent uk-margin-small-top uk-text-bold uk-margin-small-bottom"><a title="{{post.title}}" class="uk-link-reset" href="{{post.link}}">{{post.title}}</a></h2>
+    <h2 class="uk-margin-remove-adjacent uk-margin-small-top uk-text-bold uk-margin-small-bottom"><a class="uk-link-reset" href="{{post.link}}">{{post.title}}</a></h2>
     <p class="uk-article-meta">{{ __('Written on', 'rmcc-starter-theme') }} {{post.date | date}}. {{ __('Posted in', 'rmcc-starter-theme') }}
       {% for category in post.categories %}
         {% if not loop.last %}
-          <a title="{{ category }}" href="{{ category.link }}">{{ category }}</a>,
+          <a href="{{ category.link }}">{{ category }}</a>,
         {% endif %}
         {% if loop.last %}
-          <a title="{{ category }}" href="{{ category.link }}">{{ category }}</a>
+          <a href="{{ category.link }}">{{ category }}</a>
         {% endif %}
       {% endfor %}
     </p>
   </header>
   {% if post.get_thumbnail %}
     <figure>
-      <a title="{{ post.thumbnail.title }}" href="{{post.link}}"><img data-src="{{ post.thumbnail.src('rmcc-starter-theme-featured-image-archive') }}" width="800" height="300" alt="{{ post.thumbnail.alt }}" uk-img></a>
+      <a href="{{post.link}}"><img data-src="{{ post.thumbnail.src|resize(800, 300) }}" width="800" height="300" alt="{{ post.thumbnail.alt }}" uk-img></a>
       {% if post.thumbnail.caption %}
         <figcaption class="uk-padding-small uk-text-muted uk-text-center tease-image-caption">{{ post.thumbnail.caption }}</figcaption>
       {% endif %}
     </figure>
   {% endif %}
   <p>{{ post.preview.read_more('') }}</p>
-  <a href="{{post.link}}" title="Read More" class="uk-button uk-button-default">{{ __('Read more', 'rmcc-starter-theme') }}</a>
+  <a href="{{post.link}}" class="uk-button uk-button-default">{{ __('Read more', 'rmcc-starter-theme') }}</a>
 </article>
-<!-- /the post block -->

@@ -1,16 +1,12 @@
-/* standard tease image caption */
+// standard tease image caption
 .tease-image-caption {
   padding-bottom: 0px!important;
 }
-/* bottom bar */
+// bottom bar
 .bottom-bar {
   z-index: 100;
 }
-/* bottom bar spacing on single-posts only */
-body.single-post.posts-exist footer.the-footer {
-  margin-bottom: 76px;
-}
-/* gutenberg */
+// gutenberg
 .blocks-gallery-grid .blocks-gallery-image figcaption,
 .blocks-gallery-grid .blocks-gallery-item figcaption,
 .wp-block-gallery .blocks-gallery-image figcaption,
@@ -21,4 +17,18 @@ body.single-post.posts-exist footer.the-footer {
   margin-top: 0.5em;
   margin-bottom: 0;
   text-align: center;
+}
+// comments
+.uk-comment-list .uk-comment~ul {
+  padding-left: 0.875em;
+}
+.uk-comment-primary {
+  padding: 30px 0 0 0;
+  background-color: #ffffff00;
+}
+.uk-comment-list .uk-comment~ul {
+  margin: 20px 0 0;
+}
+.uk-comment-list>:nth-child(n+2) {
+  margin-top: 20px;
 }

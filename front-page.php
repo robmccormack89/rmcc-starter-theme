@@ -7,12 +7,12 @@
 
 $context = Timber::context();
 
-$templates = array( 'front-page.twig', 'home.twig', 'index.twig' );
+$templates = array('front-page.twig');
 
-$sticky = get_option( 'sticky_posts' );
+$sticky = get_option('sticky_posts');
 
-if ( get_query_var( 'paged' ) ) { $paged = get_query_var( 'paged' ); }
-elseif ( get_query_var( 'page' ) ) { $paged = get_query_var( 'page' ); }
+if ( get_query_var('paged') ) { $paged = get_query_var( 'paged' ); }
+elseif ( get_query_var('page') ) { $paged = get_query_var( 'page' ); }
 else { $paged = 1; }
 
 if (!empty($sticky)) {   

@@ -18,10 +18,10 @@
               {{ __('Posted in', 'rmcc-starter-theme') }} 
               {% for category in post.categories %}
                 {% if not loop.last %}
-                  <a title="{{ category }}" href="{{ category.link }}">{{ category }}</a>,
+                  <a href="{{ category.link }}">{{ category }}</a>,
                 {% endif %}
                 {% if loop.last %}
-                  <a title="{{ category }}" href="{{ category.link }}">{{ category }}</a>
+                  <a href="{{ category.link }}">{{ category }}</a>
                 {% endif %}
               {% endfor %}
             </p>
@@ -29,11 +29,36 @@
           
           {% if post.thumbnail %}
             <figure>
-              <img data-src="{{ post.thumbnail.src('rmcc-starter-theme-featured-image-archive') }}" width="800" height="300" alt="{{ post.thumbnail.alt }}" uk-img>
+              <img data-src="{{ post.thumbnail.src|resize(800, 400) }}" width="800" height="400" alt="{{ post.thumbnail.alt }}" uk-img>
+              {% if post.thumbnail.caption %}
+                <figcaption class="uk-padding-small uk-text-muted uk-text-center tease-image-caption">{{ post.thumbnail.caption }}</figcaption>
+              {% endif %}
             </figure>
           {% endif %}
 
-          {{ post.content }}
+          <div class="uk-margin-medium-bottom">
+            {{ post.content }}
+          </div>
+          
+          {% if post.post_type == 'post' and function('comments_open') %}
+            <section id="CommentBox">
+              
+              {% if post.comments|length > 0 %}
+                <ul class="uk-comment-list">
+                  {% for comment in post.comments %}
+                    {% include "comments.twig" %}
+                  {% endfor %}
+                </ul>
+              {% endif %}
+
+              <div id="CommentForm" class="uk-margin-top">
+                <hr>
+                <h4 class="uk-margin-remove-top">{{ __('Leave a new comment', 'rmcc-starter-theme') }}</h4>
+                {% include "comment-form.twig" %}
+              </div>
+
+            </section>
+          {% endif %}
 
         </article>
 
@@ -42,33 +67,5 @@
       </div>
     </div>
   </div>
-
-  {% if if_posts_more_than_one and post.post_type == 'post' %}
-    <div class="bottom-bar uk-section uk-section-xsmall uk-section-default uk-position-bottom uk-position-fixed theme-border-top">
-      <div class="uk-container uk-text-small">
-        <nav class="" uk-navbar>
-            <div class="uk-navbar-left">
-              <div class="uk-grid uk-grid-divider uk-grid-small" uk-grid>
-                {% if post.next %}
-                <div>
-                  <a href="{{ post.next.link }}" class="uk-link-reset"><span uk-icon="icon: arrow-left"></span> <strong>{{ __('Previous', 'rmcc-starter-theme') }}</strong></a>
-                </div>
-                {% endif %}
-                {% if post.prev %}
-                <div>
-                  <a href="{{ post.prev.link }}" class="uk-link-reset"><strong>{{ __('Next', 'rmcc-starter-theme') }}</strong> <span uk-icon="icon: arrow-right"></span><span class="uk-visible@m"> {{ post.prev.title }}</span></a>
-                </div>
-                {% endif %}
-              </div>
-            </div>
-            <div class="uk-navbar-right">
-              <a href="https://facebook.com/sharer/sharer.php?u={{post.link}}" target="_blank" class="uk-icon-button uk-margin-small-right" uk-icon="facebook" Title="Sharing for Facebook"></a>
-              <a href="https://twitter.com/home?status={{post.link}}" class="uk-icon-button  uk-margin-small-right" uk-icon="twitter"></a>
-              <a href="mailto:?" class="uk-icon-button" uk-icon="mail" Title="Sharing for Email"></a>
-            </div>
-        </nav>
-      </div>
-    </div>
-  {% endif %}
 
 {% endblock %}

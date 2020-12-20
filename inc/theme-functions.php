@@ -4,26 +4,6 @@
  *
  * @package Rmcc_Starter_Theme
  */
- 
-// 
-function if_posts_published_more_than_one()
-{
-  if( wp_count_posts()->publish > 1 ) :
-    return true;
-  else:
-    return false;
-  endif;
-}
- 
-// 
-function if_posts_more_than_one_return_class()
-{
-  if( wp_count_posts()->publish > 1 ) :
-    return 'posts-exist';
-  else:
-    return '';
-  endif;
-}
 
 // removes sticky posts from main loop, this function fixes issue of duplicate posts on archive. see https://wordpress.stackexchange.com/questions/225015/sticky-post-from-page-2-and-on
 add_action('pre_get_posts', function ($q)

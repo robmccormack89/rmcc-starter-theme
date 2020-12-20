@@ -37,27 +37,27 @@ msgstr ""
 msgid "Author Archives:"
 msgstr ""
 
-#: inc/timber-functions.php:58
-msgid "Main Sidebar Area"
+#: inc/timber-functions.php:59
+msgid "Sidebar Area"
 msgstr ""
 
-#: inc/timber-functions.php:60
-msgid "Sidebar Area, you can add multiple widgets here."
+#: inc/timber-functions.php:61
+msgid "Sidebar widget area; you can add multiple widgets here. Try the rmcc custom html widget with uikit markup."
 msgstr ""
 
-#: inc/timber-functions.php:67
-msgid "Main Footer Area"
+#: inc/timber-functions.php:68
+msgid "Footer Area"
 msgstr ""
 
-#: inc/timber-functions.php:69
-msgid "Main Footer Widget Area; works best with the current widget only."
-msgstr ""
-
-#: inc/timber-functions.php:82
-msgid "Main Menu"
+#: inc/timber-functions.php:70
+msgid "Footer widget area; use only one widget here. Try the rmcc custom html widget with uikit markup."
 msgstr ""
 
 #: inc/timber-functions.php:83
+msgid "Main Menu"
+msgstr ""
+
+#: inc/timber-functions.php:84
 msgid "Mobile Menu"
 msgstr ""
 
@@ -77,52 +77,88 @@ msgstr ""
 msgid "Sorry, nothing to display here.."
 msgstr ""
 
-#: views/temp/front-page.php:19, views/temp/front-page.php:65, views/temp/parts/tease.php:4
+#: views/temp/front-page.php:23, views/temp/front-page.php:75, views/temp/parts/tease.php:4
 msgid "Featured Article"
 msgstr ""
 
-#: views/temp/front-page.php:22
-msgid "Go to Article"
+#: views/temp/front-page.php:26, views/temp/parts/tease.php:27
+msgid "Read more"
 msgstr ""
 
-#: views/temp/front-page.php:36
+#: views/temp/front-page.php:40
 msgid "Homepage Hero Section"
 msgstr ""
 
-#: views/temp/front-page.php:38
+#: views/temp/front-page.php:42
 msgid "No posts found. This section shows your most recent sticky post. Add a post, make it sticky & dont forget to add a featured image."
 msgstr ""
 
-#: views/temp/front-page.php:52, views/temp/front-page.php:86
+#: views/temp/front-page.php:56, views/temp/front-page.php:96
 msgid "Featured Articles"
 msgstr ""
 
-#: views/temp/front-page.php:69
-msgid "Published on"
+#: views/temp/front-page.php:79, views/temp/parts/tease.php:7, views/temp/single/single.php:17
+msgid "Written on"
 msgstr ""
 
-#: views/temp/front-page.php:87
+#: views/temp/front-page.php:97
 msgid "No posts found. This section shows your next 3 most recent sticky posts. Add some more posts, make them sticky & dont forget to add featured images."
 msgstr ""
 
-#: views/temp/front-page.php:100, views/temp/front-page.php:108
+#: views/temp/front-page.php:111, views/temp/front-page.php:119
 msgid "More Articles"
 msgstr ""
 
-#: views/temp/front-page.php:109
+#: views/temp/front-page.php:120
 msgid "No posts found. This section shows your 4 most recent non-sticky posts. Add some more posts & add featured images."
 msgstr ""
 
+#: views/temp/parts/comments/comment-form.php:12
+msgid "Your name"
+msgstr ""
+
+#: views/temp/parts/comments/comment-form.php:15
+msgid "Your email"
+msgstr ""
+
+#: views/temp/parts/comments/comment-form.php:20
+msgid "Your website address (including http:// or https://)"
+msgstr ""
+
+#: views/temp/parts/comments/comment-form.php:23
+msgid "Leave a message..."
+msgstr ""
+
+#: views/temp/parts/comments/comment-form.php:27
+msgid "Send"
+msgstr ""
+
+#: views/temp/parts/comments/comment-form.php:28
+msgid "Clear"
+msgstr ""
+
+#: views/temp/parts/comments/comments.php:13, views/temp/parts/comments/comments.php:48, views/temp/parts/comments/comments.php:83, views/temp/parts/comments/comments.php:118, views/temp/parts/comments/comments.php:153
+msgid "at"
+msgstr ""
+
+#: views/temp/parts/comments/comments.php:19, views/temp/parts/comments/comments.php:54, views/temp/parts/comments/comments.php:89, views/temp/parts/comments/comments.php:124, views/temp/parts/comments/comments.php:159
+msgid "Edit"
+msgstr ""
+
+#: views/temp/parts/comments/comments.php:26, views/temp/parts/comments/comments.php:61, views/temp/parts/comments/comments.php:96, views/temp/parts/comments/comments.php:131, views/temp/parts/comments/comments.php:166
+msgid "Reply"
+msgstr ""
+
+#: views/temp/parts/comments/comments.php:29, views/temp/parts/comments/comments.php:64, views/temp/parts/comments/comments.php:99, views/temp/parts/comments/comments.php:134, views/temp/parts/comments/comments.php:169
+msgid "Reply to"
+msgstr ""
+
+#: views/temp/parts/comments/comments.php:45, views/temp/parts/comments/comments.php:80, views/temp/parts/comments/comments.php:115, views/temp/parts/comments/comments.php:150
+msgid "Reply from"
+msgstr ""
+
 #: views/temp/parts/footer.php:7
-msgid "Copyright©"
-msgstr ""
-
-#: views/temp/parts/footer.php:8
-msgid "Created by"
-msgstr ""
-
-#: views/temp/parts/footer.php:9
-msgid "A wordpress theme built with"
+msgid "Add some widgets to the Footer Widget Area in Appearance > Widgets."
 msgstr ""
 
 #: views/temp/parts/header.php:43
@@ -133,8 +169,12 @@ msgstr ""
 msgid "Change Style"
 msgstr ""
 
-#: views/temp/parts/header.php:55, views/temp/parts/header.php:77
+#: views/temp/parts/header.php:55, views/temp/parts/header.php:76
 msgid "Menu"
+msgstr ""
+
+#: views/temp/parts/header.php:66
+msgid "Start typing..."
 msgstr ""
 
 #: views/temp/parts/header.php:74
@@ -143,6 +183,10 @@ msgstr ""
 
 #: views/temp/parts/header.php:97
 msgid "Add a menu to the Mobile Menu slot in Appearance > Menus."
+msgstr ""
+
+#: views/temp/parts/header.php:103
+msgid "Search..."
 msgstr ""
 
 #: views/temp/parts/pagination.php:9
@@ -173,22 +217,10 @@ msgstr ""
 msgid "Add some widgets to the Sidebar Widget Area in Appearance > Widgets."
 msgstr ""
 
-#: views/temp/parts/tease.php:7, views/temp/single/single.php:17
-msgid "Written on"
-msgstr ""
-
 #: views/temp/parts/tease.php:7, views/temp/single/single.php:18
 msgid "Posted in"
 msgstr ""
 
-#: views/temp/parts/tease.php:27
-msgid "Read more"
-msgstr ""
-
-#: views/temp/single/single.php:54
-msgid "Previous"
-msgstr ""
-
-#: views/temp/single/single.php:59
-msgid "Next"
+#: views/temp/single/single.php:56
+msgid "Leave a new comment"
 msgstr ""

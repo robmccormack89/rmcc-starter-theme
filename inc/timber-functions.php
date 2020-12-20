@@ -10,6 +10,7 @@ Timber::$dirname = array(
   'views/',
   'views/archive',
   'views/parts',
+  'views/parts/comments',
   'views/single',
 );
 
@@ -25,10 +26,9 @@ Timber::$autoescape = false;
  */
 class RmccStarterTheme extends Timber\Site
 {
-  /** Add timber support. */
+  /** Add timber support */
   public function __construct()
   {
-    // timber stuff
     add_action('after_setup_theme', array( $this, 'theme_supports' ));
     add_action('wp_enqueue_scripts', array( $this, 'rmcc_starter_theme_enqueue_assets'));
     add_action('widgets_init', array( $this, 'rmcc_starter_custom_uikit_widgets_init'));
@@ -43,11 +43,12 @@ class RmccStarterTheme extends Timber\Site
 
   public function register_post_types()
   {
+    // Register Post Types
   }
 
   public function register_taxonomies()
   {
-    // Register Custom Taxonomy
+    // Register Taxonomies
   }
 
   public function register_widget_areas()
@@ -55,18 +56,18 @@ class RmccStarterTheme extends Timber\Site
     // Register widget areas
     if (function_exists('register_sidebar')) {
       register_sidebar(array(
-        'name' => esc_html__('Main Sidebar Area', 'rmcc-starter-theme'),
-        'id' => 'sidebar-main',
-        'description' => esc_html__('Sidebar Area, you can add multiple widgets here.', 'rmcc-starter-theme'),
+        'name' => esc_html__('Sidebar Area', 'rmcc-starter-theme'),
+        'id' => 'sidebar',
+        'description' => esc_html__('Sidebar widget area; you can add multiple widgets here. Try the rmcc custom html widget with uikit markup.', 'rmcc-starter-theme'),
         'before_widget' => '',
         'after_widget' => '',
         'before_title' => '<h3 class="uk-text-bold widget-title">',
         'after_title' => '</h3>'
       ));
       register_sidebar(array(
-          'name' => esc_html__('Main Footer Area', 'rmcc-starter-theme'),
+          'name' => esc_html__('Footer Area', 'rmcc-starter-theme'),
           'id' => 'sidebar-footer',
-          'description' => esc_html__('Main Footer Widget Area; works best with the current widget only.', 'rmcc-starter-theme'),
+          'description' => esc_html__('Footer widget area; use only one widget here. Try the rmcc custom html widget with uikit markup.', 'rmcc-starter-theme'),
           'before_widget' => '',
           'after_widget' => '',
           'before_title' => '<h4 class="widget-title">',
@@ -108,11 +109,8 @@ class RmccStarterTheme extends Timber\Site
     $context['theme_logo_url'] = $theme_logo_url;
 
     // add sidebars to them context
-    $context['sidebar_main']  = Timber::get_widgets('Main Sidebar Area');
-    $context['sidebar_footer']   = Timber::get_widgets('Main Footer Area');
-    
-    $context['if_posts_more_than_one'] = if_posts_published_more_than_one();
-    $context['posts_more_than_one_class'] = if_posts_more_than_one_return_class();
+    $context['sidebar_main']  = Timber::get_widgets('Sidebar Area');
+    $context['sidebar_footer']   = Timber::get_widgets('Footer Area');
 
     return $context;
     
@@ -150,10 +148,6 @@ class RmccStarterTheme extends Timber\Site
       'flex-width' => true,
       'flex-height' => true
     ));
-    // add custom thumbs sizes.
-    add_image_size('rmcc-starter-theme-featured-image-archive', 800, 300, true);
-    add_image_size('rmcc-starter-theme-hero-image', 1138, 388, true);
-    add_image_size('rmcc-starter-theme-post-slider-image', 600, 600, true);
 
     load_theme_textdomain( 'rmcc-starter-theme', get_template_directory() . '/languages' );
   }
