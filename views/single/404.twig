@@ -1,0 +1,15 @@
+{% extends "page.twig" %}
+
+{% block single_header %}
+{% endblock %}
+
+{% block single_content %}
+  <h4>{{ __('Sorry, this page or item doesnt exist', 'rmcc-starter-theme') }}</h4>
+  <p>{{ __('We couldnt find what you were looking for. Try using the search form below', 'rmcc-starter-theme') }}</p>
+  <div class="">
+    <form class="uk-search uk-search-default uk-width-1-2 search-form" role="search" method="get" action="{{site.url|e('html_attr')}}">
+      <span uk-search-icon></span>
+      <input class="uk-search-input" name="s" type="search" placeholder="Search..." autocomplete="off">
+    </form>
+  </div>
+{% endblock %}

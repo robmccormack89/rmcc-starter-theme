@@ -3,8 +3,8 @@
   "version": "1.0.0",
   "main": "index.js",
   "dependencies": {
-    "uikit": "^3.5.17",
-    "infinite-scroll": "^3.0.6"
+    "uikit": "^3.5.18",
+    "infinite-scroll": "^4.0.1"
   },
   "devDependencies": {
     "gulp": "^4.0.2",

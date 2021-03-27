@@ -15,3 +15,26 @@ Use it to make something cool, have fun, and share what you've learned with othe
 Starter WP Theme is based on Underscores https://underscores.me/, (C) 2012-2017 Automattic, Inc.
 Underscores is distributed under the terms of the GNU GPL v2 or later.
 */
+
+/* dark light buttons */
+.dark-moon svg.uk-svg {
+  color: #fff;
+  stroke: #999;
+}
+#MoonLink svg.uk-svg {
+  height: 20px;
+  width: 20px;
+}
+#SunLink svg.uk-svg {
+  height: 21px;
+  width: 21px;
+}
+/* utility  */
+.pull-up-2 {
+  margin-top: -2px;
+}
+/* tease */
+.tease-post-list .featured-label {
+  top: 10px;
+  left: 10px;
+}

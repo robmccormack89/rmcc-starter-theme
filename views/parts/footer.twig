@@ -1,11 +1,9 @@
-<footer class="the-footer uk-section uk-section-small uk-section-muted">
+<footer class="uk-section uk-section-small uk-section-muted">
   <div class="uk-container">
     {% if sidebar_footer %}
     	{{sidebar_footer}}
     {% else %}
-    	<p class="uk-text-small uk-text-center">
-        {{ __('Add some widgets to the Footer Widget Area in Appearance > Widgets.', 'rmcc-starter-theme') }}
-      </p>
+    	<p class="uk-text-small uk-text-center">{{ __('Add some widgets to the Footer Widget Area in Appearance > Widgets.', 'rmcc-starter-theme') }}</p>
     {% endif %}
   </div>
 </footer>

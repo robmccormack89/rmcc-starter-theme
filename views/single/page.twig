@@ -1,1 +1,33 @@
 {% extends "single.twig" %}
+
+{% block single_headr %}
+  <header class="article-header">
+  
+    {% block single_title %}
+      <h1 class="uk-article-title">
+        {{ post.title|e('esc_html') }}
+      </h1>
+    {% endblock %}
+    
+    {% block single_thumb %}
+      {% if post.thumbnail %}
+        <figure>
+          <img data-src="{{ post.thumbnail.src|resize(800, 400)|e('esc_url') }}" width="800" height="400" alt="{{ post.thumbnail.alt|e('html_attr') }}" uk-img>
+          {% if post.thumbnail.caption %}
+            <figcaption class="uk-padding-small uk-text-muted uk-text-center tease-image-caption">{{ post.thumbnail.caption|e('esc_html') }}</figcaption>
+          {% endif %}
+        </figure>
+      {% endif %}
+    {% endblock %}
+  
+  </header>
+{% endblock %}
+
+{% block single_content %}
+  <div class="page-content uk-margin-medium-bottom">
+    {{ post.content|e('wp_kses_post') }}
+  </div>
+{% endblock %}
+
+{% block single_footr %}
+{% endblock %}

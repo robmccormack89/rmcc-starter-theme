@@ -1,31 +1,33 @@
 {% extends "base.twig" %}
 
 {% block content %}
-  <div class="uk-section" data-template="index.twig">
-    <div class="uk-container">
-      <div class="uk-grid-large" uk-grid>
+  <div id="IndexArchive" class="uk-section uk-container" data-template="index.twig">
+    <div class="uk-grid-large" uk-grid>
+      
+      <section class="archive-section uk-width-2-3@m">
+          
+        <header class="archive-header">
+          <h1 class="uk-article-title uk-margin-large-bottom">{{title|e('esc_html')}}</h1>
+        </header>
         
-        <div class="uk-article uk-width-2-3@m">
-          
-          <h1 class="uk-article-title uk-margin-large-bottom">{{ title }}</h1>
-          
-          {% if posts is not empty %}
-            <div class="archive-posts">
-              {% for post in posts %}
-                {% include ['tease-'~post.post_type~'.twig', 'tease.twig'] %}
-              {% endfor %}
-            </div>
-          {% else %}
-            <p class="uk-text-emphasis">{{ __('No posts found. Add some posts & dont forget to add featured images.', 'rmcc-starter-theme') }}</p>
-          {% endif %}
-
+        {% if posts is not empty %}
+          <div class="archive-posts">
+            {% for post in posts %}
+              {% include ['tease-'~post.post_type~'.twig', 'tease.twig'] %}
+            {% endfor %}
+          </div>
+        {% else %}
+          <p class="uk-text-emphasis">{{ __('No posts found. Add some posts & dont forget to add featured images.', 'rmcc-starter-theme') }}</p>
+        {% endif %}
+        
+        <footer class="archive-footer">
           {% include 'pagination.twig' with { pagination: posts.pagination({show_all: false, mid_size: 3, end_size: 2}) } %}
+        </footer>
 
-        </div>
-        
-        {% include 'sidebar.twig' %}
-        
-      </div>
+      </section>
+      
+      {% include 'sidebar.twig' %}
+    
     </div>
   </div>
 {% endblock %}

@@ -1,7 +1,5 @@
 <header id="SiteHeader" class="the-header uk-background-default">
-  <div class="uk-container">
-  
-  <nav class="uk-navbar-transparent" uk-navbar>
+  <nav class="uk-navbar-transparent uk-container" uk-navbar>
     
     <div class="uk-navbar-left nav-logo-area">
       {% if theme_logo_url %}
@@ -49,16 +47,30 @@
       <div class="uk-visible@m">
         <a class="uk-navbar-toggle" href="#modal-navbar-search" uk-search-icon uk-toggle></a>
       </div>
-      <button class="uk-button uk-button-default uk-visible@m" type="button" uk-toggle="target: body; cls: dark-style uk-light">{{ __('Change Style', 'rmcc-starter-theme') }}</button>
+      <div class="uk-navbar-item dark-moon pull-right-15">
+
+        <a id="MoonLink" class="moon-link pull-up-2 uk-link-reset" onclick="cookieMeTimbers()"><img src="{{theme.link}}/assets/img/moon.svg" uk-svg></a>
+        
+        <a id="SunLink" class="sun-link pull-up-2" onclick="cookieMeTimbers()"><img src="{{theme.link}}/assets/img/sun.svg" uk-svg></a>
+
+      </div>
+      <button class="uk-button uk-button-default uk-visible@m" type="button" onclick="cookieMeTimbers()" hidden>{{ __('Change Style', 'rmcc-starter-theme') }}</button>
       <ul class="uk-navbar-nav uk-hidden@m">
         <li>
           <a class="uk-navbar-toggle pull-right-15" uk-navbar-toggle-icon uk-toggle href="#offcanvas-mobile-nav"><span class="uk-hidden">{{ __('Menu', 'rmcc-starter-theme') }}</span></a>
         </li>
       </ul>
+      <div class="uk-navbar-item dark-light-switch" hidden>
+
+        <label class="uk-switch" for="LightDarkSwitch">
+          <input type="checkbox" id="LightDarkSwitch">
+          <div class="uk-switch-slider uk-switch-big"></div>
+        </label>
+
+      </div>
     </div>
   
   </nav>
-  
   <div id="modal-navbar-search" class="uk-modal-full" uk-modal>
     <div class="uk-modal-dialog uk-flex uk-flex-center uk-flex-middle" uk-height-viewport>
       <button class="uk-modal-close-full" type="button" uk-close></button>
@@ -68,7 +80,6 @@
       </form>
     </div>
   </div>
-
   <div id="offcanvas-mobile-nav" uk-offcanvas="flip: true; overlay: true">
     <div class="uk-offcanvas-bar uk-offcanvas-bar-animation uk-offcanvas-slide">
       <button class="uk-offcanvas-close uk-close uk-icon" uk-close type="button"><span class="uk-hidden">{{ __('Close', 'rmcc-starter-theme') }}</span></button>
@@ -103,10 +114,8 @@
             <input class="uk-search-input" type="search" placeholder="{{ __('Search...', 'rmcc-starter-theme') }}" id="SearchMobile" name="s" autocomplete="off">
           </form>
         </div>
-        <button class="uk-button uk-button-default uk-margin-top uk-width-1-1 uk-margin-small-bottom" type="button" uk-toggle="target: body; cls: dark-style uk-light">{{ __('Change Style', 'rmcc-starter-theme') }}</button>
+        <button class="uk-button uk-button-default uk-margin-top uk-width-1-1 uk-margin-small-bottom" type="button" onclick="cookieMeTimbers()">{{ __('Change Style', 'rmcc-starter-theme') }}</button>
       </ul>
     </div>
   </div>
-  
-</div>
 </header>

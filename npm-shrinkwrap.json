@@ -2082,11 +2082,6 @@
         "minimalistic-assert": "^1.0.0"
       }
     },
-    "desandro-matches-selector": {
-      "version": "2.0.2",
-      "resolved": "https://registry.npmjs.org/desandro-matches-selector/-/desandro-matches-selector-2.0.2.tgz",
-      "integrity": "sha1-cXvu1NwT59jzdi9wem1YpndCGOE="
-    },
     "detect-file": {
       "version": "1.0.0",
       "resolved": "https://registry.npmjs.org/detect-file/-/detect-file-1.0.0.tgz",
@@ -2247,24 +2242,24 @@
       "dev": true
     },
     "elliptic": {
-      "version": "6.5.3",
-      "resolved": "https://registry.npmjs.org/elliptic/-/elliptic-6.5.3.tgz",
-      "integrity": "sha512-IMqzv5wNQf+E6aHeIqATs0tOLeOTwj1QKbRcS3jBbYkl5oLAserA8yJTT7/VyHUYG91PRmPyeQDObKLPpeS4dw==",
+      "version": "6.5.4",
+      "resolved": "https://registry.npmjs.org/elliptic/-/elliptic-6.5.4.tgz",
+      "integrity": "sha512-iLhC6ULemrljPZb+QutR5TQGB+pdW6KGD5RSegS+8sorOZT+rdQFbsQFJgvN3eRqNALqJer4oQ16YvJHlU8hzQ==",
       "dev": true,
       "requires": {
-        "bn.js": "^4.4.0",
-        "brorand": "^1.0.1",
+        "bn.js": "^4.11.9",
+        "brorand": "^1.1.0",
         "hash.js": "^1.0.0",
-        "hmac-drbg": "^1.0.0",
-        "inherits": "^2.0.1",
-        "minimalistic-assert": "^1.0.0",
-        "minimalistic-crypto-utils": "^1.0.0"
+        "hmac-drbg": "^1.0.1",
+        "inherits": "^2.0.4",
+        "minimalistic-assert": "^1.0.1",
+        "minimalistic-crypto-utils": "^1.0.1"
       },
       "dependencies": {
         "bn.js": {
-          "version": "4.11.9",
-          "resolved": "https://registry.npmjs.org/bn.js/-/bn.js-4.11.9.tgz",
-          "integrity": "sha512-E6QoYqCKZfgatHTdHzs1RRKP7ip4vvm+EyRUeE2RF0NblwVvb0p6jSVeNTOFxPn26QXN2o6SMfNxKp6kU8zQaw==",
+          "version": "4.12.0",
+          "resolved": "https://registry.npmjs.org/bn.js/-/bn.js-4.12.0.tgz",
+          "integrity": "sha512-c98Bf3tPniI+scsdk237ku1Dc3ujXQTSgyiPUDEOe7tRkhrqridvh8klBv0HCEso1OLOYcHuCv/cS6DNxKH+ZA==",
           "dev": true
         }
       }
@@ -2502,9 +2497,9 @@
       "dev": true
     },
     "ev-emitter": {
-      "version": "1.1.1",
-      "resolved": "https://registry.npmjs.org/ev-emitter/-/ev-emitter-1.1.1.tgz",
-      "integrity": "sha512-ipiDYhdQSCZ4hSbX4rMW+XzNKMD1prg/sTvoVmSLkuQ1MVlwjJQQA+sW8tMYR3BLUr9KjodFV4pvzunvRhd33Q=="
+      "version": "2.1.0",
+      "resolved": "https://registry.npmjs.org/ev-emitter/-/ev-emitter-2.1.0.tgz",
+      "integrity": "sha512-73qJdHUbyfA6ykAvWf4bBV7fQNYVOPd9nA3qfiQkgKVgIBKro/MAfJnZgyayWUapHU0Y5Qk9unofK3WirjkrVQ=="
     },
     "event-emitter": {
       "version": "0.3.5",
@@ -2807,12 +2802,9 @@
       }
     },
     "fizzy-ui-utils": {
-      "version": "2.0.7",
-      "resolved": "https://registry.npmjs.org/fizzy-ui-utils/-/fizzy-ui-utils-2.0.7.tgz",
-      "integrity": "sha512-CZXDVXQ1If3/r8s0T+v+qVeMshhfcuq0rqIFgJnrtd+Bu8GmDmqMjntjUePypVtjHXKJ6V4sw9zeyox34n9aCg==",
-      "requires": {
-        "desandro-matches-selector": "^2.0.0"
-      }
+      "version": "3.0.0",
+      "resolved": "https://registry.npmjs.org/fizzy-ui-utils/-/fizzy-ui-utils-3.0.0.tgz",
+      "integrity": "sha512-uJj38QFQiJ/KCio5tiZhwAjIbTXSIgzBCKdKVbaYfLS053F6z23Nb0o1ZoO9gnxOQWN7BCc35jsvrCtAq3gY9g=="
     },
     "flagged-respawn": {
       "version": "1.0.1",
@@ -3980,12 +3972,12 @@
       "dev": true
     },
     "infinite-scroll": {
-      "version": "3.0.6",
-      "resolved": "https://registry.npmjs.org/infinite-scroll/-/infinite-scroll-3.0.6.tgz",
-      "integrity": "sha512-679gpKlS/XuAnA+spIRNFSel1dsZ44ljKVlkWHVNTtibJR0cUIC3jwZaBQUsaR1TvPFnaQijRlS8Q/lPgx1VAA==",
+      "version": "4.0.1",
+      "resolved": "https://registry.npmjs.org/infinite-scroll/-/infinite-scroll-4.0.1.tgz",
+      "integrity": "sha512-14Utu6d8g6mO5PmwUxfAUK5uaKdClIkrJqLmBYXj/AMBRy5ApsCWkkY84HvsSq4MM1A062gtf58S9OiD5WBfRA==",
       "requires": {
-        "ev-emitter": "^1.1.0",
-        "fizzy-ui-utils": "^2.0.5"
+        "ev-emitter": "^2.1.0",
+        "fizzy-ui-utils": "^3.0.0"
       }
     },
     "inflight": {

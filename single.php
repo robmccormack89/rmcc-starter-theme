@@ -1,12 +1,13 @@
 <?php
 /**
- * The default template for displaying all single posts
- *
- * @package Rmcc_Starter_Theme
- */
+* The default template for displaying all single posts
+*
+* @package Rmcc_Starter_Theme
+*/
 
 $context = Timber::context();
 $post = Timber::query_post();
+
 $context['post'] = $post;
 $context['current_user'] = new Timber\User();
 

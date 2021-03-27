@@ -1,0 +1,186 @@
+<li>
+  <article {{ function('comment_class', 'uk-comment uk-comment-primary theme-border-top uk-visible-toggle', comment.id) }} tabindex="-1">
+    <header class="uk-comment-header uk-position-relative">
+      <div class="uk-grid-medium uk-flex-middle" uk-grid>
+        <div class="uk-width-auto">
+          <img class="uk-comment-avatar uk-border-circle" alt="{{comment.author.name|e('html_attr')}} avatar" src="{{comment.avatar|e('esc_url')}}" width="70" height="70" alt="">
+        </div>
+        <div class="uk-width-expand">
+          <h4 class="uk-comment-title uk-margin-remove">
+            {{comment.author.name|e('esc_html')}}
+          </h4>
+          <p class="uk-comment-meta uk-margin-remove-top">
+            {{comment.date|e('esc_html')}} {{ __('at', 'ned-murphy-tractors-theme') }} {{comment.time|e('esc_html')}}
+          </p>
+        </div>
+      </div>
+      {% if comment.author == current_user %}
+        <div class="uk-position-top-right uk-position-small uk-hidden-hover">
+          <a class="uk-link-muted uk-margin-left" href="{{ function('get_edit_comment_link', comment.id)|e('esc_url') }}">{{ __('Edit', 'ned-murphy-tractors-theme') }}</a>
+        </div>
+      {% endif %}
+    </header>
+    <div class="uk-comment-body">
+      <div class="uk-margin-top">
+        {{comment.content|e('wp_kses_post')}}
+        <a class="uk-button uk-button-small uk-button-default uk-text-capitalize" href uk-toggle="target: #comment-reply-box{{ comment.id|e('html_attr') }}; animation: uk-animation-fade">{{ __('Reply', 'ned-murphy-tractors-theme') }}</a>
+      </div>
+      <div id="comment-reply-box{{ comment.id|e('html_attr') }}" class="uk-margin-top" hidden>
+        <h4 class="uk-heading-line">{{ __('Reply to', 'ned-murphy-tractors-theme') }} {{comment.author.name|e('esc_html')}}</h4>
+        {% include "comment-form.twig" %}
+      </div>
+    </div>
+  </article>
+  {% for comment in comment.children %}
+    <ul>
+      <li>
+        <article {{ function('comment_class', 'uk-comment uk-comment-primary theme-border-top uk-visible-toggle', comment.id) }} tabindex="-1">
+          <header class="uk-comment-header uk-position-relative">
+            <div class="uk-grid-medium uk-flex-middle" uk-grid>
+              <div class="uk-width-auto">
+                <img class="uk-comment-avatar uk-border-circle" alt="{{comment.author.name|e('html_attr')}} avatar" src="{{comment.avatar|e('esc_url')}}" width="70" height="70" alt="">
+              </div>
+              <div class="uk-width-expand">
+                <h4 class="uk-comment-title uk-margin-remove">
+                  {{ __('Reply from', 'ned-murphy-tractors-theme') }} {{comment.author.name|e('esc_html')}}
+                </h4>
+                <p class="uk-comment-meta uk-margin-remove-top">
+                  {{comment.date|e('esc_html')}} {{ __('at', 'ned-murphy-tractors-theme') }} {{comment.time|e('esc_html')}}
+                </p>
+              </div>
+            </div>
+            {% if comment.author == current_user %}
+              <div class="uk-position-top-right uk-position-small uk-hidden-hover">
+                <a class="uk-link-muted uk-margin-left" href="{{ function('get_edit_comment_link', comment.id)|e('esc_url') }}">{{ __('Edit', 'ned-murphy-tractors-theme') }}</a>
+              </div>
+            {% endif %}
+          </header>
+          <div class="uk-comment-body">
+            <div class="uk-margin-top">
+              {{comment.content|e('wp_kses_post')}}
+              <a class="uk-button uk-button-small uk-button-default uk-text-capitalize" href uk-toggle="target: #comment-reply-box{{ comment.id|e('html_attr') }}; animation: uk-animation-fade">{{ __('Reply', 'ned-murphy-tractors-theme') }}</a>
+            </div>
+            <div id="comment-reply-box{{ comment.id|e('html_attr') }}" class="uk-margin-top" hidden>
+              <h4 class="uk-heading-line">{{ __('Reply to', 'ned-murphy-tractors-theme') }} {{comment.author.name|e('esc_html')}}</h4>
+              {% include "comment-form.twig" %}
+            </div>
+          </div>
+        </article>
+        {% for comment in comment.children %}
+          <ul>
+            <li>
+              <article {{ function('comment_class', 'uk-comment uk-comment-primary theme-border-top uk-visible-toggle', comment.id) }} tabindex="-1">
+                <header class="uk-comment-header uk-position-relative">
+                  <div class="uk-grid-medium uk-flex-middle" uk-grid>
+                    <div class="uk-width-auto">
+                      <img class="uk-comment-avatar uk-border-circle" alt="{{comment.author.name|e('html_attr')}} avatar" src="{{comment.avatar|e('esc_url')}}" width="70" height="70" alt="">
+                    </div>
+                    <div class="uk-width-expand">
+                      <h4 class="uk-comment-title uk-margin-remove">
+                        {{ __('Reply from', 'ned-murphy-tractors-theme') }} {{comment.author.name|e('esc_html')}}
+                      </h4>
+                      <p class="uk-comment-meta uk-margin-remove-top">
+                        {{comment.date|e('esc_html')}} {{ __('at', 'ned-murphy-tractors-theme') }} {{comment.time|e('esc_html')}}
+                      </p>
+                    </div>
+                  </div>
+                  {% if comment.author == current_user %}
+                    <div class="uk-position-top-right uk-position-small uk-hidden-hover">
+                      <a class="uk-link-muted uk-margin-left" href="{{ function('get_edit_comment_link', comment.id)|e('esc_url') }}">{{ __('Edit', 'ned-murphy-tractors-theme') }}</a>
+                    </div>
+                  {% endif %}
+                </header>
+                <div class="uk-comment-body">
+                  <div class="uk-margin-top">
+                    {{comment.content|e('wp_kses_post')}}
+                    <a class="uk-button uk-button-small uk-button-default uk-text-capitalize" href uk-toggle="target: #comment-reply-box{{ comment.id|e('html_attr') }}; animation: uk-animation-fade">{{ __('Reply', 'ned-murphy-tractors-theme') }}</a>
+                  </div>
+                  <div id="comment-reply-box{{ comment.id|e('html_attr') }}" class="uk-margin-top" hidden>
+                    <h4 class="uk-heading-line">{{ __('Reply to', 'ned-murphy-tractors-theme') }} {{comment.author.name|e('esc_html')}}</h4>
+                    {% include "comment-form.twig" %}
+                  </div>
+                </div>
+              </article>
+              {% for comment in comment.children %}
+                <ul>
+                  <li>
+                    <article {{ function('comment_class', 'uk-comment uk-comment-primary theme-border-top uk-visible-toggle', comment.id) }} tabindex="-1">
+                      <header class="uk-comment-header uk-position-relative">
+                        <div class="uk-grid-medium uk-flex-middle" uk-grid>
+                          <div class="uk-width-auto">
+                            <img class="uk-comment-avatar uk-border-circle" alt="{{comment.author.name|e('html_attr')}} avatar" src="{{comment.avatar|e('esc_url')}}" width="70" height="70" alt="">
+                          </div>
+                          <div class="uk-width-expand">
+                            <h4 class="uk-comment-title uk-margin-remove">
+                              {{ __('Reply from', 'ned-murphy-tractors-theme') }} {{comment.author.name|e('esc_html')}}
+                            </h4>
+                            <p class="uk-comment-meta uk-margin-remove-top">
+                              {{comment.date|e('esc_html')}} {{ __('at', 'ned-murphy-tractors-theme') }} {{comment.time|e('esc_html')}}
+                            </p>
+                          </div>
+                        </div>
+                        {% if comment.author == current_user %}
+                          <div class="uk-position-top-right uk-position-small uk-hidden-hover">
+                            <a class="uk-link-muted uk-margin-left" href="{{ function('get_edit_comment_link', comment.id)|e('esc_url') }}">{{ __('Edit', 'ned-murphy-tractors-theme') }}</a>
+                          </div>
+                        {% endif %}
+                      </header>
+                      <div class="uk-comment-body">
+                        <div class="uk-margin-top">
+                          {{comment.content|e('wp_kses_post')}}
+                          <a class="uk-button uk-button-small uk-button-default uk-text-capitalize" href uk-toggle="target: #comment-reply-box{{ comment.id|e('html_attr') }}; animation: uk-animation-fade">{{ __('Reply', 'ned-murphy-tractors-theme') }}</a>
+                        </div>
+                        <div id="comment-reply-box{{ comment.id|e('html_attr') }}" class="uk-margin-top" hidden>
+                          <h4 class="uk-heading-line">{{ __('Reply to', 'ned-murphy-tractors-theme') }} {{comment.author.name|e('esc_html')}}</h4>
+                          {% include "comment-form.twig" %}
+                        </div>
+                      </div>
+                    </article>
+                    {% for comment in comment.children %}
+                      <ul>
+                        <li>
+                          <article {{ function('comment_class', 'uk-comment uk-comment-primary theme-border-top uk-visible-toggle', comment.id) }} tabindex="-1">
+                            <header class="uk-comment-header uk-position-relative">
+                              <div class="uk-grid-medium uk-flex-middle" uk-grid>
+                                <div class="uk-width-auto">
+                                  <img class="uk-comment-avatar uk-border-circle" alt="{{comment.author.name|e('html_attr')}} avatar" src="{{comment.avatar|e('esc_url')}}" width="70" height="70" alt="">
+                                </div>
+                                <div class="uk-width-expand">
+                                  <h4 class="uk-comment-title uk-margin-remove">
+                                    {{ __('Reply from', 'ned-murphy-tractors-theme') }} {{comment.author.name|e('esc_html')}}
+                                  </h4>
+                                  <p class="uk-comment-meta uk-margin-remove-top">
+                                    {{comment.date|e('esc_html')}} {{ __('at', 'ned-murphy-tractors-theme') }} {{comment.time|e('esc_html')}}
+                                  </p>
+                                </div>
+                              </div>
+                              {% if comment.author == current_user %}
+                                <div class="uk-position-top-right uk-position-small uk-hidden-hover">
+                                  <a class="uk-link-muted uk-margin-left" href="{{ function('get_edit_comment_link', comment.id)|e('esc_url') }}">{{ __('Edit', 'ned-murphy-tractors-theme') }}</a>
+                                </div>
+                              {% endif %}
+                            </header>
+                            <div class="uk-comment-body">
+                              <div class="uk-margin-top">
+                                {{comment.content|e('wp_kses_post')}}
+                                <a class="uk-button uk-button-small uk-button-default uk-text-capitalize" href uk-toggle="target: #comment-reply-box{{ comment.id|e('html_attr') }}; animation: uk-animation-fade">{{ __('Reply', 'ned-murphy-tractors-theme') }}</a>
+                              </div>
+                              <div id="comment-reply-box{{ comment.id|e('html_attr') }}" class="uk-margin-top" hidden>
+                                <h4 class="uk-heading-line">{{ __('Reply to', 'ned-murphy-tractors-theme') }} {{comment.author.name|e('esc_html')}}</h4>
+                                {% include "comment-form.twig" %}
+                              </div>
+                            </div>
+                          </article>
+                        </li>
+                      </ul>
+                    {% endfor %}
+                  </li>
+                </ul>
+              {% endfor %}
+          </li>
+          </ul>
+        {% endfor %}
+      </li>
+    </ul>
+  {% endfor %}
+</li>

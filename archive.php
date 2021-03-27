@@ -1,17 +1,17 @@
 <?php
 /**
- * The template for displaying general archive pages
- *
- * @package Rmcc_Starter_Theme
- */
+* The template for displaying general archive pages
+*
+* @package Rmcc_Starter_Theme
+*/
 
-$templates = array( 'archive.twig', 'index.twig' );
-
+// timber get the context
 $context = Timber::context();
-
-$context['pagination'] = Timber::get_pagination();
-$context['paged'] = $paged;
-
+// set the templates variable, so we can add templates to the array depending on conditions set below
+$templates = array( 'archive.twig', 'index.twig' );
+// get the main query posts & set as posts variable
+$context['posts'] = new Timber\PostQuery();
+// setting the title variable
 $context['title'] = 'Archive';
 if ( is_day() ) {
 	$context['title'] = esc_html__('Day:', 'rmcc-starter-theme').' '.get_the_date( 'D M Y' );
@@ -28,7 +28,9 @@ if ( is_day() ) {
 	$context['title'] = post_type_archive_title( '', false );
 	array_unshift( $templates, 'archive-' . get_post_type() . '.twig' );
 }
+// setting pagination & paged variables, for used on archives with pagination
+$context['pagination'] = Timber::get_pagination();
+$context['paged'] = $paged;
 
-$context['posts'] = new Timber\PostQuery();
-
+// timber render twig templates with the context
 Timber::render( $templates, $context );

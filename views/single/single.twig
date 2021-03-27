@@ -1,71 +1,113 @@
 {% extends "base.twig" %}
 
 {% block content %}
+  <div id="Single{{post.id|e('html_attr')}}" class="post-type-{{post.post_type|e('html_attr')}} {{post.class|e('html_attr')}} uk-section uk-container" data-template="single.twig">
+    <div class="uk-grid-large" uk-grid>
 
-  <div class="uk-section" data-template="single.twig">
-    <div class="uk-container">
-      <div class="uk-grid-large" uk-grid>
-      
-        <article id="post-{{post.id}}" class="post-type-{{ post.post_type }} uk-article uk-width-2-3@m {{post.class}}">
+      <section class="left-section uk-width-2-3@m">
+        <article class="uk-article">
           
-          <h1 class="uk-article-title">
-            {{ post.title }}
-          </h1>
-          
-          {% if post.post_type == "post" %}
-            <p class="uk-article-meta">
-              {{ __('Written on', 'rmcc-starter-theme') }} {{post.date | date}}.
-              {{ __('Posted in', 'rmcc-starter-theme') }} 
-              {% for category in post.categories %}
-                {% if not loop.last %}
-                  <a href="{{ category.link }}">{{ category }}</a>,
-                {% endif %}
-                {% if loop.last %}
-                  <a href="{{ category.link }}">{{ category }}</a>
-                {% endif %}
-              {% endfor %}
-            </p>
-          {% endif %}
-          
-          {% if post.thumbnail %}
-            <figure>
-              <img data-src="{{ post.thumbnail.src|resize(800, 400) }}" width="800" height="400" alt="{{ post.thumbnail.alt }}" uk-img>
-              {% if post.thumbnail.caption %}
-                <figcaption class="uk-padding-small uk-text-muted uk-text-center tease-image-caption">{{ post.thumbnail.caption }}</figcaption>
-              {% endif %}
-            </figure>
-          {% endif %}
-
-          <div class="uk-margin-medium-bottom">
-            {{ post.content }}
-          </div>
-          
-          {% if post.post_type == 'post' and function('comments_open') %}
-            <section id="CommentBox">
+          {% block single_headr %}
+            <header class="article-header">
+            
+              {% block single_title %}
+                <h1 class="uk-article-title">
+                  {{ post.title|e('esc_html') }}
+                </h1>
+              {% endblock %}
               
-              {% if post.comments|length > 0 %}
-                <ul class="uk-comment-list">
-                  {% for comment in post.comments %}
-                    {% include "comments.twig" %}
+              {% block single_header_meta %}
+                <p class="uk-article-meta">
+                  {{ __('Published on', 'rmcc-starter-theme') }} {{post.date|e('esc_html')}}. 
+                  {{ __('Posted in', 'rmcc-starter-theme') }} {{ post.terms( {query:{taxonomy:'category', orderby:'name', order: 'ASC', parent: 0, childless: 0, child_of: 0}} )|join(', ')|e('esc_html') }}
+                </p>
+              {% endblock %}
+              
+              {% block single_thumb %}
+                {% if post.thumbnail %}
+                  <figure>
+                    <img data-src="{{ post.thumbnail.src|resize(800, 400)|e('esc_url') }}" width="800" height="400" alt="{{ post.thumbnail.alt|e('html_attr') }}" uk-img>
+                    {% if post.thumbnail.caption %}
+                      <figcaption class="uk-padding-small uk-text-muted uk-text-center tease-image-caption">{{ post.thumbnail.caption|e('esc_html') }}</figcaption>
+                    {% endif %}
+                  </figure>
+                {% endif %}
+              {% endblock %}
+            
+            </header>
+          {% endblock %}
+
+          {% block single_content %}
+            <div class="article-content uk-margin-medium-bottom">
+              
+              {% block single_lead %}
+                {% if fn('has_excerpt') %}
+                  <p class="uk-text-lead uk-margin-remove">{{ post.preview.read_more('')|e('esc_html') }}</p>
+                {% endif %}
+              {% endblock %}
+              
+              {{ post.content|e('wp_kses_post') }}
+
+            </div>
+          {% endblock %}
+          
+          {% block single_footr %}
+            <footer class="article-footer">
+            
+              {% block single_footr_meta %}
+                <p class="uk-article-meta uk-margin-remove-top uk-margin-medium-bottom">
+                  {{ __('Posted in:', 'ned-murphy-tractors-theme') }}
+                  {% for category in post.categories %}
+                    {% if not loop.last %}
+                      <a title="{{ category|e('html_attr') }}" href="{{ category.link|e('esc_url') }}">{{ category|e('esc_html') }}</a>,
+                    {% else %}
+                      <a title="{{ category|e('html_attr') }}" href="{{ category.link|e('esc_url') }}">{{ category|e('esc_html') }}</a>
+                    {% endif %}
                   {% endfor %}
-                </ul>
-              {% endif %}
-
-              <div id="CommentForm" class="uk-margin-top">
-                <hr>
-                <h4 class="uk-margin-remove-top">{{ __('Leave a new comment', 'rmcc-starter-theme') }}</h4>
-                {% include "comment-form.twig" %}
-              </div>
-
-            </section>
-          {% endif %}
+                </p>
+              {% endblock %}
+              
+              {% block single_comments %}
+                {% if function('comments_open') %}
+                  <div class="article-comments uk-margin-medium-bottom">
+                    {% include "comments.twig" %}
+                  </div>
+                {% endif %}
+              {% endblock %}
+              
+              {% block single_pagi %}
+                <div class="article-pagination uk-child-width-1-2" uk-grid>
+                
+                  <div class="prev-article uk-text-left">
+                    {% if post.next %}
+                      <a href="{{ post.next.link|e('esc_url') }}" class="uk-link-reset">
+                        <div class="uk-text-emphasis uk-text-bold"><span uk-icon="icon: arrow-left"></span> {{ __('Previous Article', 'rmcc-starter-theme') }}</div>
+                        <div class="uk-text-italic uk-width-large uk-visible@m">{{ post.next.title|e('esc_html') }}</div>
+                      </a>
+                    {% endif %}
+                  </div>
+                  
+                  <div class="next-article uk-text-right">
+                    {% if post.prev %}
+                      <a href="{{ post.prev.link|e('esc_url') }}" class="uk-link-reset">
+                        <div class="uk-text-emphasis uk-text-bold">{{ __('Next Article', 'rmcc-starter-theme') }} <span uk-icon="icon: arrow-right"></span></div>
+                        <div class="uk-text-italic uk-width-large uk-visible@m">{{ post.prev.title|e('esc_html') }}</div>
+                      </a>
+                    {% endif %}
+                  </div>
+              
+                </div>
+              {% endblock %}
+            
+            </footer>
+          {% endblock %}
 
         </article>
-
-        {% include 'sidebar.twig' %}
-
-      </div>
+      </section>
+      
+      {% include 'sidebar.twig' %}
+    
     </div>
+    
   </div>
-
 {% endblock %}
