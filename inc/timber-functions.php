@@ -154,10 +154,16 @@ class RmccStarter extends Timber\Site
   
   public function rmcc_starter_enqueue_assets()
   {
-    wp_enqueue_style('rmcc-starter-global-styles', get_template_directory_uri() . '/assets/css/base.css');
-    wp_enqueue_script('rmcc-starter-global-scripts', get_template_directory_uri() . '/assets/js/base.js', '', '', false);
-    wp_enqueue_script('rmcc-starter-global-scripts-footer', get_template_directory_uri() . '/assets/js/global.js', '', '', true);
-    wp_enqueue_style('rmcc-starter-styles', get_stylesheet_uri());
+    
+    wp_enqueue_style('rmcc-starter-base', get_template_directory_uri() . '/assets/css/base.css');
+    
+    wp_enqueue_script('rmcc-starter-base', get_template_directory_uri() . '/assets/js/base.js', '', '', false);
+    
+    wp_enqueue_script('rmcc-starter-global', get_template_directory_uri() . '/assets/js/global.js', '', '', true);
+    
+    wp_enqueue_script('rmcc-starter-theme', get_template_directory_uri() . '/assets/js/theme.js', '', '', true);
+    
+    wp_enqueue_style('rmcc-starter-theme', get_stylesheet_uri());
   }
   
   public function rmcc_starter_custom_uikit_widgets_init()

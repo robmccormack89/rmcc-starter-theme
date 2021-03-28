@@ -6,7 +6,7 @@
 */
 
 $context = Timber::context();
-$templates = array('front-page.twig');
+$templates = array('front.twig');
 
 $sticky = get_option('sticky_posts');
 

@@ -23,7 +23,6 @@
         {% block content %}
           <p>{{ __('Sorry, nothing to display here..', 'rmcc-starter') }}</p>
         {% endblock %}
-      <!-- <button type="button" data-link="https://rob.com/corporis-sint-deleniti-eos/">Click me</button> -->
       </main>
 
       {% block footr %}
@@ -36,77 +35,6 @@
     
     {% block scripts %}
     {% endblock %}
-    
-    <!-- dark/light switch with cookie; see js/srcs/index.js for relevant functions -->
-    <script>
-      
-      // on page load
-      // get the darklightswitch cookie
-      var darklightset = getCookie("darklightswitch");
-      // if darklightswitch cookie exists
-      if (darklightset) {
-        // set the dark style
-        setDarkStyle('dark-style', 'uk-light');
-        setDarkLightSwitch('MoonLink', 'SunLink');
-      } else {
-        // else set the light style(remove the dark style)
-        setLightStyle('dark-style', 'uk-light');
-        setDarkLightSwitch('SunLink', 'MoonLink');
-      }
-      
-      function cookieMeTimbers() {
-        
-        var darklightswitch = getCookie("darklightswitch");
-        
-        if (darklightswitch != "" && darklightswitch != null) {
-          document.cookie = "darklightswitch=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
-          setLightStyle('dark-style', 'uk-light');
-          setDarkLightSwitch('SunLink', 'MoonLink');
-        } else {
-          setCookie("darklightswitch", "dark", 7);
-          setDarkStyle('dark-style', 'uk-light');
-          setDarkLightSwitch('MoonLink', 'SunLink');
-        }
-      }
-      
-      window.onload = function() {
-        themePaginationScroll()
-      };
-      
-      function themePaginationScroll() {
-        var paginationEle = document.getElementById("ThemePagination");
-        if (paginationEle) {
-          new InfiniteScroll( '.archive-posts', {
-            path: '.next',
-            append: '.item',
-            button: '.view-more-button',
-            scrollThreshold: false,
-            history: false,
-            status: '.page-load-status',
-            hideNav: '.pagination-block'
-          });
-        };
-      };
-      
-      // listen for click event in the main, & if target of click has data-link attr, do the shop filtering
-      // document.querySelector('main').addEventListener('click', function(event) {
-      // 	if (event.target.hasAttribute('data-link'))
-      // 		quickLoad('#PrimaryHeader', '.filters-container', 'quickloader', 'data-link', "ContentSection", '.index-archive', myFunction);
-      // });
-      
-      function successFunction() {
-        alert('It went well!')
-      };
-      function failFunction() {
-        alert('It didnt go well...')
-      };
-      // listen for click event in the main, & if target of click has data-link attr, do the shop filtering
-      document.querySelector('main').addEventListener('click', function(event) {
-      	if (event.target.hasAttribute('data-link'))
-      		quickLoadTest('#SiteHeader', 'data-link', successFunction, failFunction);
-      });
-
-    </script>
     
     <!-- <script>
       var paginationEle = document.getElementById("ThemePagination");

@@ -1,8 +1,7 @@
 {% extends "base.twig" %}
 
 {% block content %}
-
-  <div data-template="page-home.twig">
+  <div data-template="front.twig">
 
     <section class="uk-section uk-section-small home-hero-section">
       <div class="uk-container">
@@ -113,5 +112,12 @@
     </section>
     
   </div>
+{% endblock %}
 
+{% block scripts %}
+  <script>
+    window.onload = function() {
+      themePaginationScroll()
+    };
+  </script>
 {% endblock %}
