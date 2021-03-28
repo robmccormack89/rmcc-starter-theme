@@ -1,8 +1,8 @@
 <?php
 /**
-* Rmcc_Starter_Theme functions and definitions
+* Rmcc_Starter functions and definitions
 *
-* @package Rmcc_Starter_Theme
+* @package Rmcc_Starter
 */
 
 // stuff to say we need timber activated!! see TGM Plugin activation library for php

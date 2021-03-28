@@ -1,7 +1,7 @@
 {% extends "base.twig" %}
 
 {% block content %}
-  <div id="Single{{post.id|e('html_attr')}}" class="post-type-{{post.post_type|e('html_attr')}} {{post.class|e('html_attr')}} uk-section uk-container" data-template="single.twig">
+  <div id="Single{{post.id|e('html_attr')}}" class="post-type-{{post.post_type|e('html_attr')}} {{post.class|e('esc_html')}} uk-section uk-container" data-template="single.twig">
     <div class="uk-grid-large" uk-grid>
 
       <section class="left-section uk-width-2-3@m">
@@ -18,8 +18,8 @@
               
               {% block single_header_meta %}
                 <p class="uk-article-meta">
-                  {{ __('Published on', 'rmcc-starter-theme') }} {{post.date|e('esc_html')}}. 
-                  {{ __('Posted in', 'rmcc-starter-theme') }} {{ post.terms( {query:{taxonomy:'category', orderby:'name', order: 'ASC', parent: 0, childless: 0, child_of: 0}} )|join(', ')|e('esc_html') }}
+                  {{ __('Published on', 'rmcc-starter') }} {{post.date|e('esc_html')}}. 
+                  {{ __('Posted in', 'rmcc-starter') }} {{ post.terms( {query:{taxonomy:'category', orderby:'name', order: 'ASC', parent: 0, childless: 0, child_of: 0}} )|join(', ')|e('esc_html') }}
                 </p>
               {% endblock %}
               
@@ -61,7 +61,7 @@
                     {% if not loop.last %}
                       <a title="{{ category|e('html_attr') }}" href="{{ category.link|e('esc_url') }}">{{ category|e('esc_html') }}</a>,
                     {% else %}
-                      <a title="{{ category|e('html_attr') }}" href="{{ category.link|e('esc_url') }}">{{ category|e('esc_html') }}</a>
+                      <a title="{{ category|e('html_attr') }}" href="{{ category.link|e('esc_url') }}">{{ category|e('esc_html') }}</a>.
                     {% endif %}
                   {% endfor %}
                 </p>
@@ -81,7 +81,7 @@
                   <div class="prev-article uk-text-left">
                     {% if post.next %}
                       <a href="{{ post.next.link|e('esc_url') }}" class="uk-link-reset">
-                        <div class="uk-text-emphasis uk-text-bold"><span uk-icon="icon: arrow-left"></span> {{ __('Previous Article', 'rmcc-starter-theme') }}</div>
+                        <div class="uk-text-emphasis uk-text-bold"><span uk-icon="icon: arrow-left"></span> {{ __('Previous Article', 'rmcc-starter') }}</div>
                         <div class="uk-text-italic uk-width-large uk-visible@m">{{ post.next.title|e('esc_html') }}</div>
                       </a>
                     {% endif %}
@@ -90,7 +90,7 @@
                   <div class="next-article uk-text-right">
                     {% if post.prev %}
                       <a href="{{ post.prev.link|e('esc_url') }}" class="uk-link-reset">
-                        <div class="uk-text-emphasis uk-text-bold">{{ __('Next Article', 'rmcc-starter-theme') }} <span uk-icon="icon: arrow-right"></span></div>
+                        <div class="uk-text-emphasis uk-text-bold">{{ __('Next Article', 'rmcc-starter') }} <span uk-icon="icon: arrow-right"></span></div>
                         <div class="uk-text-italic uk-width-large uk-visible@m">{{ post.prev.title|e('esc_html') }}</div>
                       </a>
                     {% endif %}

@@ -2,7 +2,7 @@
 /**
  * Timber theme class & other functions for Twig.
  *
- * @package Rmcc_Starter_Theme
+ * @package Rmcc_Starter
  */
 
 // Define paths to Twig templates
@@ -24,13 +24,13 @@ Timber::$autoescape = false;
  * We're going to configure our theme inside of a subclass of Timber\Site
  * You can move this to its own file and include here via php's include("MySite.php")
  */
-class RmccStarterTheme extends Timber\Site
+class RmccStarter extends Timber\Site
 {
   /** Add timber support */
   public function __construct()
   {
     add_action('after_setup_theme', array( $this, 'theme_supports' ));
-    add_action('wp_enqueue_scripts', array( $this, 'rmcc_starter_theme_enqueue_assets'));
+    add_action('wp_enqueue_scripts', array( $this, 'rmcc_starter_enqueue_assets'));
     add_action('widgets_init', array( $this, 'rmcc_starter_custom_uikit_widgets_init'));
     add_filter('timber/context', array( $this, 'add_to_context' ));
     add_filter('timber/twig', array( $this, 'add_to_twig' ));
@@ -56,18 +56,18 @@ class RmccStarterTheme extends Timber\Site
     // Register widget areas
     if (function_exists('register_sidebar')) {
       register_sidebar(array(
-        'name' => esc_html__('Sidebar Area', 'rmcc-starter-theme'),
+        'name' => esc_html__('Sidebar Area', 'rmcc-starter'),
         'id' => 'sidebar',
-        'description' => esc_html__('Sidebar widget area; you can add multiple widgets here. Try the rmcc custom html widget with uikit markup.', 'rmcc-starter-theme'),
+        'description' => esc_html__('Sidebar widget area; you can add multiple widgets here. Try the rmcc custom html widget with uikit markup.', 'rmcc-starter'),
         'before_widget' => '',
         'after_widget' => '',
         'before_title' => '<h3 class="uk-text-bold widget-title">',
         'after_title' => '</h3>'
       ));
       register_sidebar(array(
-          'name' => esc_html__('Footer Area', 'rmcc-starter-theme'),
+          'name' => esc_html__('Footer Area', 'rmcc-starter'),
           'id' => 'sidebar-footer',
-          'description' => esc_html__('Footer widget area; use only one widget here. Try the rmcc custom html widget with uikit markup.', 'rmcc-starter-theme'),
+          'description' => esc_html__('Footer widget area; use only one widget here. Try the rmcc custom html widget with uikit markup.', 'rmcc-starter'),
           'before_widget' => '',
           'after_widget' => '',
           'before_title' => '<h4 class="widget-title">',
@@ -80,8 +80,8 @@ class RmccStarterTheme extends Timber\Site
   {
     // This theme uses wp_nav_menu() in one locations.
     register_nav_menus(array(
-      'main' => __('Main Menu', 'rmcc-starter-theme'),
-      'mobile' => __('Mobile Menu', 'rmcc-starter-theme'),
+      'main' => __('Main Menu', 'rmcc-starter'),
+      'mobile' => __('Mobile Menu', 'rmcc-starter'),
     ));
   }
 
@@ -149,19 +149,20 @@ class RmccStarterTheme extends Timber\Site
       'flex-height' => true
     ));
 
-    load_theme_textdomain( 'rmcc-starter-theme', get_template_directory() . '/languages' );
+    load_theme_textdomain( 'rmcc-starter', get_template_directory() . '/languages' );
   }
   
-  public function rmcc_starter_theme_enqueue_assets()
+  public function rmcc_starter_enqueue_assets()
   {
-    wp_enqueue_style('rmcc-starter-theme-global-styles', get_template_directory_uri() . '/assets/css/base.css');
-    wp_enqueue_script('rmcc-starter-theme-global-scripts', get_template_directory_uri() . '/assets/js/base.js', '', '', false);
-    wp_enqueue_style('rmcc-starter-theme-styles', get_stylesheet_uri());
+    wp_enqueue_style('rmcc-starter-global-styles', get_template_directory_uri() . '/assets/css/base.css');
+    wp_enqueue_script('rmcc-starter-global-scripts', get_template_directory_uri() . '/assets/js/base.js', '', '', false);
+    wp_enqueue_script('rmcc-starter-global-scripts-footer', get_template_directory_uri() . '/assets/js/global.js', '', '', true);
+    wp_enqueue_style('rmcc-starter-styles', get_stylesheet_uri());
   }
   
   public function rmcc_starter_custom_uikit_widgets_init()
   {
-    register_widget("Rmcc_Starter_Theme_Custom_Widget_Class");
+    register_widget("Rmcc_Starter_Custom_Widget_Class");
   }
 
   public function add_to_twig($twig)
@@ -172,4 +173,4 @@ class RmccStarterTheme extends Timber\Site
   }
 }
 
-new RmccStarterTheme();
+new RmccStarter();

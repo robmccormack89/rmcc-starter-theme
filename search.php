@@ -2,7 +2,7 @@
 /**
 * The search
 *
-* @package Rmcc_Starter_Theme
+* @package Rmcc_Starter
 */
 
 $context = Timber::context();

@@ -2,7 +2,7 @@
 /**
  * Theme functions & bits
  *
- * @package Rmcc_Starter_Theme
+ * @package Rmcc_Starter
  */
 
 // removes sticky posts from main loop, this function fixes issue of duplicate posts on archive. see https://wordpress.stackexchange.com/questions/225015/sticky-post-from-page-2-and-on

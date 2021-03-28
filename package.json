@@ -1,9 +1,9 @@
 {
-  "name": "project-starter",
+  "name": "rmcc-starter",
   "version": "1.0.0",
   "main": "index.js",
   "dependencies": {
-    "uikit": "^3.5.18",
+    "uikit": "^3.6.18",
     "infinite-scroll": "^4.0.1"
   },
   "devDependencies": {

@@ -2,8 +2,8 @@
   <header>
     <h2 class="uk-margin-remove-adjacent uk-margin-small-top uk-text-bold uk-margin-small-bottom"><a class="uk-link-reset" href="{{post.link|e('esc_url')}}">{{post.title|e('esc_html')}}</a></h2>
     <p class="uk-article-meta uk-margin-small-bottom">
-      {{ __('Published on', 'rmcc-starter-theme') }} {{post.date | date|e('esc_html')}}. 
-      {{ __('Posted in', 'rmcc-starter-theme') }} {{ post.terms( {query:{taxonomy:'category', orderby:'name', order: 'ASC', parent: 0, childless: 0, child_of: 0}} )|join(', ')|e('esc_html') }}.
+      {{ __('Published on', 'rmcc-starter') }} {{post.date | date|e('esc_html')}}. 
+      {{ __('Posted in', 'rmcc-starter') }} {{ post.terms( {query:{taxonomy:'category', orderby:'name', order: 'ASC', parent: 0, childless: 0, child_of: 0}} )|join(', ')|e('esc_html') }}.
     </p>
   </header>
   {% if post.get_thumbnail %}
@@ -11,7 +11,7 @@
       <a href="{{post.link|e('esc_url')}}">
         <img class="theme-border" data-src="{{ post.thumbnail.src|resize(800, 300)|e('esc_url') }}" width="800" height="300" alt="{{ post.thumbnail.alt|e('html_attr') }}" uk-img>
         {% if function('is_sticky', post.id) %}
-          <span class="uk-label featured-label uk-position-top-left">{{ __('Featured Article', 'rmcc-starter-theme') }}</span>
+          <span class="uk-label featured-label uk-position-top-left">{{ __('Featured Article', 'rmcc-starter') }}</span>
         {% endif %}
       </a>
       {% if post.thumbnail.caption %}
@@ -20,5 +20,5 @@
     </figure>
   {% endif %}
   <p>{{ post.preview.read_more('').length(20).force|e('esc_html') }}</p>
-  <a href="{{post.link|e('esc_url')}}" class="uk-button uk-button-default">{{ __('Read more', 'rmcc-starter-theme') }}</a>
+  <a href="{{post.link|e('esc_url')}}" class="uk-button uk-button-default">{{ __('Read more', 'rmcc-starter') }}</a>
 </article>

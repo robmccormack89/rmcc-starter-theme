@@ -1,121 +1,134 @@
-<header id="SiteHeader" class="the-header uk-background-default">
+<header id="SiteHeader" class="site-header uk-background-default">
+  
   <nav class="uk-navbar-transparent uk-container" uk-navbar>
     
-    <div class="uk-navbar-left nav-logo-area">
+    <div class="header-logo uk-navbar-left nav-logo-area">
       {% if theme_logo_url %}
-        <a class="uk-logo" href="{{ site.url }}"><img data-src="{{ theme_logo_url }}" alt="{{ site.title }} logo" uk-img></a>
+        <a class="uk-logo" href="{{ site.url|e('esc_url') }}">
+          <img data-src="{{ theme_logo_url|e('esc_url') }}" alt="{{ site.title|e('esc_html') }} logo" uk-img>
+        </a>
       {% else %}
-        <a class="uk-navbar-item uk-logo uk-padding-remove uk-text-bold uk-text-emphasis" href="{{ site.url }}">{{ site.title }}</a>
+        <a class="uk-navbar-item uk-logo uk-padding-remove uk-text-bold uk-text-emphasis" href="{{ site.url|e('esc_url') }}">{{ site.title|e('esc_html') }}</a>
       {% endif %}
     </div>
     
-    <div class="uk-navbar-center nav-overlay the-main-menu">
+    <div class="header-main-nav uk-navbar-center nav-overlay">
       <ul class="uk-navbar-nav uk-visible@m">
         {% if has_menu_main %}
           {% for item in menu_main.get_items %}
             {% if item.get_children %}
-              <li class="{{ item.classes | join(' ') }}"><a href="{{ item.link }}">{{ item.title }}<span uk-icon="icon: triangle-down; ratio: 0.8"></span></a>
+              <li class="{{ item.classes | join(' ')|e('esc_html') }}">
+                <a href="{{ item.link|e('esc_url') }}">{{ item.title|e('esc_html') }}<span uk-icon="icon: triangle-down; ratio: 0.8"></span></a>
                 <div class="uk-navbar-dropdown">
                   <ul class="uk-nav uk-navbar-dropdown-nav">
                     {% for child in item.get_children %}
-                    <li><a href="{{ child.get_link }}">{{ child.title }}</a>
-                      {% if child.children %}
-                        <ul class="uk-nav-sub">
-                          {% for third in child.children %}
-                            <li>
-                              <a href="{{ third.get_link }}">{{ third.title }}</a>
-                            </li>
-                          {% endfor %}
-                        </ul>
-                      {% endif %}
-                    </li>
+                      <li>
+                        <a href="{{ child.get_link|e('esc_url') }}">{{ child.title|e('esc_html') }}</a>
+                        {% if child.children %}
+                          <ul class="uk-nav-sub">
+                            {% for third in child.children %}
+                              <li>
+                                <a href="{{ third.get_link|e('esc_url') }}">{{ third.title|e('esc_html') }}</a>
+                              </li>
+                            {% endfor %}
+                          </ul>
+                        {% endif %}
+                      </li>
                     {% endfor %}
                   </ul>
                 </div>
               </li>
             {% else %}
-              <li class="{{ item.classes | join(' ') }}"><a href="{{ item.get_link }}">{{ item.title }}</a></li>
+              <li class="{{ item.classes | join(' ')|e('esc_html') }}">
+                <a href="{{ item.get_link|e('esc_url') }}">{{ item.title|e('esc_html') }}</a>
+              </li>
             {% endif %}
           {% endfor %}
         {% else %}
-          <li>{{ __('Add a menu to the Main Menu slot in Appearance > Menus.', 'rmcc-starter-theme') }}</li>
+          <li>{{ __('Add a menu to the Main Menu slot in Appearance > Menus.', 'rmcc-starter') }}</li>
         {% endif %}
       </ul>
     </div>
     
-    <div class="uk-navbar-right nav-search-styles-area">
-      <div class="uk-visible@m">
+    <div class="header-icons-nav uk-navbar-right">
+      
+      <div class="search-toggle uk-visible@m">
         <a class="uk-navbar-toggle" href="#modal-navbar-search" uk-search-icon uk-toggle></a>
       </div>
-      <div class="uk-navbar-item dark-moon pull-right-15">
-
-        <a id="MoonLink" class="moon-link pull-up-2 uk-link-reset" onclick="cookieMeTimbers()"><img src="{{theme.link}}/assets/img/moon.svg" uk-svg></a>
-        
-        <a id="SunLink" class="sun-link pull-up-2" onclick="cookieMeTimbers()"><img src="{{theme.link}}/assets/img/sun.svg" uk-svg></a>
-
+      
+      <div class="dark-light-switcher uk-navbar-item dark-moon pull-right-15">
+        <a id="MoonLink" class="moon-link pull-up-2 uk-link-reset" onclick="cookieMeTimbers()">
+          <img src="{{theme.link|e('esc_url')}}/assets/img/moon.svg" uk-svg>
+        </a>
+        <a id="SunLink" class="sun-link pull-up-2" onclick="cookieMeTimbers()">
+          <img src="{{theme.link|e('esc_url')}}/assets/img/sun.svg" uk-svg>
+        </a>
       </div>
-      <button class="uk-button uk-button-default uk-visible@m" type="button" onclick="cookieMeTimbers()" hidden>{{ __('Change Style', 'rmcc-starter-theme') }}</button>
-      <ul class="uk-navbar-nav uk-hidden@m">
+      
+      <ul class="mobile-menu-toggle uk-navbar-nav uk-hidden@m">
         <li>
-          <a class="uk-navbar-toggle pull-right-15" uk-navbar-toggle-icon uk-toggle href="#offcanvas-mobile-nav"><span class="uk-hidden">{{ __('Menu', 'rmcc-starter-theme') }}</span></a>
+          <a class="uk-navbar-toggle pull-right-15" uk-navbar-toggle-icon uk-toggle href="#offcanvas-mobile-nav">
+            <span class="uk-hidden">{{ __('Menu', 'rmcc-starter') }}</span>
+          </a>
         </li>
       </ul>
-      <div class="uk-navbar-item dark-light-switch" hidden>
-
-        <label class="uk-switch" for="LightDarkSwitch">
-          <input type="checkbox" id="LightDarkSwitch">
-          <div class="uk-switch-slider uk-switch-big"></div>
-        </label>
-
-      </div>
+      
     </div>
   
   </nav>
+  
   <div id="modal-navbar-search" class="uk-modal-full" uk-modal>
     <div class="uk-modal-dialog uk-flex uk-flex-center uk-flex-middle" uk-height-viewport>
       <button class="uk-modal-close-full" type="button" uk-close></button>
-      <form class="uk-search uk-search-large" role="search" method="get" action="{{site.url}}">
-        <input id="header-search" class="uk-search-input uk-text-center" type="search" placeholder="{{ __('Start typing...', 'rmcc-starter-theme') }}" name="s" autofocus>
+      <form class="uk-search uk-search-large" role="search" method="get" action="{{site.url|e('esc_url')}}">
+        <input id="header-search" class="uk-search-input uk-text-center" type="search" placeholder="{{ __('Start typing...', 'rmcc-starter') }}" name="s" autofocus>
         <input type="hidden" name="post_type" value="post">
       </form>
     </div>
   </div>
   <div id="offcanvas-mobile-nav" uk-offcanvas="flip: true; overlay: true">
     <div class="uk-offcanvas-bar uk-offcanvas-bar-animation uk-offcanvas-slide">
-      <button class="uk-offcanvas-close uk-close uk-icon" uk-close type="button"><span class="uk-hidden">{{ __('Close', 'rmcc-starter-theme') }}</span></button>
+      
+      <button class="uk-offcanvas-close uk-close uk-icon" uk-close type="button">
+        <span class="uk-hidden">{{ __('Close', 'rmcc-starter') }}</span>
+      </button>
+      
       <ul class="uk-nav uk-nav-default">
-        <li class="uk-nav-header uk-text-bold uk-text-uppercase uk-margin-small-bottom">{{ __('Menu', 'rmcc-starter-theme') }}</li>
+        <li class="uk-nav-header uk-text-bold uk-text-uppercase uk-margin-small-bottom">{{ __('Menu', 'rmcc-starter') }}</li>
         {% if has_menu_mobile %}
           {% for item in menu_mobile.get_items %}
             {% if item.get_children %}
-              <li class="uk-parent {{ item.classes | join(' ') }}">
-                <a href="{{ item.get_link }}">{{ item.title }}</a>
+              <li class="uk-parent {{ item.classes | join(' ')|e('esc_html') }}">
+                <a href="{{ item.get_link|e('esc_url') }}">{{ item.title|e('esc_html') }}</a>
                 <ul class="uk-nav-sub">
                   {% for child in item.get_children %}
                     <li>
-                      <a href="{{ child.get_link }}">{{ child.title }}</a>
+                      <a href="{{ child.get_link|e('esc_url') }}">{{ child.title|e('esc_html') }}</a>
                     </li>
                   {% endfor %}
                 </ul>
               </li>
             {% else %}
-              <li class="{{ item.classes | join(' ') }}">
-                <a href="{{ item.get_link }}">{{ item.title }}</a>
+              <li class="{{ item.classes | join(' ')|e('esc_html') }}">
+                <a href="{{ item.get_link|e('esc_url') }}">{{ item.title|e('esc_html') }}</a>
               </li>
             {% endif %}
           {% endfor %}
         {% else %}
-          <li>{{ __('Add a menu to the Mobile Menu slot in Appearance > Menus.', 'rmcc-starter-theme') }}</li>
+          <li>{{ __('Add a menu to the Mobile Menu slot in Appearance > Menus.', 'rmcc-starter') }}</li>
         {% endif %}
         <li class="uk-nav-divider uk-margin-top"></li>
         <div class="uk-margin-top uk-position-z-index uk-position-relative">
-          <form class="uk-search uk-search-default uk-width-1-1" role="search" method="get" action="{{site.url}}">
+          <form class="uk-search uk-search-default uk-width-1-1" role="search" method="get" action="{{site.url|e('esc_url')}}">
             <span class="uk-search-icon-flip" uk-search-icon></span>
-            <input class="uk-search-input" type="search" placeholder="{{ __('Search...', 'rmcc-starter-theme') }}" id="SearchMobile" name="s" autocomplete="off">
+            <input class="uk-search-input" type="search" placeholder="{{ __('Search...', 'rmcc-starter') }}" id="SearchMobile" name="s" autocomplete="off">
           </form>
         </div>
-        <button class="uk-button uk-button-default uk-margin-top uk-width-1-1 uk-margin-small-bottom" type="button" onclick="cookieMeTimbers()">{{ __('Change Style', 'rmcc-starter-theme') }}</button>
+        <button class="uk-button uk-button-default uk-margin-top uk-width-1-1 uk-margin-small-bottom" type="button" onclick="cookieMeTimbers()">
+          {{ __('Change Style', 'rmcc-starter') }}
+        </button>
       </ul>
+      
     </div>
   </div>
 </header>

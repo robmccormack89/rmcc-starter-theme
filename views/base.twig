@@ -9,7 +9,7 @@
     {% endblock %}
   </head>
   
-  <body class="{{body_class|e('html_attr')}} no-overflow-off" data-template="base.twig">
+  <body class="{{body_class|e('esc_html')}} no-overflow-off" data-template="base.twig">
     
     <!-- <div id="SitePreloader" class="theme-preload"></div> -->
     
@@ -21,8 +21,9 @@
 
       <main id="MainContent" role="main">
         {% block content %}
-          <p>{{ __('Sorry, nothing to display here..', 'rmcc-starter-theme') }}</p>
+          <p>{{ __('Sorry, nothing to display here..', 'rmcc-starter') }}</p>
         {% endblock %}
+      <!-- <button type="button" data-link="https://rob.com/corporis-sint-deleniti-eos/">Click me</button> -->
       </main>
 
       {% block footr %}
@@ -36,50 +37,92 @@
     {% block scripts %}
     {% endblock %}
     
-    <!-- dark/light switch with cookie -->
+    <!-- dark/light switch with cookie; see js/srcs/index.js for relevant functions -->
     <script>
-      function darkStyle() {
-        document.body.classList.add('dark-style');
-        document.body.classList.add('uk-light');
-        document.getElementById("MoonLink").setAttribute("hidden", "");
-        document.getElementById("SunLink").removeAttribute("hidden");
-      }
-      function lightStyle() {
-        document.body.classList.remove('dark-style');
-        document.body.classList.remove('uk-light');
-        document.getElementById("MoonLink").removeAttribute("hidden");
-        document.getElementById("SunLink").setAttribute("hidden", "");
-      }
-      function setCookie(cname, cvalue, exdays) {
-        var d = new Date();
-        d.setTime(d.getTime() + (exdays*24*60*60*1000));
-        var expires = "expires="+ d.toUTCString();
-        document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
-      }
-      function getCookie(name) {
-        var value = "; " + document.cookie;
-        var parts = value.split("; " + name + "=");
-        if (parts.length == 2) return parts.pop().split(";").shift();
-        else return null;
-      }
+      
+      // on page load
+      // get the darklightswitch cookie
       var darklightset = getCookie("darklightswitch");
-      if (darklightset != "" && darklightset != null) {
-        lightStyle();
+      // if darklightswitch cookie exists
+      if (darklightset) {
+        // set the dark style
+        setDarkStyle('dark-style', 'uk-light');
+        setDarkLightSwitch('MoonLink', 'SunLink');
       } else {
-        darkStyle();
+        // else set the light style(remove the dark style)
+        setLightStyle('dark-style', 'uk-light');
+        setDarkLightSwitch('SunLink', 'MoonLink');
       }
+      
       function cookieMeTimbers() {
+        
         var darklightswitch = getCookie("darklightswitch");
+        
         if (darklightswitch != "" && darklightswitch != null) {
           document.cookie = "darklightswitch=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
-          darkStyle();
+          setLightStyle('dark-style', 'uk-light');
+          setDarkLightSwitch('SunLink', 'MoonLink');
         } else {
           setCookie("darklightswitch", "dark", 7);
-          lightStyle();
+          setDarkStyle('dark-style', 'uk-light');
+          setDarkLightSwitch('MoonLink', 'SunLink');
         }
       }
+      
+      window.onload = function() {
+        themePaginationScroll()
+      };
+      
+      function themePaginationScroll() {
+        var paginationEle = document.getElementById("ThemePagination");
+        if (paginationEle) {
+          new InfiniteScroll( '.archive-posts', {
+            path: '.next',
+            append: '.item',
+            button: '.view-more-button',
+            scrollThreshold: false,
+            history: false,
+            status: '.page-load-status',
+            hideNav: '.pagination-block'
+          });
+        };
+      };
+      
+      // listen for click event in the main, & if target of click has data-link attr, do the shop filtering
+      // document.querySelector('main').addEventListener('click', function(event) {
+      // 	if (event.target.hasAttribute('data-link'))
+      // 		quickLoad('#PrimaryHeader', '.filters-container', 'quickloader', 'data-link', "ContentSection", '.index-archive', myFunction);
+      // });
+      
+      function successFunction() {
+        alert('It went well!')
+      };
+      function failFunction() {
+        alert('It didnt go well...')
+      };
+      // listen for click event in the main, & if target of click has data-link attr, do the shop filtering
+      document.querySelector('main').addEventListener('click', function(event) {
+      	if (event.target.hasAttribute('data-link'))
+      		quickLoadTest('#SiteHeader', 'data-link', successFunction, failFunction);
+      });
+
     </script>
-  
+    
+    <!-- <script>
+      var paginationEle = document.getElementById("ThemePagination");
+      if (paginationEle) {
+        new InfiniteScroll( '.archive-posts', {
+          path: '.next',
+          append: '.item',
+          button: '.view-more-button',
+          scrollThreshold: false,
+          history: false,
+          status: '.page-load-status',
+          hideNav: '.pagination-block'
+        });
+      };
+    </script> -->
+    
     <!-- site preloader js -->
     <!-- <script>
       // website preloader animation

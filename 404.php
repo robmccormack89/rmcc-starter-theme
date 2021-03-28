@@ -2,7 +2,7 @@
 /**
 * The template for displaying 404 error pages
 *
-* @package Rmcc_Starter_Theme
+* @package Rmcc_Starter
 */
  
 // timber get the context

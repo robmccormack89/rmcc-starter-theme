@@ -7927,9 +7927,9 @@
       "dev": true
     },
     "uikit": {
-      "version": "3.6.1",
-      "resolved": "https://registry.npmjs.org/uikit/-/uikit-3.6.1.tgz",
-      "integrity": "sha512-V3y/+Vc9Ouzm52RBOyD1SQ9/pUu6+c7B9PbV/4BK+BlIuCZDPlYa9Wr/sB0N93Y/ycL9SyctcAO5/+jcag/eIA=="
+      "version": "3.6.18",
+      "resolved": "https://registry.npmjs.org/uikit/-/uikit-3.6.18.tgz",
+      "integrity": "sha512-q5Dlpu1KQ5Jo3cW9TCMypvG0KL6rVLcCat9JPHJ1HBzmSKnMh+oChhWWSq4OEGuopsIftKyiXuhdS8a50uIJbw=="
     },
     "unc-path-regex": {
       "version": "0.1.2",

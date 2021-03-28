@@ -7,6 +7,3 @@ UIkit.use(Icons);
 
 // Make uikit available in the window; for certain cases
 window.UIkit = UIkit;
-
-// load infinite scroll
-window.InfiniteScroll = require('infinite-scroll');

@@ -7,14 +7,14 @@
     </div>
     <div class="uk-width-2-3@s uk-width-3-5@m">  
       {% if function('is_sticky', post.id) %}
-        <span class="uk-label home-featured-label">{{ __('Featured Article', 'rmcc-starter-theme') }}</span>
+        <span class="uk-label home-featured-label">{{ __('Featured Article', 'rmcc-starter') }}</span>
       {% endif %}
       <h3 class="uk-card-title uk-margin-small-top uk-margin-remove-bottom">
         <a class="uk-link-reset uk-text-bold" href="{{post.link|e('esc_url')}}">{{post.title|e('esc_html')}}</a>
       </h3>
       <span class="uk-article-meta">
-        {{ __('Published on', 'rmcc-starter-theme') }} {{post.date | date|e('esc_html')}}. 
-        {{ __('Posted in', 'rmcc-starter-theme') }} {{ post.terms( {query:{taxonomy:'category', orderby:'name', order: 'ASC', parent: 0, childless: 0, child_of: 0}} )|join(', ')|e('esc_html') }}.
+        {{ __('Published on', 'rmcc-starter') }} {{post.date | date|e('esc_html')}}. 
+        {{ __('Posted in', 'rmcc-starter') }} {{ post.terms( {query:{taxonomy:'category', orderby:'name', order: 'ASC', parent: 0, childless: 0, child_of: 0}} )|join(', ')|e('esc_html') }}.
       </span>
     </div>
   </div>

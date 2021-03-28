@@ -13,6 +13,7 @@ module.exports = {
     mode: "production",
     entry: {
       base: './assets/js/srcs/index.js',
+      global: './assets/js/srcs/global.js',
     },
     output: {
       filename: '[name].js',
