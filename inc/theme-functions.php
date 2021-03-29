@@ -4,8 +4,25 @@
  *
  * @package Rmcc_Starter
  */
+ 
+// disbale embed functions & scripts (wp-embed-min.js)
+// enable these functions if planning to embed other people's wp posts inside your own posts or vice versa
+// this also relates to twitter/social embeds
+// see timber-functions.php for filters on init
+function disable_embeds_tiny_mce_plugin($plugins) {
+   return array_diff($plugins, array('wpembed'));
+}
+function disable_embeds_rewrites($rules) {
+   foreach($rules as $rule => $rewrite) {
+       if(false !== strpos($rewrite, 'embed=true')) {
+           unset($rules[$rule]);
+       }
+   }
+   return $rules;
+}
 
-// removes sticky posts from main loop, this function fixes issue of duplicate posts on archive. see https://wordpress.stackexchange.com/questions/225015/sticky-post-from-page-2-and-on
+// removes sticky posts from main loop, this function fixes issue of duplicate posts on archive.
+// see https://wordpress.stackexchange.com/questions/225015/sticky-post-from-page-2-and-on
 add_action('pre_get_posts', function ($q)
 {
 

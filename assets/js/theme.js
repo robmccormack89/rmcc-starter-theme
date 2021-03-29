@@ -1,5 +1,13 @@
 // things that i want to do everywhere, or that i want to be available everywhere
 
+// website onload; things to do
+window.onload = function(){
+  
+  // document.getElementById("ThemePreload").classList.add("hidden");
+  // document.getElementsByTagName("BODY")[0].classList.remove("no-overflow");
+  
+}
+
 // the default inf scroll pagination; will be called on relevant archives & in quickloads etc
 window.themePaginationScroll = function() {
   var paginationEle = document.getElementById("ThemePagination");
@@ -16,34 +24,25 @@ window.themePaginationScroll = function() {
   };
 };
 
-// on page load, get the darklightswitch cookie
-var darklightIsSet = getCookie("darklightswitch");
-// if darklightswitch cookie exists
-if (darklightIsSet) {
-  // set the dark style
-  setDarkStyle('dark-style', 'uk-light');
-  setDarkLightSwitch('MoonLink', 'SunLink');
+var darkLightCookie = getCookie("darklightswitch");
+if (darkLightCookie) {
+  setDarkStyle('uk-light', 'LightSwitch', 'DarkSwitch');
 } else {
-  // else set the light style(remove the dark style)
-  setLightStyle('dark-style', 'uk-light');
-  setDarkLightSwitch('SunLink', 'MoonLink');
+  unsetDarkStyle('uk-light', 'DarkSwitch', 'LightSwitch');
 }
 
-// onclick function for dark/light switch; sets the cookie & style/s onclick
-function cookieMeTimbers() {
-  
-  var darklightswitch = getCookie("darklightswitch");
-  
-  if (darklightswitch != "" && darklightswitch != null) {
-    document.cookie = "darklightswitch=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
-    setLightStyle('dark-style', 'uk-light');
-    setDarkLightSwitch('SunLink', 'MoonLink');
-  } else {
-    setCookie("darklightswitch", "dark", 7);
-    setDarkStyle('dark-style', 'uk-light');
-    setDarkLightSwitch('MoonLink', 'SunLink');
-  }
-}
+document.querySelectorAll('.darklight-switch').forEach(item => {
+  item.addEventListener('click', event => {
+    var darkLightCookie = getCookie("darklightswitch");
+    if (darkLightCookie != "" && darkLightCookie != null) {
+      unsetCookie('darklightswitch');
+      unsetDarkStyle('uk-light', 'DarkSwitch', 'LightSwitch');
+    } else {
+      setCookie('darklightswitch', 'dark', 7);
+      setDarkStyle('uk-light', 'LightSwitch', 'DarkSwitch');
+    }
+  })
+})
 
 function successFunction() {
   alert('It went well!')

@@ -56,11 +56,11 @@
         <a class="uk-navbar-toggle" href="#modal-navbar-search" uk-search-icon uk-toggle></a>
       </div>
       
-      <div class="dark-light-switcher uk-navbar-item dark-moon pull-right-15">
-        <a id="MoonLink" class="moon-link pull-up-2 uk-link-reset" onclick="cookieMeTimbers()">
+      <div class="dark-light-switcher uk-navbar-item pull-right-15">
+        <a id="DarkSwitch" class="dark-light-link moon-link pull-up-2 darklight-switch">
           <img src="{{theme.link|e('esc_url')}}/assets/img/moon.svg" uk-svg>
         </a>
-        <a id="SunLink" class="sun-link pull-up-2" onclick="cookieMeTimbers()">
+        <a id="LightSwitch" class="dark-light-link sun-link pull-up-2 darklight-switch">
           <img src="{{theme.link|e('esc_url')}}/assets/img/sun.svg" uk-svg>
         </a>
       </div>
@@ -124,9 +124,6 @@
             <input class="uk-search-input" type="search" placeholder="{{ __('Search...', 'rmcc-starter') }}" id="SearchMobile" name="s" autocomplete="off">
           </form>
         </div>
-        <button class="uk-button uk-button-default uk-margin-top uk-width-1-1 uk-margin-small-bottom" type="button" onclick="cookieMeTimbers()">
-          {{ __('Change Style', 'rmcc-starter') }}
-        </button>
       </ul>
       
     </div>

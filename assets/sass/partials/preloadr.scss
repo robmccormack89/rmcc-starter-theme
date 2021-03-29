@@ -1,0 +1,51 @@
+// theme preloader
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+.no-overflow {
+  overflow: hidden;
+}
+.theme-preload {
+  visibility: visible;
+  opacity: 1;
+  transition: visibilty .1s ease-out, opacity .1s ease-out;
+  z-index: 1;
+}
+.theme-preload::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 45vh;
+  margin-left: auto;
+  margin-right: auto;
+  width: 80px;
+  height: 80px;
+  border: 2px solid #f3f3f3;
+  border-top: 3px solid #525252;
+  border-radius: 100%;
+  will-change: transform;
+  animation: spin 1s infinite linear;
+  z-index: 9999;
+}
+.theme-preload::after {
+  content: '';
+  position: absolute;
+  background-color: #ffffff;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100vw;
+  height: 100%;
+  z-index: 999;
+}
+.theme-preload.hidden {
+  visibility: hidden;
+  opacity: 0;
+}

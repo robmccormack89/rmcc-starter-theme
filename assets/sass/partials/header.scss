@@ -1,9 +1,35 @@
-/* main menu font size */
-.nav-search-styles-area .uk-navbar-item,
-.nav-search-styles-area .uk-navbar-nav > li > a,
-.nav-search-styles-area .uk-navbar-toggle,
-.the-main-menu .uk-navbar-item,
-.the-main-menu .uk-navbar-nav > li > a,
-.the-main-menu .uk-navbar-toggle {
-  font-size: 1rem;
+// uikit modifications
+.uk-offcanvas-bar .uk-close,
+.uk-offcanvas-bar .uk-nav-default > li > a {
+  color: hsla(0, 0%, 100%, 0.8);
+}
+.uk-offcanvas-bar .uk-nav-default {
+  font-size: $global-font-size;
+}
+.uk-logo > img {
+  height: 30px;
+}
+/* dark light buttons */
+.dark-light-switcher svg {
+  color: $global-inverse-color;
+  height: 20px;
+  width: 20px;
+  stroke: $global-muted-color;
+}
+.dark-light-switcher svg:focus, .dark-light-switcher svg:hover {
+  stroke: $global-color;
+}
+.sun-link svg {
+  height: 21px;
+  width: 21px;
+}
+.sun-link svg .sun-st {
+  fill:none;
+  stroke:$inverse-global-muted-color;
+  stroke-width:2;
+  stroke-linejoin:round;
+  stroke-miterlimit:10;
+}
+.sun-link svg .sun-link:focus .sun-st, .sun-link:hover .sun-st {
+  stroke:$inverse-global-color;
 }

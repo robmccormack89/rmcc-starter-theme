@@ -1,10 +1,29 @@
-/* overflow fix */
+// overflow fix
 body,
 html {
   max-width: 100%;
   overflow-x: hidden;
 }
-/* pull right 15px */
+// theme borders
+.theme-border {
+  border: 1px solid $global-border;
+}
+.theme-border-top {
+  border-top: 1px solid $global-border;
+}
+.theme-border-right {
+  border-right: 1px solid $global-border;
+}
+.theme-border-bottom {
+  border-bottom: 1px solid $global-border;
+}
+.theme-border-left {
+  border-left: 1px solid $global-border;
+}
+// utility classes
 .pull-right-15 {
   margin-right: -15px;
+}
+.pull-up-2 {
+  margin-top: -2px;
 }

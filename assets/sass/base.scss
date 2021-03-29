@@ -2,6 +2,12 @@
 $text-bold-font-weight: 700; 
 $base-heading-font-weight: 700;
 $base-strong-font-weight: 700;
+$nav-default-font-size: 1rem;
+$container-xsmall-max-width: 650px;
+$navbar-nav-item-text-transform: capitalize;
+$label-text-transform: capitalize;
+$offcanvas-bar-width: 320px;
+$base-heading-margin-top: 20px;
 
 // 2. Import variables & mixins froim uikit. You can also use the default styling scss files, I have used the theme ones.
 @import "node_modules/uikit/src/scss/variables-theme.scss";
@@ -12,5 +18,3 @@ $base-strong-font-weight: 700;
 
 // import your custom sass styles
 @import "style.scss";
-
-

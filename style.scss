@@ -1,19 +1,8 @@
 /* Global Custom Variables. What ever u want to use across the partialized files below */
-$dark_style_bg_colour: #222;
-$dark_style_muted_bg_colour: #333;
-
-$dark_style_link_colour: hsla(0,0%,100%,.5);
-$dark_style_link_hover_colour: hsla(0,0%,100%,.7);
-
-$theme_border: 1px solid #e5e5e5;
-$theme_border_light: 1px solid rgba(255,255,255,.2);
 
 // import your custom sass styles. you can partialize it how u like
-@import "assets/sass/partials/borders.scss";
-@import "assets/sass/partials/dark.scss";
 @import "assets/sass/partials/general.scss";
+@import "assets/sass/partials/dark.scss";
 @import "assets/sass/partials/header.scss";
 @import "assets/sass/partials/post.scss";
-@import "assets/sass/partials/responsive.scss";
 @import "assets/sass/partials/scroll.scss";
-@import "assets/sass/partials/uikit.scss";

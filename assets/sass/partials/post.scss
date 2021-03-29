@@ -1,3 +1,8 @@
+// standard tease post featured(sticky) label
+.tease-post-list .featured-label {
+  top: 10px;
+  left: 10px;
+}
 // standard tease image caption
 .tease-image-caption {
   padding-bottom: 0px!important;
@@ -18,17 +23,38 @@
   margin-bottom: 0;
   text-align: center;
 }
-// comments
+// single post comments
 .uk-comment-list .uk-comment~ul {
-  padding-left: 0.875em;
+  padding-left: $global-small-font-size;
 }
 .uk-comment-primary {
   padding: 30px 0 0 0;
-  background-color: #ffffff00;
+  background-color: transparent;
 }
 .uk-comment-list .uk-comment~ul {
   margin: 20px 0 0;
 }
 .uk-comment-list>:nth-child(n+2) {
   margin-top: 20px;
+}
+
+/* UIKit based resonsive breakpoints */
+@media only screen and (max-width:479px) {
+  .tease-feature-related {
+    max-height: 200px;
+    width: 100%;
+    object-fit: cover;
+  }
+}
+@media only screen and (min-device-width:480px) and (max-device-width:767px) {
+  .tease-feature-related {
+    max-height: 300px;
+    width: 100%;
+    object-fit: cover;
+  }
+}
+@media only screen and (min-width:980px) {
+  .uk-comment-list .uk-comment~ul {
+    padding-left: 1.75em;
+  }
 }

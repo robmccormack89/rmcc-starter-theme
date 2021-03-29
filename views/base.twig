@@ -10,8 +10,7 @@
   </head>
   
   <body class="{{body_class|e('esc_html')}} no-overflow-off" data-template="base.twig">
-    
-    <!-- <div id="SitePreloader" class="theme-preload"></div> -->
+    <div id="SitePreloaderOff" class="theme-preload-off"></div>
     
     <div id="SiteWrapper" class="site-wrapper">
       
@@ -35,30 +34,6 @@
     
     {% block scripts %}
     {% endblock %}
-    
-    <!-- <script>
-      var paginationEle = document.getElementById("ThemePagination");
-      if (paginationEle) {
-        new InfiniteScroll( '.archive-posts', {
-          path: '.next',
-          append: '.item',
-          button: '.view-more-button',
-          scrollThreshold: false,
-          history: false,
-          status: '.page-load-status',
-          hideNav: '.pagination-block'
-        });
-      };
-    </script> -->
-    
-    <!-- site preloader js -->
-    <!-- <script>
-      // website preloader animation
-      window.onload = function(){
-        document.getElementById("ThemePreload").classList.add("hidden");
-        document.getElementsByTagName("BODY")[0].classList.remove("no-overflow");
-      }
-    </script> -->
     
   </body>
 </html>

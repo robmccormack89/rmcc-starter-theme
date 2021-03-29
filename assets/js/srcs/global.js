@@ -10,6 +10,9 @@ window.setCookie = function(cname, cvalue, exdays) {
   var expires = "expires="+ d.toUTCString();
   document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
 };
+window.unsetCookie = function(name) {
+  document.cookie =  name + "=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+};
 window.getCookie = function(name) {
   var value = "; " + document.cookie;
   var parts = value.split("; " + name + "=");
@@ -18,21 +21,18 @@ window.getCookie = function(name) {
 };
 
 // sets the dark style by adding the provided classes to the body
-window.setDarkStyle = function(firstClass, secondClass) {
-  document.body.classList.add(firstClass);
-  document.body.classList.add(secondClass);
+window.setDarkStyle = function(darkClass, showID, hideID) {
+  document.body.classList.add(darkClass);
+  setDarkLightSwitch(showID, hideID);
 };
-
 // removes the dark style, which reverts back to the light style, by removing the provided classes from the body
-window.setLightStyle = function(firstClass, secondClass) {
-  document.body.classList.remove(firstClass);
-  document.body.classList.remove(secondClass);
+window.unsetDarkStyle = function(darkClass, showID, hideID) {
+  document.body.classList.remove(darkClass);
+  setDarkLightSwitch(showID, hideID);
 };
-
-// set the dark/light style switch; hides & unhides the elements respectivley with the provided IDs
-window.setDarkLightSwitch = function(firstID, secondID) {
-  document.getElementById(firstID).setAttribute("hidden", "");
-  document.getElementById(secondID).removeAttribute("hidden");
+function setDarkLightSwitch(showID, hideID) {
+  document.getElementById(showID).removeAttribute("hidden");
+  document.getElementById(hideID).setAttribute("hidden", "");
 };
 
 // function quickLoad(scrollToID, containerClass, quickloadClass, linkAttr, parentCont, childCont, refreshCallback) {
