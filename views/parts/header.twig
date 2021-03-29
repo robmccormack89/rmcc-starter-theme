@@ -1,4 +1,4 @@
-<header id="SiteHeader" class="site-header uk-background-default">
+<header id="SiteHeader" class="site-header uk-background-default uk-padding-small uk-padding-remove-horizontal">
   
   <nav class="uk-navbar-transparent uk-container" uk-navbar>
     
@@ -8,7 +8,14 @@
           <img data-src="{{ theme_logo_url|e('esc_url') }}" alt="{{ site.title|e('esc_html') }} logo" uk-img>
         </a>
       {% else %}
-        <a class="uk-navbar-item uk-logo uk-padding-remove uk-text-bold uk-text-emphasis" href="{{ site.url|e('esc_url') }}">{{ site.title|e('esc_html') }}</a>
+        <div class="">
+          <a class="site-logo uk-logo uk-padding-remove uk-text-bold uk-text-emphasis" href="{{ site.url|e('esc_url') }}">
+            {{ site.title|e('esc_html') }}
+          </a>
+          <div>
+            <p class="site-tagline uk-text-small uk-margin-remove">Just another WordPress site</p>
+          </div>
+        </div>
       {% endif %}
     </div>
     
@@ -56,6 +63,14 @@
         <a class="uk-navbar-toggle" href="#modal-navbar-search" uk-search-icon uk-toggle></a>
       </div>
       
+      <ul class="mobile-menu-toggle uk-navbar-nav uk-hidden@m">
+        <li>
+          <a class="uk-navbar-toggle pull-right-15" uk-navbar-toggle-icon uk-toggle href="#offcanvas-mobile-nav">
+            <span class="uk-hidden">{{ __('Menu', 'rmcc-starter') }}</span>
+          </a>
+        </li>
+      </ul>
+      
       <div class="dark-light-switcher uk-navbar-item pull-right-15">
         <a id="DarkSwitch" class="dark-light-link moon-link pull-up-2 darklight-switch">
           <img src="{{theme.link|e('esc_url')}}/assets/img/moon.svg" uk-svg>
@@ -64,14 +79,6 @@
           <img src="{{theme.link|e('esc_url')}}/assets/img/sun.svg" uk-svg>
         </a>
       </div>
-      
-      <ul class="mobile-menu-toggle uk-navbar-nav uk-hidden@m">
-        <li>
-          <a class="uk-navbar-toggle pull-right-15" uk-navbar-toggle-icon uk-toggle href="#offcanvas-mobile-nav">
-            <span class="uk-hidden">{{ __('Menu', 'rmcc-starter') }}</span>
-          </a>
-        </li>
-      </ul>
       
     </div>
   

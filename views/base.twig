@@ -7,6 +7,38 @@
     {{ function('wp_head') }}
     {% block styles %}
     {% endblock %}
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=PT+Serif&family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+      html,
+      .uk-navbar-item, .uk-navbar-nav>li>a, .uk-navbar-toggle {
+        font-family: 'PT Serif', serif;
+      }
+      .uk-h1, .uk-h2, .uk-h3, .uk-h4, .uk-h5, .uk-h6, .uk-heading-2xlarge, .uk-heading-large, .uk-heading-medium, .uk-heading-small, .uk-heading-xlarge, h1, h2, h3, h4, h5, h6,
+      .uk-logo {
+        font-family: 'Poppins', sans-serif;
+        letter-spacing: -2px;
+        font-weight: 700;
+        word-spacing: 2px;
+      }
+    
+      /* reset bold elements */
+      .uk-text-bold {
+        font-weight: 700;
+      }
+      
+      .header-logo .site-logo, .header-logo .site-tagline {
+        line-height: 1rem;
+      }
+      
+      .uk-light .uk-text-lead {
+        color: #fff;
+      }
+      
+      .uk-text-lead {
+        font-size: 1.3rem;
+      }
+    </style>
   </head>
   
   <body class="{{body_class|e('esc_html')}} no-overflow-off" data-template="base.twig">
