@@ -4,34 +4,9 @@ A Wordpress starter theme built with timber, uikit, node, gulp, webpack, sass, i
 
 ---
 
-## Start a new project with XAMPP
-
-1. Download [Wordpress](https://wordpress.org/download/) and unzip into htdocs folder.
-
-2. Rename wordpress folder to your development domain, example: yourdomain.test.
-
-3. Add new line to your hosts file to map your test domain to your localhost ip.
-
-        127.0.0.1		yourdomain.test
-
-4. Add new entry to bottom of XAMPP's httpd.conf file to map the root of your project with the domain as an alias.
-
-        <VirtualHost *:80>
-            ServerName yourdomain.test
-            DocumentRoot c:/xampp/htdocs/yourdomain.test
-            ServerAlias *.yourdomain.test
-        </VirtualHost>
-
-5. Open XAMPP & connect to test domain in the browser by adding hello.html to root of new project folder and visting yourdomain.test/hello.html.
-
-6. Create new db for project in phpmyadmin & configure wp-config.php file to connect.
-
-7. Visit test domain in browser again & complete the wordpress setup/installation process.
-
-
 ## Clone theme into your project folder & connect it to a new project repo
 
-1. Create new repo for your project on githubl take note of the project url.
+1. Create new repo for your project on github & take note of the project url.
 
 2. Navigate to wp-content/themes folder of your project in the command line.
 
