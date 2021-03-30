@@ -97,7 +97,7 @@ msgstr ""
 msgid "No posts found. Add some posts & dont forget to add featured images."
 msgstr ""
 
-#: views/temp/base.php:24
+#: views/temp/base.php:55
 msgid "Sorry, nothing to display here.."
 msgstr ""
 
@@ -105,32 +105,28 @@ msgstr ""
 msgid "Add some widgets to the Footer Widget Area in Appearance > Widgets."
 msgstr ""
 
-#: views/temp/parts/header.php:48
+#: views/temp/parts/header.php:55
 msgid "Add a menu to the Main Menu slot in Appearance > Menus."
 msgstr ""
 
-#: views/temp/parts/header.php:71, views/temp/parts/header.php:97
+#: views/temp/parts/header.php:69, views/temp/parts/header.php:104
 msgid "Menu"
 msgstr ""
 
-#: views/temp/parts/header.php:84
+#: views/temp/parts/header.php:91
 msgid "Start typing..."
 msgstr ""
 
-#: views/temp/parts/header.php:93
+#: views/temp/parts/header.php:100
 msgid "Close"
 msgstr ""
 
-#: views/temp/parts/header.php:118
+#: views/temp/parts/header.php:125
 msgid "Add a menu to the Mobile Menu slot in Appearance > Menus."
 msgstr ""
 
-#: views/temp/parts/header.php:124
+#: views/temp/parts/header.php:131
 msgid "Search..."
-msgstr ""
-
-#: views/temp/parts/header.php:128
-msgid "Change Style"
 msgstr ""
 
 #: views/temp/parts/pagination.php:9
@@ -177,10 +173,10 @@ msgstr ""
 msgid "We couldnt find what you were looking for. Try using the search form below"
 msgstr ""
 
-#: views/temp/single/single.php:84
+#: views/temp/single/single.php:85
 msgid "Previous Article"
 msgstr ""
 
-#: views/temp/single/single.php:93
+#: views/temp/single/single.php:94
 msgid "Next Article"
 msgstr ""
