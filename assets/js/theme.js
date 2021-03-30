@@ -32,7 +32,8 @@ if (darkLightCookie) {
 }
 
 document.querySelectorAll('.darklight-switch').forEach(item => {
-  item.addEventListener('click', event => {
+  item.addEventListener('mousedown', event => {
+    event.preventDefault();
     var darkLightCookie = getCookie("darklightswitch");
     if (darkLightCookie != "" && darkLightCookie != null) {
       unsetCookie('darklightswitch');
